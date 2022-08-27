@@ -1,0 +1,16 @@
+body {
+    background: url(./0000001.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    color: #fff;
+}
+a {
+    color: #ADD8E6;
+}
+a:hover {
+    color: #fff;
+}
+input {
+    color: rgb(51, 51, 51);
+}
