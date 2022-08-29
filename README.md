@@ -1,2 +1,2 @@
 # PHP-SQL-Chat
-php and sql chat
+Basic chat app made with php and sql
