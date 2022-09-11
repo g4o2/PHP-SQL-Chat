@@ -4,7 +4,7 @@ session_start();
 require_once "pdo.php";
 $stmt = $pdo->query("SELECT make, model, year, mileage, autos_id FROM autos ORDER BY make");
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+date_default_timezone_set('UTC');
 $stmtuser = $pdo->query("SELECT * FROM account");
 $users = $stmtuser->fetchAll(PDO::FETCH_ASSOC);
 
@@ -12,6 +12,32 @@ $users = $stmtuser->fetchAll(PDO::FETCH_ASSOC);
 if (isset($_POST['logout'])) {
     header('Location: logout.php');
     return;
+}
+
+if(isset($_SESSION['email'])) {
+    $statement = $pdo->prepare("SELECT * FROM user_status_log where user_Id = :usr");
+    $statement->execute(array(':usr' => $_SESSION['user_id']));
+    $response = $statement->fetch();
+
+
+    if ($response != null) {
+        $sql = "UPDATE user_status_log SET account=?, last_active_date_time=? WHERE user_id=?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$_SESSION['name'], date(DATE_RFC2822), $_SESSION['user_id']]);
+    } else {
+        $stmt = $pdo->prepare(
+            'INSERT INTO user_status_log (user_id, account, last_active_date_time)
+  VALUES (:usr, :acc, :date)'
+        );
+
+        $stmt->execute(
+            array(
+                ':usr' => $_SESSION['user_id'],
+                ':acc' => $_SESSION['name'],
+                ':date' => date(DATE_RFC2822)
+            )
+        );
+    }    
 }
 ?>
 <!DOCTYPE html>
