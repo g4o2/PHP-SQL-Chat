@@ -14,7 +14,7 @@ if (isset($_POST['logout'])) {
     return;
 }
 
-if(isset($_SESSION['email'])) {
+if (isset($_SESSION['email'])) {
     $statement = $pdo->prepare("SELECT * FROM user_status_log where user_Id = :usr");
     $statement->execute(array(':usr' => $_SESSION['user_id']));
     $response = $statement->fetch();
@@ -37,7 +37,7 @@ if(isset($_SESSION['email'])) {
                 ':date' => date(DATE_RFC2822)
             )
         );
-    }    
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -178,6 +178,7 @@ if(isset($_SESSION['email'])) {
 <body>
     <div class="container">
         <h1 class='rainbow_text_animated'>Welcome to g4o2-chat</h1>
+        <p>Time is being displayed in GMT + 0 / UTC + 0 time zone</p>
         <?php
         if (!isset($_SESSION['email'])) {
             echo '<p><a href="login.php">Please log in</a></p>';
@@ -229,6 +230,15 @@ if(isset($_SESSION['email'])) {
                 $pfp = "<img style='margin-left: 10px;' class='profile-img' src='$pfpsrc'>";
 
 
+                $statement = $pdo->prepare("SELECT * FROM user_status_log where user_Id = :usr");
+                $statement->execute(array(':usr' => $user['user_id']));
+                $userlog = $statement->fetch();
+
+                $userStatus = "Undefined";
+
+                if ($userlog != null) {
+                    $userStatus = $userlog['last_active_date_time'];
+                }
 
                 echo "<tr><td>";
                 echo ($user['user_id']);
@@ -240,7 +250,7 @@ if(isset($_SESSION['email'])) {
                 echo ("</td><td>");
                 echo ($user['password']);
                 echo ("</td><td>");
-                echo "Undefined";
+                echo $userStatus;
                 echo ("</td></tr>\n");
                 echo ("</td></tr>\n");
             }
