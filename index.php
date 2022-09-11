@@ -22,34 +22,14 @@ if (isset($_POST['logout'])) {
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css?v=<?php echo time(); ?>">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&family=Montserrat:wght@300&family=Orbitron&family=Work+Sans:wght@300&display=swap');
 
         .container {
             margin-left: 40px;
             margin-top: 20px;
-        }
-
-        .rainbow_text_animated {
-            background: linear-gradient(to right, #6666ff, #0099ff, #00ff00, #ff3399, #6666ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: rainbow_animation 6s ease-in-out infinite;
-            background-size: 400% 100%;
-        }
-
-        @keyframes rainbow_animation {
-
-            0%,
-            100% {
-                background-position: 0 0;
-            }
-
-            50% {
-                background-position: 100% 0;
-            }
+            margin-bottom: 20px;
         }
 
         #profile {
@@ -95,13 +75,35 @@ if (isset($_POST['logout'])) {
         #announcements {
             height: 20vh;
             bottom: 0;
-            width: 100vw;
+            width: 99vw;
             position: fixed;
             border-radius: 10px;
             padding: 20px 0px 20px 30px;
             background-color: rgba(0, 0, 0, 0.6);
             text-align: center;
             overflow: auto;
+        }
+
+        #announcements::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            background-color: #F5F5F5;
+        }
+
+        #announcements::-webkit-scrollbar {
+            width: 10px;
+            background-color: #F5F5F5;
+        }
+
+        #announcements::-webkit-scrollbar-thumb {
+            background-color: #F90;
+            background-image: -webkit-linear-gradient(45deg,
+                    rgba(255, 255, 255, .2) 25%,
+                    transparent 25%,
+                    transparent 50%,
+                    rgba(255, 255, 255, .2) 50%,
+                    rgba(255, 255, 255, .2) 75%,
+                    transparent 75%,
+                    transparent)
         }
 
         table {
@@ -118,12 +120,38 @@ if (isset($_POST['logout'])) {
             padding: 5px;
             color: #ffa500;
         }
+
+        footer {
+            height: 20vh;
+            bottom: 0;
+            width: 100vw;
+            border-radius: 10px;
+            padding: 20px 0px 20px 30px;
+            background-color: rgba(0, 0, 0, 0.6);
+            text-align: center;
+        }
+
+        #chat-btn {
+            display: inline-block;
+            font-family: orbitron;
+            font-size: 25px;
+            color: #ffa500;
+            padding: 8px;
+            border-radius: 8px;
+            background-color: rgba(41, 41, 41, .8);
+            transition: color .2s ease-in-out;
+        }
+
+        #chat-btn:hover {
+            color: #fff;
+            text-decoration: none;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>Welcome to the g4o2 Database</h1>
+        <h1 class='rainbow_text_animated'>Welcome to g4o2-chat</h1>
         <?php
         if (!isset($_SESSION['email'])) {
             echo '<p><a href="login.php">Please log in</a></p>';
@@ -160,22 +188,27 @@ if (isset($_POST['logout'])) {
             }
             echo "</table>";
         }
-        //echo ('<form method="post"><input type="hidden" ');
-        //echo ('name="auto_id" value="' . $row['auto_id'] . '">' . "\n");
-        //echo ('<input type="submit" value="Del" name="delete">');
-        //echo ("\n</form>\n");
         if (isset($_SESSION['email'])) {
-            echo '<p><a href="add.php">Add New Entry</a><br></p><a href="chat.php" style="font-family: orbitron; font-size: 25px;">CHAT</a></p>';
+            echo '<p><a href="add.php">Add New Entry</a><br></p><a id="chat-btn" href="chat.php">CHAT</a></p>';
         }
         if (isset($_SESSION['email'])) {
             echo '<table border="1">
             <thead>
             <tr><th>user_id</th><th>Name</th><th>Email</th><th>Password</th><th>Status</th></tr></thead>';
             foreach ($users as $user) {
+                $pfpsrc = './default-pfp.png';
+                if ($user['pfp'] != null) {
+                    $pfpsrc = $user['pfp'];
+                }
+                $pfp = "<img style='margin-left: 10px;' class='profile-img' src='$pfpsrc'>";
+
+
+
                 echo "<tr><td>";
                 echo ($user['user_id']);
+                echo $pfp;
                 echo ("</td><td>");
-                echo "<a href='./profile.php?user={$user['name']}' class='account rainbow_text_animated'>" . $user['name'] . "</a>";
+                echo "<a href='./profile.php?user={$user['name']}' >" . $user['name'] . "</a>";
                 echo "<td>";
                 echo ($user['email']);
                 echo ("</td><td>");
@@ -204,10 +237,10 @@ if (isset($_POST['logout'])) {
             $_SESSION['name'] = $test['name'];
             $_SESSION['email'] = $test['email'];
         }
-        $pfp = "<img class='profile-image' style='border-radius: 100px;height: 60px;width:60px;'' src='$pfpsrc'>";
+        $pfp = "<img class='profile-img-large' src='$pfpsrc'>";
         $main = "<p style='margin-top: 20px;font-size: 20px;font-family: monospace;'>{$_SESSION['name']}</p><p style='font-family: monospace;'>{$_SESSION['email']}</p>";
         $profileLink = "<a href='./profile.php?user={$_SESSION['name']}'>Your public profile</a>";
-        $actions = '<a style="color: #ADD8E6;" href="edit-account.php">Edit Account</a> | <a href="logout.php">Logout</a>';
+        $actions = '<a href="edit-account.php">Edit Account</a> | <a href="logout.php">Logout</a>';
         echo "<div style='border-radius: 12px;' id='profile'><button id='close-btn' onclick='closeProfile()' style='background-color: rgb(71, 71, 71);border:none;position:absolute;top:0;left:0;font-size: 18px;padding:5px 12px 5px 12px;'>&times;</button>{$pfp}{$main}{$actions}<br />{$profileLink}</div>";
         echo "<button id='close-btn-two' onclick='openProfile()' style='background-color: rgb(71, 71, 71);border:none;position:absolute;top:10px;right:10px;font-size: 18px;padding:5px 12px 5px 12px;opacity: 0;'>&#9776;</button>";
     }
@@ -232,5 +265,7 @@ if (isset($_POST['logout'])) {
         <h4>Chat now available&#128526; <code>2022/8/25</code></h4>
         <h4>Profile pictures are now available <code>2022/8/26</code></h4>
         <h4>Profile system working and still being worked on for new look <code>2022/8/28</code></h4>
+        <h4>New website theme/style & added user 👤 profile link table on index page <code>2022/9/11</code></h4>
     </div>
+    <footer></footer>
 </body>

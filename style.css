@@ -4,13 +4,66 @@ body {
     background-attachment: fixed;
     background-size: 100% 100%;
     color: #fff;
+    overflow-x: hidden;
 }
 a {
-    color: #ADD8E6;
+    color: #00bfff;
 }
 a:hover {
     color: #fff;
 }
 input {
     color: rgb(51, 51, 51);
+}
+.profile-img {
+    height: 45px;
+    width: 45px;
+    border-radius: 100px;
+}
+.profile-img-large {
+    height: 60px;
+    width: 60px;
+    border-radius: 100px;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #F90;
+    background-image: -webkit-linear-gradient(45deg,
+            rgba(255, 255, 255, .2) 25%,
+            transparent 25%,
+            transparent 50%,
+            rgba(255, 255, 255, .2) 50%,
+            rgba(255, 255, 255, .2) 75%,
+            transparent 75%,
+            transparent)
+}
+
+.rainbow_text_animated {
+    background: linear-gradient(to right, #6666ff, #0099ff, #00ff00, #ff3399, #6666ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow_animation 6s ease-in-out infinite;
+    background-size: 400% 100%;
+}
+
+@keyframes rainbow_animation {
+
+    0%,
+    100% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 100% 0;
+    }
 }
