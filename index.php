@@ -5,6 +5,10 @@ require_once "pdo.php";
 $stmt = $pdo->query("SELECT make, model, year, mileage, autos_id FROM autos ORDER BY make");
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+$stmtuser = $pdo->query("SELECT * FROM account");
+$users = $stmtuser->fetchAll(PDO::FETCH_ASSOC);
+
+
 if (isset($_POST['logout'])) {
     header('Location: logout.php');
     return;
@@ -99,6 +103,21 @@ if (isset($_POST['logout'])) {
             text-align: center;
             overflow: auto;
         }
+
+        table {
+            border-radius: 8px;
+            background-color: rgba(41, 41, 41, .7);
+        }
+
+        th {
+            border: solid 2px orange;
+            padding: 20px;
+        }
+
+        td {
+            padding: 5px;
+            color: #ffa500;
+        }
     </style>
 </head>
 
@@ -147,6 +166,26 @@ if (isset($_POST['logout'])) {
         //echo ("\n</form>\n");
         if (isset($_SESSION['email'])) {
             echo '<p><a href="add.php">Add New Entry</a><br></p><a href="chat.php" style="font-family: orbitron; font-size: 25px;">CHAT</a></p>';
+        }
+        if (isset($_SESSION['email'])) {
+            echo '<table border="1">
+            <thead>
+            <tr><th>user_id</th><th>Name</th><th>Email</th><th>Password</th><th>Status</th></tr></thead>';
+            foreach ($users as $user) {
+                echo "<tr><td>";
+                echo ($user['user_id']);
+                echo ("</td><td>");
+                echo "<a href='./profile.php?user={$user['name']}' class='account rainbow_text_animated'>" . $user['name'] . "</a>";
+                echo "<td>";
+                echo ($user['email']);
+                echo ("</td><td>");
+                echo ($user['password']);
+                echo ("</td><td>");
+                echo "Undefined";
+                echo ("</td></tr>\n");
+                echo ("</td></tr>\n");
+            }
+            echo "</table>";
         }
         ?>
     </div>
