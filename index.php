@@ -221,7 +221,7 @@ if (isset($_SESSION['email'])) {
         if (isset($_SESSION['email'])) {
             echo '<table border="1">
             <thead>
-            <tr><th>user_id</th><th>Name</th><th>Email</th><th>Password</th><th>Status</th></tr></thead>';
+            <tr><th>user_id</th><th>Profile</th><th>Email</th><th>Password</th><th>Last online GMT + 0 (under development)</th></tr></thead>';
             foreach ($users as $user) {
                 $pfpsrc = './default-pfp.png';
                 if ($user['pfp'] != null) {
@@ -246,7 +246,11 @@ if (isset($_SESSION['email'])) {
                 echo ("</td><td>");
                 echo "<a href='./profile.php?user={$user['name']}' >" . $user['name'] . "</a>";
                 echo "<td>";
-                echo ($user['email']);
+                if($user['show_email'] === "False") {
+                    echo "Hidden";
+                } else {
+                    echo ($user['email']);
+                }
                 echo ("</td><td>");
                 echo ($user['password']);
                 echo ("</td><td>");
