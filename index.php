@@ -55,7 +55,7 @@ if (isset($_SESSION['email'])) {
         .container {
             margin-left: 40px;
             margin-top: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 230px;
         }
 
         #profile {
@@ -147,16 +147,6 @@ if (isset($_SESSION['email'])) {
             color: #ffa500;
         }
 
-        footer {
-            height: 20vh;
-            bottom: 0;
-            width: 100vw;
-            border-radius: 10px;
-            padding: 20px 0px 20px 30px;
-            background-color: rgba(0, 0, 0, 0.6);
-            text-align: center;
-        }
-
         #chat-btn {
             display: inline-block;
             font-family: orbitron;
@@ -178,11 +168,12 @@ if (isset($_SESSION['email'])) {
 <body>
     <div class="container">
         <h1 class='rainbow_text_animated'>Welcome to g4o2-chat</h1>
+        <p>A chat made by g4o2 that is still being developed</p>
         <p>Time is being displayed in GMT + 0 / UTC + 0 time zone</p>
         <?php
         if (!isset($_SESSION['email'])) {
             echo '<p><a href="login.php">Please log in</a></p>';
-            echo '<p>Attempt to <a href="add.php">add data</a> without logging in</p>';
+            echo '<p>Attempt to <a href="chat.php">chat</a> without logging in</p>';
         }
         if (isset($_SESSION["success"])) {
             echo ('<p style="color:green;background:rgba(41, 41, 41, 0.8);width: 90px;border-radius:10px;padding:10px;">' . htmlentities($_SESSION["success"]) . "</p>\n");
@@ -307,5 +298,4 @@ if (isset($_SESSION['email'])) {
         <h4>Profile system working and still being worked on for new look <code>2022/8/28</code></h4>
         <h4>New website theme/style & added user 👤 profile link table on index page <code>2022/9/11</code></h4>
     </div>
-    <footer></footer>
 </body>

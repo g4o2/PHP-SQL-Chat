@@ -2,7 +2,10 @@ body {
     background: url(./0000001.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 100% 100%;
+    /*background-size: 100% 100%;*/
+
+    background-position: center 0px;
+
     color: #fff;
     overflow-x: hidden;
 }

@@ -10,7 +10,11 @@ if (!isset($_SESSION["email"])) {
     header("refresh:3;url=index.php");
     die();
 }
-
+if (isset($_SESSION["email"])) {
+    $statement = $pdo->prepare("SELECT * FROM account where user_Id = :usr");
+    $statement->execute(array(':usr' => $_SESSION['user_id']));
+    $response = $statement->fetch();
+}
 
 if (isset($_POST["submit"])) {
     if (!file_exists($_FILES['fileToUpload']['tmp_name']) || !is_uploaded_file($_FILES['fileToUpload']['tmp_name'])) {
@@ -36,16 +40,23 @@ if (isset($_POST["submit"])) {
         $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
     }
     if ($check !== false) {
+        if($_POST["show_email"] == "on") {
+            $show_email = "True";
+        } else {
+            $show_email = "False";
+        }
         $sql = "UPDATE account SET pfp = :pfp, 
         name = :newName,
-        email = :email
+        email = :email,
+        show_email = :showEmail
         WHERE name = :name";
         $stmt = $pdo->prepare($sql);
         $stmt->execute(array(
             ':pfp' => $base64,
             ':name' => $_SESSION['name'],
             ':newName' => $_POST['name'],
-            ':email' => $_POST['email']
+            ':email' => $_POST['email'],
+            ':showEmail' => $show_email
         ));
         $_SESSION['success'] = 'Account details updated.';
     } else {
@@ -79,6 +90,7 @@ if (isset($_POST["submit"])) {
         .btn:hover {
             color: #fff;
         }
+
         .btn:active {
             background-color: transparent;
         }
@@ -94,6 +106,10 @@ if (isset($_POST["submit"])) {
     </p>
     <p>Email:
         <input type="text" name="email" value="<?= $_SESSION['email'] ?>">
+    </p>
+    <p>Show email:
+        <!-- value="<?= $response["show_email"] ?>"-->
+        <input type="checkbox" name="show_email" <?php echo ($response['show_email'] == 'True')? 'checked' : '' ?>>
     </p>
     <br /><input type="submit" value="Submit Changes" class="btn" name="submit">
     <a href="./index.php" class="btn">Cancel</a>

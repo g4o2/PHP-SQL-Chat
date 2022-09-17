@@ -51,7 +51,6 @@ if (isset($_POST['message'])) {
 
   body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #121212;
     color: #ffffff;
     opacity: 87%;
     overflow-x: hidden;
@@ -169,12 +168,21 @@ if (isset($_POST['message'])) {
     margin-left: 0.3%;
   }
 
-  h1 {
+  #index-page-link {
     font-family: 'Orbitron', arial;
-    color: orange;
     font-size: 8vw;
     text-transform: uppercase;
     user-select: none;
+  }
+
+  #index-page-link a {
+    color: #ffa500;
+    cursor: pointer;
+    transition: color .2s ease-in-out;
+    text-decoration: none;
+  } 
+  #index-page-link a:hover {
+    color: #ffffff;
   }
 
   #guide {
@@ -274,8 +282,6 @@ if (isset($_POST['message'])) {
     cursor: progress;
   }
 
-
-
   @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&family=Montserrat:wght@300&family=Orbitron&family=Work+Sans:wght@300&display=swap');
 
   .container {
@@ -337,16 +343,32 @@ if (isset($_POST['message'])) {
   .btn:active {
     background-color: transparent;
   }
+
+  #index-btn {
+    display: inline-block;
+    font-family: orbitron;
+    font-size: 25px;
+    color: #ffa500;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: rgba(41, 41, 41, .8);
+    transition: color .2s ease-in-out;
+  }
+
+  #index-btn:hover {
+    color: #fff;
+    text-decoration: none;
+  }
 </style>
 </head>
 
 <body>
   <section id="page-header">
-    <h1>g4o2&nbsp;chat</h1>
+    <h1 id="index-page-link"><a href="./index.php">g4o2&nbsp;chat</a></h1>
     <section style="overflow: auto;" id="guide">
       <p>Press <kbd>Enter</kbd> to submit message</p>
       <p>Press <kbd>/</kbd> to select <kbd>Esc</kbd> to deselect</p>
-      <p>Users can now upload profile pictures via the edit account button on the <a style='color: #ADD8E6' href="./index.php">index</a> page</p>
+      <p>Users can now upload profile pictures via the edit account button on the <a href="./index.php">index</a> page</p>
     </section>
   </section>
   <section>
@@ -524,7 +546,7 @@ if (isset($_POST['message'])) {
     }
     $pfp = "<img class='profile-image' style='border-radius: 100px;height: 60px;width:60px;'' src='$pfpsrc'>";
     $main = "<p style='margin-top: 20px;font-size: 20px;font-family: monospace;'>{$_SESSION['name']}</p><p style='font-family: monospace;'>{$_SESSION['email']}</p>";
-    $actions = '<a style="color: #ADD8E6;" href="edit-account.php">Edit Account</a> | <a href="logout.php">Logout</a>';
+    $actions = '<a href="edit-account.php">Edit Account</a> | <a href="logout.php">Logout</a>';
     echo "<div style='border-radius: 12px;' id='profile'><button id='close-btn' onclick='closeProfile()' style='border:none;position:absolute;top:0;left:0;font-size: 18px;padding:5px 12px 5px 12px;'>&times;</button>{$pfp}{$main}{$actions}</div>";
     echo "<button id='close-btn-two' onclick='openProfile()' style='border:none;position:absolute;top:10px;right:10px;font-size: 18px;padding:5px 12px 5px 12px;opacity: 0;'>&#9776;</button>";
   }
