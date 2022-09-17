@@ -76,8 +76,8 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
             <label>Password</label>
             <input type="password" name="pass" id="id_1723">
             <br>
-            <input type="submit" onclick="return doValidate();" value="Log In">
-            <input type="submit" name="cancel" value="Cancel">
+            <input class="btn" type="submit" onclick="return doValidate();" value="Log In">
+            <input class="btn" type="submit" name="cancel" value="Cancel">
         </form>
     </div>
     <script>

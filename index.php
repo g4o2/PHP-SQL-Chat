@@ -136,6 +136,9 @@ if (isset($_SESSION['email'])) {
             border-radius: 8px;
             background-color: rgba(41, 41, 41, .7);
         }
+        table p {
+            margin: 10px;
+        }
 
         th {
             border: solid 2px orange;
@@ -232,6 +235,33 @@ if (isset($_SESSION['email'])) {
                     $userStatus = $userlog['last_active_date_time'];
                 }
 
+
+                if($userStatus === "Undefined") {
+                    $diff = "<p style='color:red;'>Undefined</p>";
+                } else {
+                    $last_online    = $userStatus;
+                    $current_date_time = date(DATE_RFC2822);
+                    $last_online     = new DateTime($last_online);
+                    $current_date_time = new DateTime($current_date_time);
+
+                    $diff = $current_date_time->diff($last_online)->format("last online %a days %h hours and %i minutes ago");
+
+
+                    $exploded = explode(" ", $diff);
+
+                    if($exploded[2] !== "0") {
+                        $diff = "<p style='color:#ffc200;'>Last online $exploded[2] days ago</p>";
+
+                    } elseif ($exploded[4] !== "0") {
+                        $diff = "<p style='color:#ffc200;'>Last online $exploded[4] hours ago</p>";
+
+                    } elseif ($exploded[7] !== "0") {
+                        $diff = "<p style='color:#ffc200;'>Last online $exploded[7] minutes ago</p>";
+
+                    } else {
+                        $diff = "<p style='color: green;'>Online</p>";                    
+                    }
+                }
                 echo "<tr><td>";
                 echo ($user['user_id']);
                 echo $pfp;
@@ -246,7 +276,7 @@ if (isset($_SESSION['email'])) {
                 echo ("</td><td>");
                 echo ($user['password']);
                 echo ("</td><td>");
-                echo $userStatus;
+                echo $diff;
                 echo ("</td></tr>\n");
                 echo ("</td></tr>\n");
             }
@@ -269,6 +299,7 @@ if (isset($_SESSION['email'])) {
             $_SESSION['name'] = $test['name'];
             $_SESSION['email'] = $test['email'];
         }
+
         $pfp = "<img class='profile-img-large' src='$pfpsrc'>";
         $main = "<p style='margin-top: 20px;font-size: 20px;font-family: monospace;'>{$_SESSION['name']}</p><p style='font-family: monospace;'>{$_SESSION['email']}</p>";
         $profileLink = "<a href='./profile.php?user={$_SESSION['name']}'>Your public profile</a>";
