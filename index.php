@@ -176,11 +176,12 @@ if (isset($_SESSION['email'])) {
             echo '<p>Attempt to <a href="chat.php">chat</a> without logging in</p>';
         }
         if (isset($_SESSION["success"])) {
-            echo ('<p style="color:green;background:rgba(41, 41, 41, 0.8);width: 90px;border-radius:10px;padding:10px;">' . htmlentities($_SESSION["success"]) . "</p>\n");
+            echo ('<p class="success">' . htmlentities($_SESSION["success"]) ."<br/><a style='margin-top: 4px;' href=" . ">Dismiss</a></p>");
             unset($_SESSION["success"]);
+            echo "";
         }
         if (isset($_SESSION["error"])) {
-            echo ('<p style="color:red;  background:rgba(41, 41, 41, 0.8);width: 90px;border-radius:10px;padding:10px;">' . htmlentities($_SESSION["error"]) . "</p>\n");
+            echo ('<p class="error">' . htmlentities($_SESSION["error"]) ."<br/><a style='margin-top: 4px;' href=" . ">Dismiss</a></p>");
             unset($_SESSION["error"]);
         }
         ?>

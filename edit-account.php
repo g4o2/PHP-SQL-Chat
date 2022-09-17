@@ -40,7 +40,7 @@ if (isset($_POST["submit"])) {
         $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
     }
     if ($check !== false) {
-        if($_POST["show_email"] == "on") {
+        if ($_POST["show_email"] == "on") {
             $show_email = "True";
         } else {
             $show_email = "False";
@@ -70,29 +70,10 @@ if (isset($_POST["submit"])) {
 <head>
     <title>Upload Image</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css?v=<?php echo time(); ?>">
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .btn {
-            font-family: Arial, Helvetica, sans-serif;
-            text-decoration: none;
-            color: #ffa500;
-            background-color: rgba(41, 41, 41, 1);
-            padding: 8px;
-            border: none;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all .15s ease-in;
-        }
-
-        .btn:hover {
-            color: #fff;
-        }
-
-        .btn:active {
-            background-color: transparent;
         }
     </style>
 </head>
@@ -109,7 +90,7 @@ if (isset($_POST["submit"])) {
     </p>
     <p>Show email:
         <!-- value="<?= $response["show_email"] ?>"-->
-        <input type="checkbox" name="show_email" <?php echo ($response['show_email'] == 'True')? 'checked' : '' ?>>
+        <input type="checkbox" name="show_email" <?php echo ($response['show_email'] == 'True') ? 'checked' : '' ?>>
     </p>
     <br /><input type="submit" value="Submit Changes" class="btn" name="submit">
     <a href="./index.php" class="btn">Cancel</a>

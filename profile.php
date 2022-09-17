@@ -47,6 +47,7 @@ if (count($rows) > 0) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css?v=<?php echo time(); ?>">
     <style>
         body {
             text-align: center;
@@ -59,10 +60,12 @@ if (count($rows) > 0) {
             font-size: 40px;
             font-family: 'orbitron';
         }
+
         #user-email {
             font-size: 20px;
             font-family: Arial, Helvetica, sans-serif;
         }
+
         #profile-image {
             height: 200px;
             border-radius: 10px;

@@ -2,9 +2,9 @@ body {
     background: url(./0000001.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    /*background-size: 100% 100%;*/
+    background-size: 100% 100%;
 
-    background-position: center 0px;
+    /*background-position: center 0px;*/
 
     color: #fff;
     overflow-x: hidden;
@@ -69,4 +69,48 @@ input {
     50% {
         background-position: 100% 0;
     }
+}
+
+.btn {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: #ffa500;
+    background-color: rgba(41, 41, 41, 1);
+    padding: 8px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .15s ease-in;
+}
+
+.btn:hover {
+    color: #fff;
+}
+
+.btn:active {
+    background-color: transparent;
+}
+
+.failure {
+    color: red;
+    background: rgba(41, 41, 41, 0.8);
+    width: 90px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.error {
+    color: red;
+    background: rgba(41, 41, 41, 0.8);
+    width: 90px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.success {
+    color: green;
+    background: rgba(41, 41, 41, 0.8);
+    width: 90px;
+    border-radius: 10px;
+    padding: 10px;
 }

@@ -70,6 +70,7 @@ $autos_id = $row['autos_id'];
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css?v=<?php echo time(); ?>">
     <style>
         main {
             margin-left: 40px;
@@ -93,8 +94,8 @@ $autos_id = $row['autos_id'];
             <input type="text" name="mileage" value="<?= $me ?>">
         </p>
         <input type="hidden" name="autos_id" value="<?= $autos_id ?>">
-        <p><input type="submit" value="Save" />
-            <a href="index.php">Cancel</a>
+        <p><input type="submit" value="Save" class="btn" />
+            <a href="index.php" class="btn">Cancel</a>
         </p>
     </form>
 </main>

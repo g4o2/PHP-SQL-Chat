@@ -46,6 +46,7 @@ if (isset($_POST['message'])) {
 <title>g4o2 chat</title>
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
 <link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./style.css?v=<?php echo time(); ?>">
 <style type="text/css">
   @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&family=Montserrat:wght@300&family=Orbitron&family=Work+Sans:wght@300&display=swap');
 
@@ -180,7 +181,8 @@ if (isset($_POST['message'])) {
     cursor: pointer;
     transition: color .2s ease-in-out;
     text-decoration: none;
-  } 
+  }
+
   #index-page-link a:hover {
     color: #ffffff;
   }

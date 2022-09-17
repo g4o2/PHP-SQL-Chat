@@ -54,6 +54,7 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
 <head>
     <title>Login</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css?v=<?php echo time(); ?>">
 </head>
 
 <body style="margin-left: 40px;">
