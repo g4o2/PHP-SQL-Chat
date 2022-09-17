@@ -237,7 +237,7 @@ if (isset($_SESSION['email'])) {
                 echo ("</td><td>");
                 echo "<a href='./profile.php?user={$user['name']}' >" . $user['name'] . "</a>";
                 echo "<td>";
-                if($user['show_email'] === "False") {
+                if ($user['show_email'] === "False") {
                     echo "Hidden";
                 } else {
                     echo ($user['email']);
@@ -297,5 +297,6 @@ if (isset($_SESSION['email'])) {
         <h4>Profile pictures are now available <code>2022/8/26</code></h4>
         <h4>Profile system working and still being worked on for new look <code>2022/8/28</code></h4>
         <h4>New website theme/style & added user 👤 profile link table on index page <code>2022/9/11</code></h4>
+        <h4>Show / Hide email 📧 feature implemented check it out now in the <a href="./edit-account.php">account settings</a> <code>2022/9/17</code></h4>
     </div>
 </body>

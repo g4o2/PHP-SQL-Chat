@@ -23,11 +23,18 @@ if (count($rows) > 0) {
         if ($test['pfp'] != null) {
             $pfpsrc = $test['pfp'];
         }
+        $show_email = $test['show_email'];
         $user = "<p id='user-name'>{$test['name']}</p>";
+        $pfp = "<img id='profile-image' src='$pfpsrc'>";
+        $email = "<p id='user-email'>{$test['email']}</p>";
     }
-    $pfp = "<img id='profile-image' src='$pfpsrc'>";
     echo $pfp;
     echo $user;
+    if ($show_email === "True") {
+        echo $email;
+    } else {
+        echo "";
+    }
 } else {
     echo "<p style='font-size: 22px;font-family: Arial;text-align:center;color:red;'>User not found</p>";
 }
@@ -43,15 +50,23 @@ if (count($rows) > 0) {
     <style>
         body {
             text-align: center;
+            padding: 30px;
+            background-image: none;
+            background-color: rgb(41, 41, 41);
         }
 
         #user-name {
             font-size: 40px;
-            font-family: monospace;
+            font-family: 'orbitron';
         }
-
+        #user-email {
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
         #profile-image {
             height: 200px;
+            border-radius: 10px;
+            border: solid 5px #ffa500;
         }
     </style>
 </head>
