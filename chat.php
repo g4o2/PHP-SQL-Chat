@@ -40,6 +40,21 @@ if (isset($_POST['message'])) {
     "SELECT * FROM chatlog"
   );
   $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} else {
+  foreach ($_POST as $edit_msg) {
+    $key = array_search($edit_msg, $_POST);
+    
+
+    $sql = "UPDATE chatlog SET message = :msg
+            WHERE message_id = :message_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(array(
+      ':msg' => $edit_msg,
+      ':message_id' => $key
+    ));
+
+    break;
+  }
 }
 ?>
 <html>
@@ -402,7 +417,7 @@ if (isset($_POST['message'])) {
             $pfp = "<img class='profile-image' src='$pfpsrc'>";
 
 
-            $message = htmlentities($row['message']);
+            $message = htmlentities($row["message"]);
             if (isset($_COOKIE['timezone'])) {
 
               //might break the chat 
@@ -416,8 +431,10 @@ if (isset($_POST['message'])) {
             } else {
               $stamp = $row["message_date"];
             }
+            $msg_parent_id = $row['message_id'] . "parent";
             $info = "<p class='stats'>{$user} ({$stamp})</p>";
-            $msg = "<p class='msg'>{$message}</p>";
+            $editBtn = "<button class='btn' onclick='handleEdit({$row['message_id']})'>Edit {$row['message_id']}</button>";
+            $msg = "<p class='msg' id='{$msg_parent_id}'><span id='{$row['message_id']}'>{$message}</span> {$editBtn}</p>";
             echo $pfp;
             echo "<div style='margin-left: 10px;margin-top: 18px;'>{$info}{$msg}</div>";
           }
@@ -438,6 +455,18 @@ if (isset($_POST['message'])) {
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js">
   </script>
   <script type="text/javascript">
+    function handleEdit(id) {
+      let parent_id = id + "parent";
+      let message = document.getElementById(id).innerHTML;
+      document.getElementById(parent_id).innerHTML = `<form method='post'><input type='text' name=${id} value=${message}><input type='submit' value='Save'></form>`;
+    }
+
+
+
+
+
+
+
     let input = document.getElementById('message-input');
     input.focus();
     input.select();
@@ -499,7 +528,7 @@ if (isset($_POST['message'])) {
 
     document.cookie = "timezone=" + timezone_offset_minutes;
 
-    let inverval = window.setInterval(function() {
+    /*let inverval = window.setInterval(function() {
       $.ajax({
         url: "messages.php",
         success: function(data) {
@@ -508,25 +537,9 @@ if (isset($_POST['message'])) {
       });
       let chat = document.getElementById("chatcontent")
       if (chat.scrollTop >= (chat.scrollHeight - chat.offsetHeight) - 100) {
-        //console.log("bottom")
         chatScroll()
       }
-    }, 1000)
-    /*
-    jQuery(
-        function($) {
-          $('#chatcontent').bind('scroll', function() {
-            if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
-              alert('end reached');
-            }
-            let chat = document.getElementById("chatcontent")
-            if (chat.scrollTop >= (chat.scrollHeight - chat.offsetHeight) - 100) {
-              console.log("bottom")
-              chatScroll()
-            }
-        })
-      }
-    )*/
+    }, 1000)*/
   </script>
 
 

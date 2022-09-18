@@ -39,7 +39,8 @@ function loadChat($pdo) {
                 $stamp = $row["message_date"];
             }
             $info = "<p class='stats'>{$user} ({$stamp})</p>";
-            $msg = "<p class='msg'>{$message}</p>";
+            $editBtn = "<button class='btn'>Edit {$row['message_id']}</button>";
+            $msg = "<p class='msg'>{$message} {$editBtn}</p>";
             echo $pfp;
             echo "<div style='margin-left: 10px;margin-top: 18px;'>{$info}{$msg}</div>";
         }
