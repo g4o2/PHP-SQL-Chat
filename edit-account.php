@@ -4,9 +4,10 @@ require_once "pdo.php";
 date_default_timezone_set('UTC');
 
 if (!isset($_SESSION["email"])) {
-    echo "PLEASE LOGIN";
+    echo "<p class='die-msg'>PLEASE LOGIN</p>";
+    echo '<link rel="stylesheet" href="./style.css?v=<?php echo time(); ?>">';
     echo "<br />";
-    echo "Redirecting in 3 seconds";
+    echo "<p class='die-msg'>Redirecting in 3 seconds</p>";
     header("refresh:3;url=index.php");
     die();
 }
@@ -48,6 +49,7 @@ if (isset($_POST["submit"])) {
         $sql = "UPDATE account SET pfp = :pfp, 
         name = :newName,
         email = :email,
+        about = :about,
         show_email = :showEmail
         WHERE name = :name";
         $stmt = $pdo->prepare($sql);
@@ -56,6 +58,7 @@ if (isset($_POST["submit"])) {
             ':name' => $_SESSION['name'],
             ':newName' => $_POST['name'],
             ':email' => $_POST['email'],
+            ':about' => $_POST['about'],
             ':showEmail' => $show_email
         ));
         $_SESSION['success'] = 'Account details updated.';
@@ -83,10 +86,13 @@ if (isset($_POST["submit"])) {
     <input type="file" name="fileToUpload" id="fileToUpload">
     <label for=""></label>
     <p>Name:
-        <input type="text" name="name" value="<?= $_SESSION['name'] ?>">
+        <input type="text" name="name" value="<?= $response['name'] ?>">
     </p>
     <p>Email:
-        <input type="text" name="email" value="<?= $_SESSION['email'] ?>">
+        <input type="text" name="email" value="<?= $response['email'] ?>">
+    </p>
+    <p>About:
+        <input type="text" name="about" value="<?= $response['about'] ?>">
     </p>
     <p>Show email:
         <!-- value="<?= $response["show_email"] ?>"-->

@@ -222,8 +222,8 @@ if (isset($_SESSION['email'])) {
                 if ($user['pfp'] != null) {
                     $pfpsrc = $user['pfp'];
                 }
-                $pfp = "<img style='margin-left: 10px;' class='profile-img' src='$pfpsrc'>";
 
+                $pfp = "<a class='pfp-link' href='./profile.php?user={$user['name']}'><img style='margin-left: 10px;' class='profile-img' src='$pfpsrc'></a>";
 
                 $statement = $pdo->prepare("SELECT * FROM user_status_log where user_Id = :usr");
                 $statement->execute(array(':usr' => $user['user_id']));
@@ -300,7 +300,7 @@ if (isset($_SESSION['email'])) {
             $_SESSION['email'] = $test['email'];
         }
 
-        $pfp = "<img class='profile-img-large' src='$pfpsrc'>";
+        $pfp = "<a class='pfp-link' href='./profile.php?user={$test['name']}'><img class='profile-img-large' src='$pfpsrc'></a>";
         $main = "<p style='margin-top: 20px;font-size: 20px;font-family: monospace;'>{$_SESSION['name']}</p><p style='font-family: monospace;'>{$_SESSION['email']}</p>";
         $profileLink = "<a href='./profile.php?user={$_SESSION['name']}'>Your public profile</a>";
         $actions = '<a href="edit-account.php">Edit Account</a> | <a href="logout.php">Logout</a>';

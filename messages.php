@@ -1,6 +1,14 @@
 <?php
 session_start();
 require_once "pdo.php";
+if (!isset($_SESSION["email"])) {
+    echo "<p class='die-msg'>PLEASE LOGIN</p>";
+    echo '<link rel="stylesheet" href="./style.css?v=<?php echo time(); ?>">';
+    echo "<br />";
+    echo "<p class='die-msg'>Redirecting in 3 seconds</p>";
+    header("refresh:3;url=index.php");
+    die();
+}
 function loadChat($pdo) {
     $stmt = $pdo->query(
         "SELECT * FROM chatlog"
@@ -47,8 +55,5 @@ function loadChat($pdo) {
     }
 }
 
-/*$stmt = $pdo->prepare("SELECT * FROM account WHERE name=?");
-$stmt->execute([$_SESSION['name']]);
-$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);*/
 loadChat($pdo);
 ?>

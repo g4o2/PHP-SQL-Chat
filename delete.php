@@ -3,9 +3,10 @@ require_once "pdo.php";
 session_start();
 
 if (!isset($_SESSION["email"])) {
-  echo "PLEASE LOGIN";
+  echo "<p class='die-msg'>PLEASE LOGIN</p>";
+  echo '<link rel="stylesheet" href="./style.css?v=<?php echo time(); ?>">';
   echo "<br />";
-  echo "Redirecting in 3 seconds";
+  echo "<p class='die-msg'>Redirecting in 3 seconds</p>";
   header("refresh:3;url=index.php");
   die();
 }

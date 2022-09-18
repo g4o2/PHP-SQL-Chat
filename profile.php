@@ -11,7 +11,11 @@ date_default_timezone_set('UTC');
     die();
 }
 */
-
+if(!isset($_GET['user'])) {
+    echo '<link rel="stylesheet" href="./style.css?v=<?php echo time(); ?>">';
+    echo "<p class='die-msg'>Missing user parameter</p>";
+    die();
+}
 $pfpsrc = './default-pfp.png';
 
 $stmt = $pdo->prepare("SELECT * FROM account WHERE name=?");
@@ -24,12 +28,14 @@ if (count($rows) > 0) {
             $pfpsrc = $test['pfp'];
         }
         $show_email = $test['show_email'];
-        $user = "<p id='user-name'>{$test['name']}</p>";
+        $user = "<div id='user-name'><p>{$test['name']}</p></div>";
         $pfp = "<img id='profile-image' src='$pfpsrc'>";
-        $email = "<p id='user-email'>{$test['email']}</p>";
+        $email = "<div id='user-email'><p>{$test['email']}</p></div>";
+        $about = "<div id='user-about'><p>{$test['about']}</p></div>";
     }
     echo $pfp;
     echo $user;
+    echo $about;
     if ($show_email === "True") {
         echo $email;
     } else {
@@ -62,10 +68,20 @@ if (count($rows) > 0) {
         }
 
         #user-email {
-            font-size: 20px;
+            font-size: 18px;
             font-family: Arial, Helvetica, sans-serif;
+            background-color: red;
+            padding: 4px 0px 4px 0px;
+            width: 28%;
+            margin: 0 auto;
+            border-radius: 8px;
         }
 
+        #user-about {
+            color: red;
+            font-family: monospace;
+            font-size: 20px;
+        }
         #profile-image {
             height: 200px;
             border-radius: 10px;

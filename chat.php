@@ -4,9 +4,10 @@ require_once "pdo.php";
 date_default_timezone_set('UTC');
 
 if (!isset($_SESSION["email"])) {
-  echo "PLEASE LOGIN";
+  echo "<p class='die-msg'>PLEASE LOGIN</p>";
+  echo '<link rel="stylesheet" href="./style.css?v=<?php echo time(); ?>">';
   echo "<br />";
-  echo "Redirecting in 3 seconds";
+  echo "<p class='die-msg'>Redirecting in 3 seconds</p>";
   header("refresh:3;url=index.php");
   die();
 }
@@ -414,7 +415,7 @@ if (isset($_POST['message'])) {
                 $pfpsrc = $test['pfp'];
               }
             }
-            $pfp = "<img class='profile-image' src='$pfpsrc'>";
+            $pfp = "<a class='pfp-link' href='./profile.php?user={$row['account']}'><img class='profile-image' src='$pfpsrc'></a>";
 
 
             $message = htmlentities($row["message"]);
@@ -559,7 +560,7 @@ if (isset($_POST['message'])) {
       $_SESSION['name'] = $test['name'];
       $_SESSION['email'] = $test['email'];
     }
-    $pfp = "<img class='profile-image' style='border-radius: 100px;height: 60px;width:60px;'' src='$pfpsrc'>";
+    $pfp = "<a class='pfp-link' href='./profile.php?user={$test['name']}'><img class='profile-image' style='border-radius: 100px;height: 60px;width:60px;'' src='$pfpsrc'></a>";
     $main = "<p style='margin-top: 20px;font-size: 20px;font-family: monospace;'>{$_SESSION['name']}</p><p style='font-family: monospace;'>{$_SESSION['email']}</p>";
     $actions = '<a href="edit-account.php">Edit Account</a> | <a href="logout.php">Logout</a>';
     echo "<div style='border-radius: 12px;' id='profile'><button id='close-btn' onclick='closeProfile()' style='border:none;position:absolute;top:0;left:0;font-size: 18px;padding:5px 12px 5px 12px;'>&times;</button>{$pfp}{$main}{$actions}</div>";
