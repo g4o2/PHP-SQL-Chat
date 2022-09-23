@@ -46,9 +46,20 @@ if (isset($_POST["submit"])) {
         } else {
             $show_email = "False";
         }
+
+        if(isset($_POST['password'])) {
+            $salt = 'XyZzy12*_';
+            $newPassword = $_POST['password'];
+            $hash = hash("md5", $salt . $newPassword);
+        } else {
+            $hash = $response['password'];
+        }
+
+
         $sql = "UPDATE account SET pfp = :pfp, 
         name = :newName,
         email = :email,
+        password = :password,
         about = :about,
         show_email = :showEmail
         WHERE name = :name";
@@ -58,6 +69,7 @@ if (isset($_POST["submit"])) {
             ':name' => $_SESSION['name'],
             ':newName' => $_POST['name'],
             ':email' => $_POST['email'],
+            ':password' => $hash,
             ':about' => $_POST['about'],
             ':showEmail' => $show_email
         ));
@@ -93,6 +105,9 @@ if (isset($_POST["submit"])) {
     </p>
     <p>About:
         <input type="text" name="about" value="<?= $response['about'] ?>">
+    </p>
+    <p>New Password:
+        <input size='21' type="text" name="password" value="" placeholder="Leave blank to not change it">
     </p>
     <p>Show email:
         <!-- value="<?= $response["show_email"] ?>"-->
