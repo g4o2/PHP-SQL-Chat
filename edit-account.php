@@ -83,7 +83,7 @@ if (isset($_POST["submit"])) {
 ?>
 
 <head>
-    <title>Upload Image</title>
+    <title>Account</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./style.css?v=<?php echo time(); ?>">
     <style>

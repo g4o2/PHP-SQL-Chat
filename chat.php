@@ -44,7 +44,7 @@ if (isset($_POST['message'])) {
 } else {
   foreach ($_POST as $edit_msg) {
     $key = array_search($edit_msg, $_POST);
-    
+
 
     $sql = "UPDATE chatlog SET message = :msg
             WHERE message_id = :message_id";
@@ -458,15 +458,9 @@ if (isset($_POST['message'])) {
   <script type="text/javascript">
     function handleEdit(id) {
       let parent_id = id + "parent";
-      let message = document.getElementById(id).innerHTML;
-      document.getElementById(parent_id).innerHTML = `<form method='post'><input type='text' name=${id} value=${message}><input type='submit' value='Save'></form>`;
+      let message = document.getElementById(id).innerText;
+      document.getElementById(parent_id).innerHTML = `<form method='post'><input type='text' name=${id} value='${message}'><input type='submit' value='Save'></form>`;
     }
-
-
-
-
-
-
 
     let input = document.getElementById('message-input');
     input.focus();

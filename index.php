@@ -136,6 +136,7 @@ if (isset($_SESSION['email'])) {
             border-radius: 8px;
             background-color: rgba(41, 41, 41, .7);
         }
+
         table p {
             margin: 10px;
         }
@@ -179,12 +180,12 @@ if (isset($_SESSION['email'])) {
             echo '<p>Attempt to <a href="chat.php">chat</a> without logging in</p>';
         }
         if (isset($_SESSION["success"])) {
-            echo ('<p class="success">' . htmlentities($_SESSION["success"]) ."<br/><a style='margin-top: 4px;' href=" . ">Dismiss</a></p>");
+            echo ('<p class="success">' . htmlentities($_SESSION["success"]) . "<br/><a style='margin-top: 4px;' href=" . ">Dismiss</a></p>");
             unset($_SESSION["success"]);
             echo "";
         }
         if (isset($_SESSION["error"])) {
-            echo ('<p class="error">' . htmlentities($_SESSION["error"]) ."<br/><a style='margin-top: 4px;' href=" . ">Dismiss</a></p>");
+            echo ('<p class="error">' . htmlentities($_SESSION["error"]) . "<br/><a style='margin-top: 4px;' href=" . ">Dismiss</a></p>");
             unset($_SESSION["error"]);
         }
         ?>
@@ -236,7 +237,7 @@ if (isset($_SESSION['email'])) {
                 }
 
 
-                if($userStatus === "Undefined") {
+                if ($userStatus === "Undefined") {
                     $diff = "<p style='color:red;'>Undefined</p>";
                 } else {
                     $last_online    = $userStatus;
@@ -249,17 +250,14 @@ if (isset($_SESSION['email'])) {
 
                     $exploded = explode(" ", $diff);
 
-                    if($exploded[2] !== "0") {
+                    if ($exploded[2] !== "0") {
                         $diff = "<p style='color:#ffc200;'>Last online $exploded[2] days ago</p>";
-
                     } elseif ($exploded[4] !== "0") {
                         $diff = "<p style='color:#ffc200;'>Last online $exploded[4] hours ago</p>";
-
                     } elseif ($exploded[7] !== "0") {
                         $diff = "<p style='color:#ffc200;'>Last online $exploded[7] minutes ago</p>";
-
                     } else {
-                        $diff = "<p style='color: green;'>Online</p>";                    
+                        $diff = "<p style='color: green;'>Online</p>";
                     }
                 }
                 echo "<tr><td>";
@@ -331,5 +329,6 @@ if (isset($_SESSION['email'])) {
         <h4>New website theme/style & added user 👤 profile link table on index page <code>2022/9/11</code></h4>
         <h4>Show / Hide email 📧 feature implemented check it out now in the <a href="./edit-account.php">account settings</a> <code>2022/9/17</code></h4>
         <h4>You can now edit messages! <code>2022/9/18</code></h4>
+        <h4>You can now edit / change your passwords 🔑 via <a href="./edit-account.php">account settings</a> <code>2022/9/23</code></h4>
     </div>
 </body>
