@@ -537,6 +537,30 @@ if (isset($_POST['message'])) {
         chatScroll()
       }
     }, 1000)*/
+
+    let inverval = window.setInterval(function() {
+      $.ajax({
+        url: "msglength.php",
+        success: function(data) {
+          let chat = document.getElementById("chatcontent");
+          let chatLength = (chat.childElementCount - 1) / 2;
+
+          if (data != chatLength) {
+            $.ajax({
+              url: "messages.php",
+              success: function(data) {
+                document.getElementById("chatcontent").innerHTML = data;
+                let chat = document.getElementById("chatcontent")
+                if (chat.scrollTop >= (chat.scrollHeight - chat.offsetHeight) - 100) {
+                  chatScroll()
+                }
+                console.log('chat updated')
+              }
+            });
+          }
+        }
+      });
+    }, 1000)
   </script>
 
 
