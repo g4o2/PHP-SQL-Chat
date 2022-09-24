@@ -76,7 +76,7 @@ input {
     text-decoration: none;
     color: #ffa500;
     background-color: rgba(41, 41, 41, 1);
-    padding: 8px;
+    padding: 7px;
     border: none;
     font-size: 14px;
     cursor: pointer;
@@ -89,6 +89,7 @@ input {
 
 .btn:active {
     background-color: transparent;
+    box-shadow: none;
 }
 
 .failure {
@@ -124,5 +125,5 @@ input {
 
 .pfp-link:hover img {
     transition: box-shadow .1s ease-in-out;
-    box-shadow: 0px 0px 18px 5px #ffa500;
+    box-shadow: 0px 0px 12px 2px #ffa500;
 }
