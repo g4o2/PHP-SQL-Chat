@@ -41,20 +41,16 @@ if (isset($_POST["submit"])) {
         $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
     }
     if ($check !== false) {
+        if (isset($_POST['password'])) {
+            $salt = 'XyZzy12*_';
+            $newPassword = $_POST['password'];
+            $hash = hash("md5", $salt . $newPassword);
+        }
         if ($_POST["show_email"] == "on") {
             $show_email = "True";
         } else {
             $show_email = "False";
         }
-
-        if(isset($_POST['password'])) {
-            $salt = 'XyZzy12*_';
-            $newPassword = $_POST['password'];
-            $hash = hash("md5", $salt . $newPassword);
-        } else {
-            $hash = $response['password'];
-        }
-
 
         $sql = "UPDATE account SET pfp = :pfp, 
         name = :newName,
@@ -98,16 +94,16 @@ if (isset($_POST["submit"])) {
     <input type="file" name="fileToUpload" id="fileToUpload">
     <label for=""></label>
     <p>Name:
-        <input type="text" name="name" value="<?= $response['name'] ?>">
+        <input required type="text" name="name" value="<?= $response['name'] ?>">
     </p>
     <p>Email:
-        <input type="text" name="email" value="<?= $response['email'] ?>">
+        <input required type="text" name="email" value="<?= $response['email'] ?>">
     </p>
     <p>About:
         <input type="text" name="about" value="<?= $response['about'] ?>">
     </p>
     <p>New Password:
-        <input size='21' type="text" name="password" value="" placeholder="Leave blank to not change it">
+        <input required size='21' type="text" name="password">
     </p>
     <p>Show email:
         <!-- value="<?= $response["show_email"] ?>"-->
