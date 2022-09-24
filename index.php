@@ -62,7 +62,7 @@ if (isset($_SESSION['email'])) {
             position: fixed;
             right: 10px;
             top: 10px;
-            background-color: rgb(41, 41, 41);
+            background-color: rgba(0, 0, 0, .6);
             padding: 40px;
             text-align: center;
             transition: opacity .3s ease-in;
