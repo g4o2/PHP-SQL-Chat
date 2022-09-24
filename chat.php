@@ -458,8 +458,10 @@ if (isset($_POST['message'])) {
   <script type="text/javascript">
     function handleEdit(id) {
       let parent_id = id + "parent";
+      let input_id = id + "input";
       let message = document.getElementById(id).innerText;
-      document.getElementById(parent_id).innerHTML = `<form method='post'><input type='text' name=${id} value='${message}'><input type='submit' value='Save'></form>`;
+      document.getElementById(parent_id).innerHTML = `<form method='post'><input id='${input_id}' type='text' size='80' name=${id}><input type='submit' value='Save'></form>`;
+      document.getElementById(input_id).value = message;
     }
 
     let input = document.getElementById('message-input');
