@@ -82,14 +82,10 @@ if (isset($_POST["submit"])) {
     <title>Account</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./style.css?v=<?php echo time(); ?>">
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/edit-account.css?v=<?php echo time(); ?>">
 </head>
 
-<form action="edit-account.php" method="post" enctype="multipart/form-data">
+<form id="form" action="edit-account.php" method="post" enctype="multipart/form-data">
     Select image to upload for <?= $_SESSION['name'] ?>
     <input type="file" name="fileToUpload" id="fileToUpload">
     <label for=""></label>
@@ -103,12 +99,15 @@ if (isset($_POST["submit"])) {
         <input type="text" name="about" value="<?= $response['about'] ?>">
     </p>
     <p>New Password:
-        <input required size='21' type="text" name="password">
+        <input required size='21' type="password" name="password">
     </p>
     <p>Show email:
         <!-- value="<?= $response["show_email"] ?>"-->
         <input type="checkbox" name="show_email" <?php echo ($response['show_email'] == 'True') ? 'checked' : '' ?>>
     </p>
-    <br /><input type="submit" value="Submit Changes" class="btn" name="submit">
-    <a href="./index.php" class="btn">Cancel</a>
+    <br />
+    <div style="float:left;">
+        <input type="submit" value="Submit Changes" class="btn" name="submit">
+        <a href="./index.php" class="btn">Cancel</a>
+    </div>
 </form><br />

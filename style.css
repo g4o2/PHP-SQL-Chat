@@ -90,6 +90,7 @@ input {
 .btn:active {
     background-color: transparent;
     box-shadow: none;
+    border: none;
 }
 
 .failure {

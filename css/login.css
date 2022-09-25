@@ -1,0 +1,38 @@
+body {
+    font: normal 16px Arial, Helvetica, sand-serif;
+    color: #ffa500/*#333*/;
+    margin: 0;
+}
+
+#particles {
+    height: 100%;
+    position: fixed;
+    width: 100%;
+}
+
+#login {
+    color: #333;
+    background: white;
+    opacity: 0.9;
+    padding: 2em;
+    border: #ccc 2px solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 10px;
+    transform: translate(-50%, -50%);
+    text-align: left;
+}
+
+#login input[type="text"],
+#login input[type="password"] {
+    padding: 7px;
+    margin-bottom: 10px;
+    border: 1px #ccc solid;
+}
+
+
+#login-form {
+    /*margin-left: 40px;*/
+    text-align: center;
+}

@@ -331,5 +331,7 @@ if (isset($_SESSION['email'])) {
         <h4>You can now edit messages! <code>2022/9/18</code></h4>
         <h4>You can now edit / change your passwords 🔑 via <a href="./edit-account.php">account settings</a> <code>2022/9/23</code></h4>
         <h4>Chat now only runs a query to get msgs 💬 when a new msg is sent <code>2022/9/24</code></h4>
+        <h4>The broken message editing is now fixed 😀 <code>2022/9/24</code></h4>
+        <h4>New <a href="./login.php">login</a> &amp; <a href="./edit-account.php">edit account</a> pages <code>2022/9/25</code></h4>
     </div>
 </body>
