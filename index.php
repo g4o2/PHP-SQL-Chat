@@ -151,18 +151,18 @@ if (isset($_SESSION['email'])) {
             color: #ffa500;
         }
 
-        #chat-btn {
+        .chat-btn {
             display: inline-block;
             font-family: orbitron;
             font-size: 25px;
             color: #ffa500;
-            padding: 8px;
+            padding: 8px 8px 1px 8px;
             border-radius: 8px;
-            background-color: rgba(41, 41, 41, .8);
+            background-color: rgba(0, 0, 0, .8);
             transition: color .2s ease-in-out;
         }
 
-        #chat-btn:hover {
+        .chat-btn:hover {
             color: #fff;
             text-decoration: none;
         }
@@ -212,7 +212,7 @@ if (isset($_SESSION['email'])) {
             echo "</table>";
         }
         if (isset($_SESSION['email'])) {
-            echo '<p><a href="add.php">Add New Entry</a><br></p><a id="chat-btn" href="chat.php">CHAT</a></p>';
+            echo '<p><a href="add.php">Add New Entry</a><br></p><a class="chat-btn btn" href="chat.php"><p class="rainbow_text_animated">CHAT</p></a></p>';
         }
         if (isset($_SESSION['email'])) {
             echo '<table border="1">

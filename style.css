@@ -8,6 +8,10 @@ body {
 
     color: #fff;
     /*overflow-x: hidden;*/
+    background: linear-gradient(#000000, #5e3d00);
+}
+html {
+    height: 100%;
 }
 a {
     color: #00bfff;
@@ -75,8 +79,8 @@ input {
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
     color: #ffa500;
-    background-color: rgba(41, 41, 41, 1);
-    padding: 7px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 15px 10px 15px;
     border: none;
     font-size: 14px;
     cursor: pointer;
@@ -127,4 +131,72 @@ input {
 .pfp-link:hover img {
     transition: box-shadow .1s ease-in-out;
     box-shadow: 0px 0px 12px 2px #ffa500;
+}
+/*----------------------------------------------*/
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 10px;
+}
+
+.login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+}
+
+.login-box .user-box {
+    position: relative;
+}
+
+.login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.login-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.login-box .user-box input:focus~label,
+.login-box .user-box input:valid~label {
+    top: -20px;
+    left: 0;
+    color: #ffa500;
+    font-size: 12px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #fff !important;
+}
+
+input[type=submit] {
+    border: none !important;
+    outline: none !important;
 }

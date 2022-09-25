@@ -59,61 +59,53 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
 </head>
 
 <body>
-    <div id="particles">
-        <div id="login-form">
-            <h1>
-                Please Log In
-            </h1>
-            <p>uppercase and lowercase matters</p>
-            <?php
-            if (isset($_SESSION["error"])) {
-                echo ('<p style="color: red;">' . $_SESSION["error"]);
-                unset($_SESSION["error"]);
-            }
-            ?>
-            <form id="login" method="post">
-                <label for='email'>Email</label><br />
-                <input type="text" name="email" autocomplete="off" id="id_email">
-                <br>
-                <label for='pass'>Password</label><br />
-                <input type="password" name="pass" id="id_1723">
-                <br />
-                <div style="float:right;">
-                    <input id="submit" class="btn" type="submit" onclick="return doValidate();" value="Log In">
-                    <input id="cancel" class="btn" type="submit" name="cancel" value="Cancel">
+    <div class="login-box">
+        <h2>Please Log In</h2>
+        <p style="text-align:center;">uppercase and lowercase matters</p>
+        <?php
+        if (isset($_SESSION["error"])) {
+            echo ('<p style="color: red;">' . $_SESSION["error"]);
+            unset($_SESSION["error"]);
+        }
+        ?>
+        <form method="post">
+            <div class="user-box">
+                <input class="input" type="text" name="email" id="id_email" required>
+                <label for='email'>Email</label>
+            </div>
+            <div class="user-box">
+                <input class="input" type="password" name="pass" id="id_1723" required>
+                <label for='pass'>Password</label>
+            </div>
+            <div style="float:right;">
+                <input id="submit" class="btn" type="submit" onclick="return doValidate();" value="Log In">
+                <input id="cancel" class="btn" type="submit" name="cancel" value="Cancel">
                 <div>
-            </form>
-        </div>
-        <script>
-            function doValidate() {
-                console.log("Validating...");
-                try {
-                    email = document.getElementById("id_email").value;
-                    pw = document.getElementById("id_1723").value;
-                    console.log("Validating email=" + email);
-                    console.log("Validating pw=" + pw);
-                    if (pw == null || pw == "" || email == null || email == "") {
-                        alert("Both fields must be filled out");
-                        return false;
-                    }
-                    if (email.search("@") === -1) {
-                        alert("Email address must contain @");
-                        return false;
-                    }
-                    return true;
-                } catch (e) {
+        </form>
+    </div>
+    <script>
+        function doValidate() {
+            console.log("Validating...");
+            try {
+                email = document.getElementById("id_email").value;
+                pw = document.getElementById("id_1723").value;
+                console.log("Validating email=" + email);
+                console.log("Validating pw=" + pw);
+                if (pw == null || pw == "" || email == null || email == "") {
+                    alert("Both fields must be filled out");
                     return false;
                 }
+                if (email.search("@") === -1) {
+                    alert("Email address must contain @");
+                    return false;
+                }
+                return true;
+            } catch (e) {
                 return false;
             }
-        </script>
-        <script src="./particles/particles.js"></script>
-        <script>
-            particlesJS.load('particles', './particles/particles.json', function() {
-                console.log('working');
-            })
-        </script>
-    </div>
+            return false;
+        }
+    </script>
 </body>
 
 </html>
