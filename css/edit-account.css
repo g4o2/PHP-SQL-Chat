@@ -10,11 +10,11 @@ body {
 }
 
 #form {
-    color: #333;
-    background: rgba(255, 255, 255, 0.836);
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
     opacity: 0.9;
     padding: 2em;
-    border: #ccc 2px solid;
+    border: rgba(255, 255, 255, 0.1) 2px solid;
     position: absolute;
     top: 50%;
     left: 50%;

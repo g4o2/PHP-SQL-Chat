@@ -68,6 +68,14 @@ if (isset($_SESSION['email'])) {
             transition: opacity .3s ease-in;
         }
 
+        #close-btn {
+            background-color: rgba(255, 165, 0, .3) !important;
+        }
+
+        #close-btn-two {
+            background-color: rgba(255, 165, 0, .3) !important;
+        }
+
         #close-btn:hover {
             background-color: transparent !important;
             transition: all .1s ease-in !important;
@@ -333,5 +341,6 @@ if (isset($_SESSION['email'])) {
         <h4>Chat now only runs a query to get msgs 💬 when a new msg is sent <code>2022/9/24</code></h4>
         <h4>The broken message editing is now fixed 😀 <code>2022/9/24</code></h4>
         <h4>New <a href="./login.php">login</a> &amp; <a href="./edit-account.php">edit account</a> pages <code>2022/9/25</code></h4>
+        <h4>Update edit account page css <code>2022/9/30</code></h4>
     </div>
 </body>
