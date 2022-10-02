@@ -8,7 +8,7 @@ body {
     position: fixed;
     width: 100%;
 }
-
+/*
 #form {
     color: #fff;
     background: rgba(255, 255, 255, 0.1);
@@ -35,7 +35,6 @@ body {
     width: 60px;
     border: none;
     border-radius: 3px;
-    /*margin-left: 90px;*/
 }
 
 #submit:hover {
@@ -49,7 +48,6 @@ body {
     width: 60px;
     border: none;
     border-radius: 3px;
-    /*margin-left: 90px;*/
 }
 
 #cancel:hover {
@@ -59,6 +57,5 @@ body {
 }
 
 #login-form {
-    /*margin-left: 40px;*/
     text-align: center;
-}
+}*/

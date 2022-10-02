@@ -85,29 +85,36 @@ if (isset($_POST["submit"])) {
     <link rel="stylesheet" href="./css/edit-account.css?v=<?php echo time(); ?>">
 </head>
 
-<form id="form" action="edit-account.php" method="post" enctype="multipart/form-data">
-    Select image to upload for <?= $_SESSION['name'] ?>
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <label for=""></label>
-    <p>Name:
-        <input required type="text" name="name" value="<?= $response['name'] ?>">
-    </p>
-    <p>Email:
-        <input required type="text" name="email" value="<?= $response['email'] ?>">
-    </p>
-    <p>About:
-        <input type="text" name="about" value="<?= $response['about'] ?>">
-    </p>
-    <p>New Password:
-        <input required size='21' type="password" name="password">
-    </p>
-    <p>Show email:
-        <!-- value="<?= $response["show_email"] ?>"-->
-        <input type="checkbox" name="show_email" <?php echo ($response['show_email'] == 'True') ? 'checked' : '' ?>>
-    </p>
-    <br />
-    <div style="float:left;">
-        <input type="submit" value="Submit Changes" class="btn" name="submit">
-        <a href="./index.php" class="btn">Cancel</a>
-    </div>
-</form><br />
+<div class="login-box">
+    <form id="form" action="edit-account.php" method="post" enctype="multipart/form-data">
+        Select image to upload for <?= $_SESSION['name'] ?>
+        <div class="user-box">
+            <input type="file" name="fileToUpload" id="fileToUpload">
+        </div>
+        <div class="user-box">
+            <input required type="text" name="name" value="<?= $response['name'] ?>">
+            <label>Name:</label>
+        </div>
+        <div class="user-box">
+            <input required type="text" name="email" value="<?= $response['email'] ?>">
+            <label>Email:</label>
+        </div>
+        <div class="user-box">
+            <input type="text" name="about" value="<?= $response['about'] ?>">
+            <label>About:</label>
+        </div>
+        <div class="user-box">
+            <input required size='21' type="password" name="password">
+            <label>New Password:</label>
+        </div>
+        <div class="user-box">
+            <label>Show email:</label>
+            <input type="checkbox" name="show_email" <?php echo ($response['show_email'] == 'True') ? 'checked' : '' ?>>
+        </div>
+        <br />
+        <div style="float:left;">
+            <input type="submit" value="Submit Changes" class="btn" name="submit">
+            <a href="./index.php" class="btn">Cancel</a>
+        </div>
+    </form>
+</div>
