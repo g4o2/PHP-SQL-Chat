@@ -143,7 +143,7 @@ if (isset($_POST['message'])) {
       </div>
     </form>
   </section>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js">
+  <script type="text/javascript" src="">
   </script>
   <script type="text/javascript">
     function handleEdit(id) {
@@ -192,11 +192,9 @@ if (isset($_POST['message'])) {
         function() {
           $("#chatcontent").removeClass("progress");
         }, 1000);
-      console.log('%c What are you doing in the console?', 'background: #222; color: #ff0000');
-      console.log('%c Dont try anything sus', 'background: #222; color: #fff');
-      console.log(`
-
-          `)
+      console.log('%c Why are you here in the console?', 'background: #000; color: #ffa500');
+      console.log('%c Dont try anything sus', 'background: #000; color: #ffa500');
+      console.log("%c                                      \n    .->                .->            \n ,---(`-')   .---.(`-')----.  .----.  \n'  .-(OO )  / .  |( OO).-.  '\\_,-.  | \n|  | .-, \\ / /|  |( _) | |  |   .' .' \n|  | '.(_// '-'  ||\\|  |)|  | .'  /_  \n|  '-'  | `---|  |' '  '-'  '|      | \n `-----'      `--'   `-----' `------' ", 'background: #000; color: #ffa500')
 
     })
 

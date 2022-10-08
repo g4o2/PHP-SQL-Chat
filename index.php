@@ -189,7 +189,7 @@ if (isset($_SESSION['email'])) {
         }
         if (isset($_SESSION["success"])) {
             echo ('<p class="success">' . htmlentities($_SESSION["success"]) . "<br/><a style='margin-top: 4px;' href=" . ">Dismiss</a></p>");
-            unset($_SESSION["success"]);
+            //unset($_SESSION["success"]);
             echo "";
         }
         if (isset($_SESSION["error"])) {
@@ -326,6 +326,11 @@ if (isset($_SESSION['email'])) {
             document.getElementById("close-btn").style.opacity = '1';
             document.getElementById("close-btn-two").style.opacity = '0';
         }
+        $(document).ready(function() {
+            console.log('%c Why are you here in the console?', 'background: #000; color: #ffa500');
+            console.log('%c Dont try anything sus', 'background: #000; color: #ffa500');
+            console.log("%c                                      \n    .->                .->            \n ,---(`-')   .---.(`-')----.  .----.  \n'  .-(OO )  / .  |( OO).-.  '\\_,-.  | \n|  | .-, \\ / /|  |( _) | |  |   .' .' \n|  | '.(_// '-'  ||\\|  |)|  | .'  /_  \n|  '-'  | `---|  |' '  '-'  '|      | \n `-----'      `--'   `-----' `------' ", 'background: #000; color: #ffa500')
+        })
     </script>
     <div id="announcements">
         <h3 style="font-family: orbitron;">Announcements</h3><br />
