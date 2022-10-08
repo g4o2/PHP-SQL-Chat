@@ -59,6 +59,7 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
 </head>
 
 <body>
+    <div id="particles-js"></div>
     <div class="login-box">
         <h2>Please Log In</h2>
         <p style="text-align:center;">uppercase and lowercase matters</p>
@@ -83,6 +84,7 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
                 <div>
         </form>
     </div>
+    <script src="./particles/particles.js"></script>
     <script>
         function doValidate() {
             console.log("Validating...");
@@ -105,6 +107,9 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
             }
             return false;
         }
+        particlesJS.load('particles-js', './particles/particles.json', function() {
+            console.log('callback - particles.js config loaded');
+        });
     </script>
 </body>
 
