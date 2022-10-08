@@ -181,13 +181,13 @@ if (isset($_SESSION['email'])) {
 
     <div id="particles-js"></div>
     <div class="container">
-        <h1 class='rainbow_text_animated'>Welcome to g4o2-chat</h1>
-        <p>A chat made by g4o2 that is still being developed</p>
+        <h1 class='rainbow_text_animated'>Welcome to g4o2</h1>
+        <p>Still being developed</p>
         <p>Time is being displayed in GMT + 0 / UTC + 0 time zone</p>
         <?php
         if (!isset($_SESSION['email'])) {
             echo '<h4><a style="text-decoration: underline" href="login.php">Please log in</a></h4>';
-            echo '<p>Attempt to <a href="chat.php">chat</a> without logging in</p>';
+            //echo '<p>Attempt to <a href="chat.php">chat</a> without logging in</p>';
         }
         if (isset($_SESSION["success"])) {
             echo ('<p class="success popup-msg">' . htmlentities($_SESSION["success"]) . "</p>");
