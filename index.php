@@ -189,7 +189,7 @@ if (isset($_SESSION['email'])) {
         }
         if (isset($_SESSION["success"])) {
             echo ('<p class="success">' . htmlentities($_SESSION["success"]) . "<br/><a style='margin-top: 4px;' href=" . ">Dismiss</a></p>");
-            //unset($_SESSION["success"]);
+            unset($_SESSION["success"]);
             echo "";
         }
         if (isset($_SESSION["error"])) {
@@ -314,23 +314,19 @@ if (isset($_SESSION['email'])) {
         echo "<button id='close-btn-two' onclick='openProfile()' style='background-color: rgb(71, 71, 71);border:none;position:absolute;top:10px;right:10px;font-size: 18px;padding:5px 12px 5px 12px;opacity: 0;'>&#9776;</button>";
     }
     ?>
+    <script type="text/javascript" src="./js/jquery-3.6.0.js"></script>
     <script>
-        function closeProfile() {
-            document.getElementById("profile").style.opacity = '0';
-            document.getElementById("close-btn").style.opacity = '0';
-            document.getElementById("close-btn-two").style.opacity = '1';
-        }
+            function closeProfile() {
+                document.getElementById("profile").style.opacity = '0';
+                document.getElementById("close-btn").style.opacity = '0';
+                document.getElementById("close-btn-two").style.opacity = '1';
+            }
 
         function openProfile() {
             document.getElementById("profile").style.opacity = '1';
             document.getElementById("close-btn").style.opacity = '1';
             document.getElementById("close-btn-two").style.opacity = '0';
         }
-        $(document).ready(function() {
-            console.log('%c Why are you here in the console?', 'background: #000; color: #ffa500');
-            console.log('%c Dont try anything sus', 'background: #000; color: #ffa500');
-            console.log("%c                                      \n    .->                .->            \n ,---(`-')   .---.(`-')----.  .----.  \n'  .-(OO )  / .  |( OO).-.  '\\_,-.  | \n|  | .-, \\ / /|  |( _) | |  |   .' .' \n|  | '.(_// '-'  ||\\|  |)|  | .'  /_  \n|  '-'  | `---|  |' '  '-'  '|      | \n `-----'      `--'   `-----' `------' ", 'background: #000; color: #ffa500')
-        })
     </script>
     <div id="announcements">
         <h3 style="font-family: orbitron;">Announcements</h3><br />
@@ -349,6 +345,5 @@ if (isset($_SESSION['email'])) {
         <h4>Update edit account page css <code>2022/9/30</code></h4>
         <h4>New <a href="./edit-account.php">edit account</a> page same style as login page <code>2022/10/2</code></h4>
         <h4>Now hosting php page on <a href="https://php-sql-chat.maxhu787.repl.co/index.php">repl</a> mysql database hosted with <a href="https://www.db4free.net">db4free</a> <code>2022/10/2</code></h4>
-      <h4><a href="https://php-sql-chat.maxhu787.repl.co/index.php">Replit</a> page now fixed <code>2022/10/7</code></h4>
     </div>
 </body>

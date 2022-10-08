@@ -143,7 +143,7 @@ if (isset($_POST['message'])) {
       </div>
     </form>
   </section>
-  <script type="text/javascript" src="">
+  <script type="text/javascript" src="./js/jquery-3.6.0.js">
   </script>
   <script type="text/javascript">
     function handleEdit(id) {
