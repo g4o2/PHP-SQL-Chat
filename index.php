@@ -178,13 +178,15 @@ if (isset($_SESSION['email'])) {
 </head>
 
 <body>
+
+    <div id="particles-js"></div>
     <div class="container">
         <h1 class='rainbow_text_animated'>Welcome to g4o2-chat</h1>
         <p>A chat made by g4o2 that is still being developed</p>
         <p>Time is being displayed in GMT + 0 / UTC + 0 time zone</p>
         <?php
         if (!isset($_SESSION['email'])) {
-            echo '<p><a href="login.php">Please log in</a></p>';
+            echo '<h4><a style="text-decoration: underline" href="login.php">Please log in</a></h4>';
             echo '<p>Attempt to <a href="chat.php">chat</a> without logging in</p>';
         }
         if (isset($_SESSION["success"])) {
@@ -316,7 +318,11 @@ if (isset($_SESSION['email'])) {
     }
     ?>
     <script type="text/javascript" src="./js/jquery-3.6.0.js"></script>
+    <script src="./particles/particles.js"></script>
     <script>
+        particlesJS.load('particles-js', './particles/particles.json', function() {
+            console.log('callback - particles.js config loaded');
+        });
         $(document).ready(function() {
 
             console.log('%c Why are you here in the console?', 'background: #000; color: #ffa500');
@@ -342,7 +348,7 @@ if (isset($_SESSION['email'])) {
     </script>
     <div id="announcements">
         <h3 style="font-family: orbitron;">Announcements</h3><br />
-        <h4>Site creation! First line of code written&#127881;&#127881;&#127881; <code>2022/8/23</code></h4>
+        <h4>Site creation &#127881; <code>2022/8/23</code></h4>
         <h4>Login system working! 8 created accounts <code>2022/8/24</code></h4>
         <h4>Chat now available&#128526; <code>2022/8/25</code></h4>
         <h4>Profile pictures are now available <code>2022/8/26</code></h4>
