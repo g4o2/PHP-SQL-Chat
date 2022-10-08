@@ -174,6 +174,32 @@ if (isset($_SESSION['email'])) {
             color: #fff;
             text-decoration: none;
         }
+
+            @keyframes g4o2-breath {
+                0% {
+                    -webkit-transform: scale(0.9);
+                    -ms-transform: scale(0.9);
+                    transform: scale(0.9);
+                }
+
+                25% {
+                    -webkit-transform: scale(1);
+                    -ms-transform: scale(1);
+                    transform: scale(1);
+                }
+
+                60% {
+                    -webkit-transform: scale(0.9);
+                    -ms-transform: scale(0.9);
+                    transform: scale(0.9);
+                }
+
+                100% {
+                    -webkit-transform: scale(0.9);
+                    -ms-transform: scale(0.9);
+                    transform: scale(0.9);
+                }
+            }
     </style>
 </head>
 
@@ -188,6 +214,7 @@ if (isset($_SESSION['email'])) {
         if (!isset($_SESSION['email'])) {
             echo '<h4><a style="text-decoration: underline" href="login.php">Please log in</a></h4>';
             //echo '<p>Attempt to <a href="chat.php">chat</a> without logging in</p>';
+            echo '<img style="animation-name: g4o2-breath; animation-iteration-count: infinite; animation-duration: 5s; position: fixed; height: 50px; width: 50px; border-radius: 120px; top: 20px; right: 20px;" src="./g4o2.jpeg">';
         }
         if (isset($_SESSION["success"])) {
             echo ('<p class="success popup-msg">' . htmlentities($_SESSION["success"]) . "</p>");
