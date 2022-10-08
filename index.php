@@ -316,6 +316,13 @@ if (isset($_SESSION['email'])) {
     ?>
     <script type="text/javascript" src="./js/jquery-3.6.0.js"></script>
     <script>
+        $(document).ready(function() {
+
+        console.log('%c Why are you here in the console?', 'background: #000; color: #ffa500');
+        console.log('%c Dont try anything sus', 'background: #000; color: #ffa500');
+        console.log("%c                                      \n    .->                .->            \n ,---(`-')   .---.(`-')----.  .----.  \n'  .-(OO )  / .  |( OO).-.  '\\_,-.  | \n|  | .-, \\ / /|  |( _) | |  |   .' .' \n|  | '.(_// '-'  ||\\|  |)|  | .'  /_  \n|  '-'  | `---|  |' '  '-'  '|      | \n `-----'      `--'   `-----' `------' ", 'background: #000; color: #ffa500')
+
+        })
             function closeProfile() {
                 document.getElementById("profile").style.opacity = '0';
                 document.getElementById("close-btn").style.opacity = '0';
