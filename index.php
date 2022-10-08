@@ -188,13 +188,14 @@ if (isset($_SESSION['email'])) {
             echo '<p>Attempt to <a href="chat.php">chat</a> without logging in</p>';
         }
         if (isset($_SESSION["success"])) {
-            echo ('<p class="success">' . htmlentities($_SESSION["success"]) . "<br/><a style='margin-top: 4px;' href=" . ">Dismiss</a></p>");
+            echo ('<p class="success popup-msg">' . htmlentities($_SESSION["success"]) . "</p>");
             unset($_SESSION["success"]);
             echo "";
         }
         if (isset($_SESSION["error"])) {
-            echo ('<p class="error">' . htmlentities($_SESSION["error"]) . "<br/><a style='margin-top: 4px;' href=" . ">Dismiss</a></p>");
+            echo ('<p class="error popup-msg">' . htmlentities($_SESSION["error"]) . "</p>");
             unset($_SESSION["error"]);
+            echo "";
         }
         ?>
         <?php
@@ -318,16 +319,20 @@ if (isset($_SESSION['email'])) {
     <script>
         $(document).ready(function() {
 
-        console.log('%c Why are you here in the console?', 'background: #000; color: #ffa500');
-        console.log('%c Dont try anything sus', 'background: #000; color: #ffa500');
-        console.log("%c                                      \n    .->                .->            \n ,---(`-')   .---.(`-')----.  .----.  \n'  .-(OO )  / .  |( OO).-.  '\\_,-.  | \n|  | .-, \\ / /|  |( _) | |  |   .' .' \n|  | '.(_// '-'  ||\\|  |)|  | .'  /_  \n|  '-'  | `---|  |' '  '-'  '|      | \n `-----'      `--'   `-----' `------' ", 'background: #000; color: #ffa500')
+            console.log('%c Why are you here in the console?', 'background: #000; color: #ffa500');
+            console.log('%c Dont try anything sus', 'background: #000; color: #ffa500');
+            console.log("%c                                      \n    .->                .->            \n ,---(`-')   .---.(`-')----.  .----.  \n'  .-(OO )  / .  |( OO).-.  '\\_,-.  | \n|  | .-, \\ / /|  |( _) | |  |   .' .' \n|  | '.(_// '-'  ||\\|  |)|  | .'  /_  \n|  '-'  | `---|  |' '  '-'  '|      | \n `-----'      `--'   `-----' `------' ", 'background: #000; color: #ffa500')
 
+            setTimeout(function() {
+                document.querySelector('.popup-msg').style.display = "none";
+            }, 2200);
         })
-            function closeProfile() {
-                document.getElementById("profile").style.opacity = '0';
-                document.getElementById("close-btn").style.opacity = '0';
-                document.getElementById("close-btn-two").style.opacity = '1';
-            }
+
+        function closeProfile() {
+            document.getElementById("profile").style.opacity = '0';
+            document.getElementById("close-btn").style.opacity = '0';
+            document.getElementById("close-btn-two").style.opacity = '1';
+        }
 
         function openProfile() {
             document.getElementById("profile").style.opacity = '1';
@@ -352,5 +357,7 @@ if (isset($_SESSION['email'])) {
         <h4>Update edit account page css <code>2022/9/30</code></h4>
         <h4>New <a href="./edit-account.php">edit account</a> page same style as login page <code>2022/10/2</code></h4>
         <h4>Now hosting php page on <a href="https://php-sql-chat.maxhu787.repl.co/index.php">repl</a> mysql database hosted with <a href="https://www.db4free.net">db4free</a> <code>2022/10/2</code></h4>
+        <h4>Added console message <code>2022/10/8</code></h4>
+        <h4>New website message styling <code>2022/10/8</code></h4>
     </div>
 </body>

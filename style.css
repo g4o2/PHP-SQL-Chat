@@ -121,6 +121,40 @@ input {
     padding: 10px;
 }
 
+.popup-msg::before {
+    content: '';
+    display: block;
+    height: 4px;
+    background-color: #ffa500;
+
+    left: 0;
+    position: absolute;
+    bottom: 0;
+    width: 0%;
+
+    border-bottom-left-radius: 10px;
+
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transition: all ease-in-out 4s;
+}
+
+@keyframes msg-bar {
+    100% {
+        width: 100%;
+    }
+}
+.popup-msg::before {
+    animation-name: msg-bar;
+    animation-duration: 3s;
+}
+.popup-msg {
+    position: fixed;
+    text-align: center;
+    top: 20px;
+    left: 50%;
+}
+
 .die-msg {
     font-size: 22px;
     font-family: Arial;
