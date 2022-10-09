@@ -214,7 +214,7 @@ if (isset($_SESSION['email'])) {
         if (!isset($_SESSION['email'])) {
             echo '<h4><a style="text-decoration: underline" href="login.php">Please log in</a></h4>';
             //echo '<p>Attempt to <a href="chat.php">chat</a> without logging in</p>';
-            echo '<img style="animation-name: g4o2-breath; animation-iteration-count: infinite; animation-duration: 5s; position: fixed; height: 50px; width: 50px; border-radius: 120px; top: 20px; right: 20px;" src="./g4o2.jpeg">';
+            echo '<a class="pfp-link" href="https://github.com/maxhu787" target="_blank"><img style="animation-name: g4o2-breath; animation-iteration-count: infinite; animation-duration: 2.5s; position: fixed; height: 50px; width: 50px; border-radius: 120px; top: 20px; right: 20px;" src="./g4o2.jpeg"></a>';
         }
         if (isset($_SESSION["success"])) {
             echo ('<p class="success popup-msg">' . htmlentities($_SESSION["success"]) . "</p>");
@@ -384,13 +384,14 @@ if (isset($_SESSION['email'])) {
         <h4>Show / Hide email 📧 feature implemented check it out now in the <a href="./edit-account.php">account settings</a> <code>2022/9/17</code></h4>
         <h4>You can now edit messages! <code>2022/9/18</code></h4>
         <h4>You can now edit / change your passwords 🔑 via <a href="./edit-account.php">account settings</a> <code>2022/9/23</code></h4>
-        <h4>Chat now only runs a query to get msgs 💬 when a new msg is sent <code>2022/9/24</code></h4>
+        <h4>Chat now only runs a query to get msgs when a new msg is sent <code>2022/9/24</code></h4>
         <h4>The broken message editing is now fixed 😀 <code>2022/9/24</code></h4>
         <h4>New <a href="./login.php">login</a> &amp; <a href="./edit-account.php">edit account</a> pages <code>2022/9/25</code></h4>
         <h4>Update edit account page css <code>2022/9/30</code></h4>
         <h4>New <a href="./edit-account.php">edit account</a> page same style as login page <code>2022/10/2</code></h4>
         <h4>Now hosting php page on <a href="https://php-sql-chat.maxhu787.repl.co/index.php">repl</a> mysql database hosted with <a href="https://www.db4free.net">db4free</a> <code>2022/10/2</code></h4>
-        <h4>Added console message <code>2022/10/8</code></h4>
+        <h4>Added console message stuff <code>2022/10/8</code></h4>
         <h4>New website message styling <code>2022/10/8</code></h4>
+        <h4>Index page update <code>2022/10/9</code></h4>
     </div>
 </body>

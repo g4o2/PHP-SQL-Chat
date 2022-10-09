@@ -63,7 +63,7 @@ if (isset($_POST['message'])) {
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
 <link rel="stylesheet" href="./style.css">
 <link rel="stylesheet" href="./style.css?v=<?php echo time(); ?>">
-<link rel="stylesheet" href="./chat.css?v=<?php echo time(); ?>">
+<link rel="stylesheet" href="./css/chat.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
