@@ -44,7 +44,7 @@ if (isset($_SESSION['email'])) {
 <html>
 
 <head>
-    <title>Database</title>
+    <title>G4o2</title>
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
@@ -208,7 +208,7 @@ if (isset($_SESSION['email'])) {
     <div id="particles-js"></div>
     <div class="container">
         <h1 class='rainbow_text_animated'>Welcome to g4o2</h1>
-        <p>Still being developed</p>
+        <p>Still in development</p>
         <p>Time is being displayed in GMT + 0 / UTC + 0 time zone</p>
         <?php
         if (!isset($_SESSION['email'])) {
