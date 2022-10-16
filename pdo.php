@@ -3,7 +3,7 @@
     $PORT = 3306;
     $DB_NAME = 'g4o2_chat';
     $DB_USER = 'maxhu787';
-    $DB_PASSWORD = 'aS77785/';
+    $DB_PASSWORD = getenv('DB_PASSWORD');
     $pdo = new PDO(
         "mysql:host=$HOST;port=$PORT;dbname=$DB_NAME", $DB_USER, $DB_PASSWORD
     );
