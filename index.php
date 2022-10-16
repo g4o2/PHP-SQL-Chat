@@ -393,6 +393,6 @@ if (isset($_SESSION['email'])) {
         <h4>Added console message stuff <code>2022/10/8</code></h4>
         <h4>New website message styling <code>2022/10/8</code></h4>
         <h4>Index page update <code>2022/10/9</code></h4>
-        <p style="color: rgb(153, 157, 162)">Copyright © 2022 g4o2. All Rights Reserved.</p>
+        <p style="color: rgb(153, 157, 162)">Copyright © <?=date("Y")?> g4o2. All Rights Reserved.</p>
     </div>
 </body>
