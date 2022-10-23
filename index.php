@@ -118,27 +118,6 @@ if (isset($_SESSION['email'])) {
             overflow: auto;
         }
 
-        #announcements::-webkit-scrollbar-track {
-            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-            background-color: #F5F5F5;
-        }
-
-        #announcements::-webkit-scrollbar {
-            width: 10px;
-            background-color: #F5F5F5;
-        }
-
-        #announcements::-webkit-scrollbar-thumb {
-            background-color: #F90;
-            background-image: -webkit-linear-gradient(45deg,
-                    rgba(255, 255, 255, .2) 25%,
-                    transparent 25%,
-                    transparent 50%,
-                    rgba(255, 255, 255, .2) 50%,
-                    rgba(255, 255, 255, .2) 75%,
-                    transparent 75%,
-                    transparent)
-        }
 
         table {
             border-radius: 8px;
