@@ -2,7 +2,7 @@
 ## Discontinued
 I have decided to discontinue the development of this chat for now, but expect updates in the future.
 
-Fell free to clone this repository and test stuff out.
+Fell free to clone this repository and test stuff out. 👽  
 
 # v1.0.0
 
