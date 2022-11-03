@@ -374,6 +374,7 @@ if (isset($_SESSION['email'])) {
         <h4>Index page update <code>2022/10/9</code></h4>
         <h4><a href="https://github.com/g4o2-chat/PHP-SQL-Chat/releases/tag/1.0.0" target="_blank">v1.0.0</a> out now <code>2022/10/16</code></h4>
         <h4>Database migration: we have switched our database host to <a href="https://www.freemysqlhosting.net">freemysqlhosting.net</a> <code>2022/11/3</code></h4>
+        <h4>You can now <a href="create-account.php">create accounts</a> <code>2022/11/3</code></h4>
         <p style="color: rgb(153, 157, 162)">Copyright © <?= date("Y") ?> g4o2. All Rights Reserved.</p>
     </div>
 </body>
