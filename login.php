@@ -65,8 +65,12 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
         <p style="text-align:center;">uppercase and lowercase matters</p>
         <?php
         if (isset($_SESSION["error"])) {
-            echo ('<p style="color: red;">' . $_SESSION["error"]);
+            echo ('<p style="color: red;">' . htmlentities($_SESSION["error"]) . "</p>");
             unset($_SESSION["error"]);
+        }
+        if (isset($_SESSION["success"])) {
+            echo ('<p style="color: green">' . htmlentities($_SESSION["success"]) . "</p>");
+            unset($_SESSION["success"]);
         }
         ?>
         <form method="post">
@@ -77,6 +81,9 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
             <div class="user-box">
                 <input class="input" type="password" name="pass" id="id_1723" required>
                 <label for='pass'>Password</label>
+            </div>
+            <div style="float:left;">
+                <a class="btn" style='position:absolute;' href="create-account.php">Create account</a>
             </div>
             <div style="float:right;">
                 <input id="submit" class="btn" type="submit" onclick="return doValidate();" value="Log In">

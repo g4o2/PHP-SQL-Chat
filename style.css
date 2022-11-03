@@ -223,6 +223,9 @@ input {
     border-radius: 10px;
     padding: 10px;
 }
+.popup-msg-long {
+    width: auto !important;
+}
 
 .popup-msg::before {
     content: '';
