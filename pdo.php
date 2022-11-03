@@ -2,10 +2,10 @@
 ob_start();
 
 
-$HOST = '85.10.205.173';
+$HOST = 'sql12.freemysqlhosting.net';
 $PORT = 3306;
-$DB_NAME = 'g4o2_chat';
-$DB_USER = 'maxhu787';
+$DB_NAME = 'sql12537346';
+$DB_USER = 'sql12537346';
 $DB_PASSWORD = getenv('DB_PASSWORD');
 $pdo = new PDO(
     "mysql:host=$HOST;port=$PORT;dbname=$DB_NAME", $DB_USER, $DB_PASSWORD
