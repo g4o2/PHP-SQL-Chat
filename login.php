@@ -34,21 +34,16 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
     if ($row !== false) {
-        error_log("Login success " . $_POST['email'] . " " . $ip . " (" . date(DATE_RFC2822) . ")\n", 3, "./logs.log");
+        error_log("Login success " . $_POST['email'] . " " . $ip . " (" . date(DATE_RFC2822) . ")\n", 3, "./logs/logs.log");
         $_SESSION["user_id"] = $row["user_id"];
         $_SESSION["name"] = $row["name"];
         $_SESSION['email'] = $row['email'];
         $_SESSION["success"] = "Logged in.";
         header("Location: $url/index.php");
-        /*if (filter_var($ip, FILTER_VALIDATE_IP)) {
-            die();
-        } else {
-            die();
-        }*/
         die();
     } else {
         $_SESSION["error"] = "Incorrect email or password";
-        error_log("Login fail " . $_POST['email'] . " " . $check . " " . $ip . " (" . date(DATE_RFC2822) . ")\n", 3, "./logs.log");
+        error_log("Login fail " . $_POST['email'] . " " . $check . " " . $ip . " (" . date(DATE_RFC2822) . ")\n", 3, "./logs/logs.log");
         header("Location: $url/login.php");
         die();
     }
