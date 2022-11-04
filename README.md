@@ -14,7 +14,7 @@ Fell free to clone this repository and test stuff out. 👽
 - User chat room
 - Working login system
 
-Mysql database hosted with <a href="https://www.db4free.net">db4free.net</a>
+Mysql database hosted with <a href="https://www.freemysqlhosting.net">freemysqlhosting.net/</a>
 Page hosted on <a href="https://php-sql-chat.maxhu787.repl.co/index.php">repl</a>
 
 <img width="960" alt="g4o2-chat-v1 0 0" src="https://user-images.githubusercontent.com/103299803/196030342-1b944181-2ba5-4c1b-b762-c6e6827cc5cd.PNG">
