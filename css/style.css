@@ -251,7 +251,7 @@ input {
 .popup-msg {
     position: fixed;
     text-align: center;
-    top: 20px;
+    top: 100px;
     left: 50%;
 }
 

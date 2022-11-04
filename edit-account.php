@@ -25,7 +25,6 @@ if (isset($_SESSION["email"])) {
     $statement->execute(array(':usr' => $_SESSION['user_id']));
     $response = $statement->fetch();
 }
-
 if (isset($_POST["submit"])) {
     if (!file_exists($_FILES['fileToUpload']['tmp_name']) || !is_uploaded_file($_FILES['fileToUpload']['tmp_name'])) {
         $stmta = $pdo->prepare("SELECT pfp FROM account WHERE name=?");
@@ -50,35 +49,44 @@ if (isset($_POST["submit"])) {
         $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
     }
     if ($check !== false) {
-        if (isset($_POST['password'])) {
-            $salt = 'XyZzy12*_';
-            $newPassword = $_POST['password'];
-            $hash = hash("md5", $salt . $newPassword);
-        }
-        if ($_POST["show_email"] == "on") {
-            $show_email = "True";
-        } else {
-            $show_email = "False";
-        }
+        $statement = $pdo->prepare("SELECT user_id FROM account where email = :em");
+        $statement->execute(array(':em' => $_POST['email']));
+        $checkEmail = $statement->fetch();
 
-        $sql = "UPDATE account SET pfp = :pfp, 
+        if ($checkEmail['user_id'] == $_SESSION['user_id'] || $checkEmail['user_id'] == "") {
+            if (isset($_POST['password'])) {
+                $salt = 'XyZzy12*_';
+                $newPassword = $_POST['password'];
+                $hash = hash("md5", $salt . $newPassword);
+            }
+            if ($_POST["show_email"] == "on") {
+                $show_email = "True";
+            } else {
+                $show_email = "False";
+            }
+
+            $sql = "UPDATE account SET pfp = :pfp, 
         name = :newName,
         email = :email,
         password = :password,
         about = :about,
         show_email = :showEmail
-        WHERE name = :name";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute(array(
-            ':pfp' => $base64,
-            ':name' => $_SESSION['name'],
-            ':newName' => $_POST['name'],
-            ':email' => $_POST['email'],
-            ':password' => $hash,
-            ':about' => $_POST['about'],
-            ':showEmail' => $show_email
-        ));
-        $_SESSION['success'] = 'Account details updated.';
+        WHERE user_id = :usrid";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(array(
+                ':pfp' => $base64,
+                ':usrid' => $_SESSION['user_id'],
+                ':newName' => $_POST['name'],
+                ':email' => $_POST['email'],
+                ':password' => $hash,
+                ':about' => $_POST['about'],
+                ':showEmail' => $show_email
+            ));
+            $_SESSION['success'] = 'Account details updated.';
+        } else {
+            $_SESSION['error'] = 'Email already exists';
+            header("Location: ./edit-account.php");
+        }
     } else {
         $_SESSION['error'] = "File is not an image.";
         $uploadOk = 0;
@@ -92,6 +100,13 @@ if (isset($_POST["submit"])) {
     <link rel="stylesheet" href="./css/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="./css/edit-account.css?v=<?php echo time(); ?>">
 </head>
+<?php
+if (isset($_SESSION["error"])) {
+    echo ('<p class="error popup-msg popup-msg-long">' . htmlentities($_SESSION["error"]) . "</p>");
+    unset($_SESSION["error"]);
+    echo "";
+}
+?>
 
 <div class="login-box">
     <form id="form" action="edit-account.php" method="post" enctype="multipart/form-data">
