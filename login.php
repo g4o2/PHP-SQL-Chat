@@ -45,6 +45,7 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
         } else {
             die();
         }*/
+        die();
     } else {
         $_SESSION["error"] = "Incorrect email or password";
         error_log("Login fail " . $_POST['email'] . " " . $check . " " . $ip . " (" . date(DATE_RFC2822) . ")\n", 3, "./logs.log");
