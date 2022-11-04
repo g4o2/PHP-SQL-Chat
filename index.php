@@ -19,7 +19,6 @@ if (isset($_SESSION['email'])) {
     $statement->execute(array(':usr' => $_SESSION['user_id']));
     $response = $statement->fetch();
 
-
     if ($response != null) {
         $sql = "UPDATE user_status_log SET account=?, last_active_date_time=? WHERE user_id=?";
         $stmt = $pdo->prepare($sql);
@@ -51,18 +50,37 @@ if (isset($_SESSION['email'])) {
     <link rel="stylesheet" href="./css/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="./css/index.css?=<?php echo time(); ?>">
 </head>
+<script>/*
+    setInterval(function() {
+        location.reload(true);
+    }, 5000);*/
+</script>
 
 <body>
+    <header class="navbar-header">
+        <div class="container">
+            <div class="logo-container">
+                <a class="logo-header" href="#">
+                    <img class="logo" alt="logo" src="./favicon.ico">
+                </a>
+            </div>
+            <nav>
+                <ul id="main-nav">
+                    <li><a href="#">Test</a></li>
+                    <li><a href="#">Test</a></li>
+                    <li><a href="#">Test</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <div id="particles-js"></div>
     <div class="container">
         <h1 class='rainbow_text_animated'>Welcome to g4o2</h1>
         <p>Still in development</p>
-        <p>Time is being displayed in GMT + 0 / UTC + 0 time zone</p>
         <?php
         if (!isset($_SESSION['email'])) {
             echo '<h4><a style="text-decoration: underline" href="login.php">Please log in</a></h4>';
-            echo '<p>Attempt to <a href="chat.php">chat</a> without logging in</p>';
             echo '<a style="user-select: none;" class="pfp-link" href="https://github.com/maxhu787" target="_blank"><img style="animation-name: g4o2-breath; animation-iteration-count: infinite; animation-duration: 2.5s; position: fixed; height: 50px; width: 50px; border-radius: 120px; top: 20px; right: 20px;" src="./g4o2.jpeg"></a>';
         }
         if (isset($_SESSION["success"])) {
