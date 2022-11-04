@@ -11,6 +11,14 @@ if (!isset($_SESSION["email"])) {
     header("refresh:3;url=index.php");
     die();
 }
+if ($_SESSION['email'] == 'guest@guest.com') {
+    echo "<p class='die-msg'>LOGGED IN WITH GUEST ACCOUNT</p>";
+    echo '<link rel="stylesheet" href="./style.css?v=<?php echo time(); ?>">';
+    echo "<br />";
+    echo "<p class='die-msg'>Redirecting in 3 seconds</p>";
+    header("refresh:3;url=index.php");
+    die();
+}
 if (isset($_SESSION["email"])) {
     $statement = $pdo->prepare("SELECT * FROM account where user_Id = :usr");
     $statement->execute(array(':usr' => $_SESSION['user_id']));
