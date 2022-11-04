@@ -26,15 +26,16 @@ if (isset($_POST['logout'])) {
 if (isset($_POST['message'])) {
   $stmta = $pdo->prepare(
     'INSERT INTO chatlog
-  (message, message_date, account)
-  VALUES (:msg, :msgd, :acc)'
+  (message, message_date, account, user_id)
+  VALUES (:msg, :msgd, :acc, :usrid)'
   );
 
   $stmta->execute(
     array(
       ':msg' => $_POST['message'],
       ':msgd' => date(DATE_RFC2822),
-      ':acc' => $_SESSION['name']
+      ':acc' => $_SESSION['name'],
+      ':usrid' => $_SESSION['user_id']
     )
   );
   $stmt = $pdo->query(
@@ -267,7 +268,7 @@ if (isset($_POST['message'])) {
       $_SESSION['name'] = $test['name'];
       $_SESSION['email'] = $test['email'];
     }
-    $pfp = "<a class='pfp-link' href='./profile.php?user={$pfptemp['user_id']}'><img class='profile-image' style='border-radius: 100px;height: 60px;width:60px;'' src='$pfpsrc'></a>";
+    $pfp = "<a class='pfp-link' href='./profile.php?user={$pfptemp[0]['user_id']}'><img class='profile-image' style='border-radius: 100px;height: 60px;width:60px;'' src='$pfpsrc'></a>";
     $main = "<p style='margin-top: 20px;font-size: 20px;font-family: monospace;'>{$_SESSION['name']}</p><p style='font-family: monospace;'>{$_SESSION['email']}</p>";
     $actions = '<a href="edit-account.php">Edit Account</a> | <a href="logout.php">Logout</a>';
     echo "<div style='border-radius: 12px;' id='profile'><button id='close-btn' onclick='closeProfile()' style='border:none;position:absolute;top:0;left:0;font-size: 18px;padding:5px 12px 5px 12px;'>&times;</button>{$pfp}{$main}{$actions}</div>";
