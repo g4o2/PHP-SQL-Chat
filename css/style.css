@@ -344,20 +344,20 @@ input[type=submit] {
 
 
 /*---------------navbar----------------*/
-.container {
+.navbar-container {
     width: 80%;
     margin: 0 auto;
 }
-.container a {
+.navbar-container a {
     text-decoration: none;
 }
 
 .navbar-header {
-    z-index: 999;
+    z-index: 2;
     background: #ffa500;
     position: fixed;
     width: 101%;
-    margin-top: -10px;
+    margin-top: -90px;
     margin-left: -10px;
     transition: all .3s;
     height: 65px;
@@ -374,8 +374,8 @@ input[type=submit] {
     width: 54px;
     border-radius: 8px;
     float: left;
-    margin-left: 0;
-    margin-top: -10px;
+    margin-left: -40px;
+    margin-top: 6px;
     user-select: none;
     transition: all .1s ease-out;
 }
@@ -386,15 +386,35 @@ input[type=submit] {
 }
 
 .logo:active {
-    margin-top: 8px;
+    margin-top: 12px;
+    box-shadow: #D6D6E7 0 3px 7px inset;
+}
+
+.user-logo {
+    height: 55px;
+    width: 54px;
+    border-radius: 8px;
+    float: right;
+    margin-left: -40px;
+    margin-top: 6px;
+    user-select: none;
+    transition: all .1s ease-out;
+}
+
+.user-logo:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
+    transform: translateY(-3.5px);
+}
+
+.user-logo:active {
+    margin-top: 12px;
     box-shadow: #D6D6E7 0 3px 7px inset;
 }
 
 nav {
     z-index: 999;
     float: right;
-    text-transform: uppercase;
-    margin-top: -10px;
+    text-transform: uppercase; 
 }
 
 nav ul {

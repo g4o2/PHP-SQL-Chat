@@ -50,7 +50,8 @@ if (isset($_SESSION['email'])) {
     <link rel="stylesheet" href="./css/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="./css/index.css?=<?php echo time(); ?>">
 </head>
-<script>/*
+<script>
+    /*
     setInterval(function() {
         location.reload(true);
     }, 5000);*/
@@ -58,14 +59,19 @@ if (isset($_SESSION['email'])) {
 
 <body>
     <header class="navbar-header">
-        <div class="container">
-            <div class="logo-container">
-                <a class="logo-header" href="#">
+        <div class="navbar-container">
+            <div>
+                <a href="./index.php">
                     <img class="logo" alt="logo" src="./favicon.ico">
                 </a>
             </div>
+            <div>
+                <a href="./index.php">
+                    <img class="user-logo" alt="user-logo" src="./g4o2.jpeg">
+                </a>
+            </div>
             <nav>
-                <ul id="main-nav">
+                <ul>
                     <li><a href="#">Test</a></li>
                     <li><a href="#">Test</a></li>
                     <li><a href="#">Test</a></li>
