@@ -10,7 +10,7 @@ if(!isset($_GET['user'])) {
 }
 $pfpsrc = './default-pfp.png';
 
-$stmt = $pdo->prepare("SELECT * FROM account WHERE name=?");
+$stmt = $pdo->prepare("SELECT * FROM account WHERE user_id=?");
 $stmt->execute([$_GET['user']]);
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

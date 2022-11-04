@@ -141,7 +141,7 @@ if (isset($_SESSION['email'])) {
                     $pfpsrc = $user['pfp'];
                 }
 
-                $pfp = "<a class='pfp-link' href='./profile.php?user={$user['name']}'><img style='margin-left: 10px;' class='profile-img' src='$pfpsrc'></a>";
+                $pfp = "<a class='pfp-link' href='./profile.php?user={$user['user_id']}'><img style='margin-left: 10px;' class='profile-img' src='$pfpsrc'></a>";
 
                 $statement = $pdo->prepare("SELECT * FROM user_status_log where user_Id = :usr");
                 $statement->execute(array(':usr' => $user['user_id']));
@@ -181,7 +181,7 @@ if (isset($_SESSION['email'])) {
                 echo ($user['user_id']);
                 echo $pfp;
                 echo ("</td><td>");
-                echo "<a href='./profile.php?user={$user['name']}' >" . $user['name'] . "</a>";
+                echo "<a href='./profile.php?user={$user['user_id']}' >" . $user['name'] . "</a>";
                 echo "<td>";
                 if ($user['show_email'] === "False") {
                     echo "Hidden";
@@ -218,9 +218,9 @@ if (isset($_SESSION['email'])) {
             $_SESSION['email'] = $test['email'];
         }
 
-        $pfp = "<a class='pfp-link' href='./profile.php?user={$test['name']}'><img class='profile-img-large' src='$pfpsrc'></a>";
+        $pfp = "<a class='pfp-link' href='./profile.php?user={$test['user_id']}'><img class='profile-img-large' src='$pfpsrc'></a>";
         $main = "<p style='margin-top: 20px;font-size: 20px;font-family: monospace;'>{$_SESSION['name']}</p><p style='font-family: monospace;'>{$_SESSION['email']}</p>";
-        $profileLink = "<a href='./profile.php?user={$_SESSION['name']}'>Your public profile</a>";
+        $profileLink = "<a href='./profile.php?user={$_SESSION['user_id']}'>Your public profile</a>";
         $actions = '<a href="edit-account.php">Edit Account</a> | <a href="logout.php">Logout</a>';
         echo "<div style='border-radius: 12px;' id='profile'><button id='close-btn' onclick='closeProfile()' style='background-color: rgb(71, 71, 71);border:none;position:absolute;top:0;left:0;font-size: 18px;padding:5px 12px 5px 12px;'>&times;</button>{$pfp}{$main}{$actions}<br />{$profileLink}</div>";
         echo "<button id='close-btn-two' onclick='openProfile()' style='background-color: rgb(71, 71, 71);border:none;position:fixed;top:10px;right:10px;font-size: 18px;padding:5px 12px 5px 12px;opacity: 0;'>&#9776;</button>";
