@@ -253,6 +253,7 @@ if (isset($_SESSION['email'])) {
         <h4>Database migration: we have switched our database host to <a href="https://www.freemysqlhosting.net">freemysqlhosting.net</a> <code>2022/11/3</code></h4>
         <h4>You can now <a href="create-account.php">create accounts</a> <code>2022/11/3</code></h4>
         <h4>New features added include <span class='announcement-highlight'>ip loggin on login fail</span>, and <span class='announcement-highlight'>guest accounts</span> <code>2022/11/4</code></h4>
+        <h4>Several exploits fixed <code>2022/11/4</code></h4>
         <p style="color: rgb(153, 157, 162)">Copyright © <?= date("Y") ?> g4o2. All Rights Reserved.</p>
     </div>
 </body>
