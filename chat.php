@@ -119,7 +119,7 @@ if (isset($_POST['message'])) {
             }
             $msg_parent_id = $row['message_id'] . "parent";
             $info = "<p class='stats'>{$user} ({$stamp})</p>";
-            if ($row['account'] == $_SESSION['name']) {
+            if ($row['user_id'] == $_SESSION['user_id']) {
               $editBtn = "<button class='chat-btn' onclick='handleEdit({$row['message_id']})'>Edit</button>";
             } else {
               $editBtn = "";
