@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&family=Montserrat:wght@300&family=Orbitron&family=Work+Sans:wght@300&display=swap');
+
+body {
+    padding-bottom: 200px;
+}
+
+.container {
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+#profile {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    background-color: rgba(0, 0, 0, .6);
+    padding: 40px;
+    text-align: center;
+    transition: opacity .3s ease-in;
+}
+
+#close-btn {
+    background-color: rgba(255, 165, 0, .3) !important;
+}
+
+#close-btn-two {
+    background-color: rgba(255, 165, 0, .3) !important;
+}
+
+#close-btn:hover {
+    background-color: transparent !important;
+    transition: all .1s ease-in !important;
+}
+
+#close-btn-two:hover {
+    background-color: transparent !important;
+    transition: all .1s ease-in !important;
+}
+
+.btn {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: #ffa500;
+    background-color: rgba(41, 41, 41, 1);
+    padding: 8px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .15s ease-in;
+}
+
+.btn:hover {
+    color: #fff;
+}
+
+.btn:active {
+    background-color: transparent;
+}
+
+#announcements {
+    height: 20vh;
+    bottom: 0;
+    width: 99vw;
+    position: fixed;
+    border-radius: 10px;
+    padding: 20px 0px 20px 30px;
+    background-color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    overflow: auto;
+}
+.announcement-highlight {
+    font-family: monospace;
+    color: rgb(0, 255, 128);
+    font-size: .8em;
+}
+
+table {
+    border-radius: 8px;
+    background-color: rgba(41, 41, 41, .7);
+}
+
+table p {
+    margin: 10px;
+}
+
+th {
+    border: solid 2px orange;
+    padding: 20px;
+}
+
+td {
+    padding: 5px;
+    color: #ffa500;
+}
+
+.chat-btn {
+    display: inline-block;
+    font-family: orbitron;
+    font-size: 25px;
+    color: #ffa500;
+    padding: 8px 8px 1px 8px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, .8);
+    transition: color .2s ease-in-out;
+}
+
+.chat-btn:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+@keyframes g4o2-breath {
+    0% {
+        -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+
+    25% {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+
+    60% {
+        -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+
+    100% {
+        -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+}

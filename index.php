@@ -48,138 +48,8 @@ if (isset($_SESSION['email'])) {
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css?v=<?php echo time(); ?>">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&family=Montserrat:wght@300&family=Orbitron&family=Work+Sans:wght@300&display=swap');
-
-        .container {
-            margin-left: 40px;
-            margin-top: 20px;
-            margin-bottom: 230px;
-        }
-
-        #profile {
-            position: fixed;
-            right: 10px;
-            top: 10px;
-            background-color: rgba(0, 0, 0, .6);
-            padding: 40px;
-            text-align: center;
-            transition: opacity .3s ease-in;
-        }
-
-        #close-btn {
-            background-color: rgba(255, 165, 0, .3) !important;
-        }
-
-        #close-btn-two {
-            background-color: rgba(255, 165, 0, .3) !important;
-        }
-
-        #close-btn:hover {
-            background-color: transparent !important;
-            transition: all .1s ease-in !important;
-        }
-
-        #close-btn-two:hover {
-            background-color: transparent !important;
-            transition: all .1s ease-in !important;
-        }
-
-        .btn {
-            font-family: Arial, Helvetica, sans-serif;
-            text-decoration: none;
-            color: #ffa500;
-            background-color: rgba(41, 41, 41, 1);
-            padding: 8px;
-            border: none;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all .15s ease-in;
-        }
-
-        .btn:hover {
-            color: #fff;
-        }
-
-        .btn:active {
-            background-color: transparent;
-        }
-
-        #announcements {
-            height: 20vh;
-            bottom: 0;
-            width: 99vw;
-            position: fixed;
-            border-radius: 10px;
-            padding: 20px 0px 20px 30px;
-            background-color: rgba(0, 0, 0, 0.6);
-            text-align: center;
-            overflow: auto;
-        }
-
-
-        table {
-            border-radius: 8px;
-            background-color: rgba(41, 41, 41, .7);
-        }
-
-        table p {
-            margin: 10px;
-        }
-
-        th {
-            border: solid 2px orange;
-            padding: 20px;
-        }
-
-        td {
-            padding: 5px;
-            color: #ffa500;
-        }
-
-        .chat-btn {
-            display: inline-block;
-            font-family: orbitron;
-            font-size: 25px;
-            color: #ffa500;
-            padding: 8px 8px 1px 8px;
-            border-radius: 8px;
-            background-color: rgba(0, 0, 0, .8);
-            transition: color .2s ease-in-out;
-        }
-
-        .chat-btn:hover {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        @keyframes g4o2-breath {
-            0% {
-                -webkit-transform: scale(0.9);
-                -ms-transform: scale(0.9);
-                transform: scale(0.9);
-            }
-
-            25% {
-                -webkit-transform: scale(1);
-                -ms-transform: scale(1);
-                transform: scale(1);
-            }
-
-            60% {
-                -webkit-transform: scale(0.9);
-                -ms-transform: scale(0.9);
-                transform: scale(0.9);
-            }
-
-            100% {
-                -webkit-transform: scale(0.9);
-                -ms-transform: scale(0.9);
-                transform: scale(0.9);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="./css/style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="./css/index.css?=<?php echo time(); ?>">
 </head>
 
 <body>
@@ -234,7 +104,13 @@ if (isset($_SESSION['email'])) {
         if (isset($_SESSION['email'])) {
             echo '<table border="1">
             <thead>
-            <tr><th>user_id</th><th>Profile</th><th>Email</th><th>Password</th><th>Last online GMT + 0 (under development)</th></tr></thead>';
+                <tr>
+                    <th>user_id</th>
+                    <th>Profile</th>
+                    <th>Email</th>
+                    <th>Last online</th>
+                </tr>
+            </thead>';
             foreach ($users as $user) {
                 $pfpsrc = './default-pfp.png';
                 if ($user['pfp'] != null) {
@@ -289,8 +165,6 @@ if (isset($_SESSION['email'])) {
                     echo ($user['email']);
                 }
                 echo ("</td><td>");
-                echo ($user['password']);
-                echo ("</td><td>");
                 echo $diff;
                 echo ("</td></tr>\n");
                 echo ("</td></tr>\n");
@@ -298,6 +172,11 @@ if (isset($_SESSION['email'])) {
             echo "</table>";
         }
         ?>
+        <div style='margin-top: 20px;'>
+            <a href="https://github.com/g4o2-chat/PHP-SQL-Chat">
+                <img src="https://github-readme-stats.vercel.app/api/pin/?username=g4o2-chat&repo=PHP-SQL-Chat&theme=react&bg_color=0D1117" />
+            </a>
+        </div>
     </div>
     <?php
     if (isset($_SESSION['email'])) {
@@ -320,38 +199,12 @@ if (isset($_SESSION['email'])) {
         $profileLink = "<a href='./profile.php?user={$_SESSION['name']}'>Your public profile</a>";
         $actions = '<a href="edit-account.php">Edit Account</a> | <a href="logout.php">Logout</a>';
         echo "<div style='border-radius: 12px;' id='profile'><button id='close-btn' onclick='closeProfile()' style='background-color: rgb(71, 71, 71);border:none;position:absolute;top:0;left:0;font-size: 18px;padding:5px 12px 5px 12px;'>&times;</button>{$pfp}{$main}{$actions}<br />{$profileLink}</div>";
-        echo "<button id='close-btn-two' onclick='openProfile()' style='background-color: rgb(71, 71, 71);border:none;position:absolute;top:10px;right:10px;font-size: 18px;padding:5px 12px 5px 12px;opacity: 0;'>&#9776;</button>";
+        echo "<button id='close-btn-two' onclick='openProfile()' style='background-color: rgb(71, 71, 71);border:none;position:fixed;top:10px;right:10px;font-size: 18px;padding:5px 12px 5px 12px;opacity: 0;'>&#9776;</button>";
     }
     ?>
     <script type="text/javascript" src="./js/jquery-3.6.0.js"></script>
     <script src="./particles/particles.js"></script>
-    <script>
-        particlesJS.load('particles-js', './particles/particles.json', function() {
-            console.log('callback - particles.js config loaded');
-        });
-        $(document).ready(function() {
-
-            console.log('%c Why are you here in the console?', 'background: #000; color: #ffa500');
-            console.log('%c Dont try anything sus', 'background: #000; color: #ffa500');
-            console.log("%c                                      \n    .->                .->            \n ,---(`-')   .---.(`-')----.  .----.  \n'  .-(OO )  / .  |( OO).-.  '\\_,-.  | \n|  | .-, \\ / /|  |( _) | |  |   .' .' \n|  | '.(_// '-'  ||\\|  |)|  | .'  /_  \n|  '-'  | `---|  |' '  '-'  '|      | \n `-----'      `--'   `-----' `------' ", 'background: #000; color: #ffa500')
-
-            setTimeout(function() {
-                document.querySelector('.popup-msg').style.display = "none";
-            }, 2200);
-        })
-
-        function closeProfile() {
-            document.getElementById("profile").style.opacity = '0';
-            document.getElementById("close-btn").style.opacity = '0';
-            document.getElementById("close-btn-two").style.opacity = '1';
-        }
-
-        function openProfile() {
-            document.getElementById("profile").style.opacity = '1';
-            document.getElementById("close-btn").style.opacity = '1';
-            document.getElementById("close-btn-two").style.opacity = '0';
-        }
-    </script>
+    <script src="./js/index.js"></script>
     <div id="announcements">
         <h3 style="font-family: orbitron;">Announcements</h3><br />
         <h4>Site creation &#127881; <code>2022/8/23</code></h4>
@@ -361,7 +214,7 @@ if (isset($_SESSION['email'])) {
         <h4>Profile system working and still being worked on for new look <code>2022/8/28</code></h4>
         <h4>New website theme/style & added user 👤 profile link table on index page <code>2022/9/11</code></h4>
         <h4>Show / Hide email 📧 feature implemented check it out now in the <a href="./edit-account.php">account settings</a> <code>2022/9/17</code></h4>
-        <h4>You can now edit messages! <code>2022/9/18</code></h4>
+        <h4>You can now <span class='announcement-highlight'>edit messages</span>! <code>2022/9/18</code></h4>
         <h4>You can now edit / change your passwords 🔑 via <a href="./edit-account.php">account settings</a> <code>2022/9/23</code></h4>
         <h4>Chat now only runs a query to get msgs when a new msg is sent <code>2022/9/24</code></h4>
         <h4>The broken message editing is now fixed 😀 <code>2022/9/24</code></h4>
@@ -375,6 +228,7 @@ if (isset($_SESSION['email'])) {
         <h4><a href="https://github.com/g4o2-chat/PHP-SQL-Chat/releases/tag/1.0.0" target="_blank">v1.0.0</a> out now <code>2022/10/16</code></h4>
         <h4>Database migration: we have switched our database host to <a href="https://www.freemysqlhosting.net">freemysqlhosting.net</a> <code>2022/11/3</code></h4>
         <h4>You can now <a href="create-account.php">create accounts</a> <code>2022/11/3</code></h4>
+        <h4>New features added include <span class='announcement-highlight'>ip loggin on login fail</span>, and <span class='announcement-highlight'>guest accounts</span> <code>2022/11/4</code></h4>
         <p style="color: rgb(153, 157, 162)">Copyright © <?= date("Y") ?> g4o2. All Rights Reserved.</p>
     </div>
 </body>

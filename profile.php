@@ -3,14 +3,6 @@ session_start();
 require_once "pdo.php";
 date_default_timezone_set('UTC');
 
-/*if (!isset($_SESSION["email"])) {
-    echo "PLEASE LOGIN";
-    echo "<br />";
-    echo "Redirecting in 3 seconds";
-    header("refresh:3;url=index.php");
-    die();
-}
-*/
 if(!isset($_GET['user'])) {
     echo '<link rel="stylesheet" href="./style.css?v=<?php echo time(); ?>">';
     echo "<p class='die-msg'>Missing user parameter</p>";

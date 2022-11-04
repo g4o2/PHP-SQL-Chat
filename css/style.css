@@ -9,6 +9,7 @@ body {
     color: #fff;
     /*overflow-x: hidden;*/
     background: linear-gradient(#000000, #5e3d00);
+    background-attachment: fixed;
 }
 html {
     height: 100%;

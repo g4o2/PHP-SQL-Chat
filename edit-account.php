@@ -89,8 +89,7 @@ if (isset($_POST["submit"])) {
 
 <head>
     <title>Account</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="./css/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="./css/edit-account.css?v=<?php echo time(); ?>">
 </head>
 

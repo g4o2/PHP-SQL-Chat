@@ -12,7 +12,7 @@ $pdo = new PDO(
 );
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-/*S
+/*
 $HOST = 'localhost';
 $PORT = 3306;
 $DB_NAME = 'misc';
