@@ -12,7 +12,8 @@ if (!isset($_SESSION["email"])) {
     die();
 }
 if ($_SESSION['email'] == 'guest@guest.com') {
-    echo "<p class='die-msg'>LOGGED IN WITH GUEST ACCOUNT</p>";
+    echo "<p class='die-msg'>LOGGED IN AS GUEST ACCOUNT</p>";
+    echo "<p class='die-msg'>EDIT ACCOUNT DETAILS NOT ALLOWED</p>";
     echo '<link rel="stylesheet" href="./style.css?v=<?php echo time(); ?>">';
     echo "<br />";
     echo "<p class='die-msg'>Redirecting in 3 seconds</p>";
