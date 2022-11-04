@@ -9,6 +9,7 @@ $(document).ready(function() {
 
     setTimeout(function() {
         document.querySelector('.popup-msg').style.display = "none";
+        document.querySelector('.error').style.display = "none";
     }, 2200);
 })
 

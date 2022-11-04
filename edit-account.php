@@ -25,6 +25,7 @@ if (isset($_SESSION["email"])) {
     $statement->execute(array(':usr' => $_SESSION['user_id']));
     $response = $statement->fetch();
 }
+
 if (isset($_POST["submit"])) {
     if (!file_exists($_FILES['fileToUpload']['tmp_name']) || !is_uploaded_file($_FILES['fileToUpload']['tmp_name'])) {
         $stmta = $pdo->prepare("SELECT pfp FROM account WHERE name=?");
@@ -54,7 +55,13 @@ if (isset($_POST["submit"])) {
         $checkEmail = $statement->fetch();
 
         if ($checkEmail['user_id'] == $_SESSION['user_id'] || $checkEmail['user_id'] == "") {
-            if (isset($_POST['password'])) {
+            $emailCheck = true;
+        } else {
+            $emailCheck = false; 
+        }
+
+        if($emailCheck != false) {
+        if (isset($_POST['password'])) {
                 $salt = 'XyZzy12*_';
                 $newPassword = $_POST['password'];
                 $hash = hash("md5", $salt . $newPassword);
@@ -66,12 +73,12 @@ if (isset($_POST["submit"])) {
             }
 
             $sql = "UPDATE account SET pfp = :pfp, 
-        name = :newName,
-        email = :email,
-        password = :password,
-        about = :about,
-        show_email = :showEmail
-        WHERE user_id = :usrid";
+            name = :newName,
+            email = :email,
+            password = :password,
+            about = :about,
+            show_email = :showEmail
+            WHERE user_id = :usrid";
             $stmt = $pdo->prepare($sql);
             $stmt->execute(array(
                 ':pfp' => $base64,
@@ -84,8 +91,7 @@ if (isset($_POST["submit"])) {
             ));
             $_SESSION['success'] = 'Account details updated.';
         } else {
-            $_SESSION['error'] = 'Email already exists';
-            header("Location: ./edit-account.php");
+            $_SESSION['error'] = 'Email taken';
         }
     } else {
         $_SESSION['error'] = "File is not an image.";
@@ -100,13 +106,6 @@ if (isset($_POST["submit"])) {
     <link rel="stylesheet" href="./css/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="./css/edit-account.css?v=<?php echo time(); ?>">
 </head>
-<?php
-if (isset($_SESSION["error"])) {
-    echo ('<p class="error popup-msg popup-msg-long">' . htmlentities($_SESSION["error"]) . "</p>");
-    unset($_SESSION["error"]);
-    echo "";
-}
-?>
 
 <div class="login-box">
     <form id="form" action="edit-account.php" method="post" enctype="multipart/form-data">
