@@ -390,27 +390,99 @@ input[type=submit] {
     box-shadow: #D6D6E7 0 3px 7px inset;
 }
 
-.user-logo {
+.user-pfp {
     height: 55px;
     width: 54px;
     border-radius: 8px;
-    float: right;
-    margin-left: -40px;
-    margin-top: 6px;
     user-select: none;
     transition: all .1s ease-out;
-    display: none;
 }
 
-.user-logo:hover {
+.user-pfp:hover {
     box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
     transform: translateY(-3.5px);
 }
 
-.user-logo:active {
+.user-pfp:active {
     margin-top: 12px;
     box-shadow: #D6D6E7 0 3px 7px inset;
 }
+
+#profile {
+    border-radius: 12px;
+    z-index: 100;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    background-color: rgba(0, 0, 0, .6);
+    padding: 40px;
+    text-align: center;
+    transition: opacity .3s ease-in;
+}
+
+#profile-name {
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: monospace;
+}
+
+#profile-email {
+    font-family: monospace;
+}
+
+#close-btn {
+    background-color: rgb(71, 71, 71);
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 18px;
+    padding: 5px 12px 5px 12px;
+    z-index: 100;
+    background-color: rgba(255, 165, 0, .3) !important;
+    border-radius: 6px;
+}
+
+#close-btn:hover {
+    background-color: transparent !important;
+    transition: all .15s ease-in-out !important;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
+}
+
+#close-btn:active {
+    margin-top: 4px;
+    box-shadow: #D6D6E7 0 3px 7px inset;
+}
+
+
+
+#close-btn-two {
+    border: none;
+    position: fixed;
+    top: 0px;
+    right: 10px;
+    font-size: 18px;
+    padding: 6px;
+    display: none;
+    z-index: 100;
+    background-color: transparent;
+    border-radius: 6px;
+}
+
+#close-btn-two:hover {
+    background-color: transparent !important;
+    transition: all .15s ease-in-out !important;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
+    transform: translateY(-4px);
+    padding: 6px;
+}
+
+#close-btn-two:active {
+    margin-top: 4px;
+    padding: 6px;
+    box-shadow: #D6D6E7 0 3px 7px inset;
+}
+
 
 nav {
     z-index: 999;

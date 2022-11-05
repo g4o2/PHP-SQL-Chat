@@ -59,10 +59,10 @@ body {
 #close-btn-two {
     border: none;
     position: fixed;
-    top: 16px;
-    right: 22px;
+    top: 0px;
+    right: 10px;
     font-size: 18px;
-    padding: 5px 12px 5px 12px;
+    padding: 6px;
     display: none;
     z-index: 100;
     background-color: transparent;
@@ -73,11 +73,13 @@ body {
     background-color: transparent !important;
     transition: all .15s ease-in-out !important;
     box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
-    transform: translateY(-7px);
+    transform: translateY(-4px);
+    padding: 6px;
 }
 
 #close-btn-two:active {
-    margin-top: 8px;
+    margin-top: 4px;
+    padding: 6px;
     box-shadow: #D6D6E7 0 3px 7px inset;
 }
 
