@@ -399,6 +399,7 @@ input[type=submit] {
     margin-top: 6px;
     user-select: none;
     transition: all .1s ease-out;
+    display: none;
 }
 
 .user-logo:hover {

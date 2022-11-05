@@ -11,6 +11,7 @@ body {
 
 
 #profile {
+    z-index: 100;
     position: fixed;
     right: 10px;
     top: 10px;
@@ -21,10 +22,12 @@ body {
 }
 
 #close-btn {
+  z-index: 100;
     background-color: rgba(255, 165, 0, .3) !important;
 }
 
 #close-btn-two {
+  z-index: 100;
     background-color: rgba(255, 165, 0, .3) !important;
 }
 

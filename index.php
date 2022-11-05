@@ -87,7 +87,7 @@ if (isset($_SESSION['email'])) {
         <?php
         if (!isset($_SESSION['email'])) {
             echo '<h4><a style="text-decoration: underline" href="login.php">Please log in</a></h4>';
-            echo '<a style="user-select: none;" class="pfp-link" href="https://github.com/maxhu787" target="_blank"><img style="animation-name: g4o2-breath; animation-iteration-count: infinite; animation-duration: 2.5s; position: fixed; height: 50px; width: 50px; border-radius: 120px; top: 20px; right: 20px;" src="./g4o2.jpeg"></a>';
+            echo '<a style="user-select: none;" class="pfp-link" href="https://github.com/maxhu787" target="_blank"><img style="animation-name: g4o2-breath; animation-iteration-count: infinite; animation-duration: 2.5s; position: fixed; height: 50px; width: 50px; border-radius: 120px; top: 20px; right: 20px;z-index: 100;" src="./g4o2.jpeg"></a>';
         }
         if (isset($_SESSION["success"])) {
             echo ('<p class="success popup-msg">' . htmlentities($_SESSION["success"]) . "</p>");
