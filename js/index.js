@@ -14,13 +14,13 @@ $(document).ready(function() {
 })
 
 function closeProfile() {
-    document.getElementById("profile").style.opacity = '0';
-    document.getElementById("close-btn").style.opacity = '0';
-    document.getElementById("close-btn-two").style.opacity = '1';
+    document.getElementById("profile").style.display = 'none';
+    document.getElementById("close-btn").style.display = 'none';
+    document.getElementById("close-btn-two").style.display = 'block';
 }
 
 function openProfile() {
-    document.getElementById("profile").style.opacity = '1';
-    document.getElementById("close-btn").style.opacity = '1';
-    document.getElementById("close-btn-two").style.opacity = '0';
+    document.getElementById("profile").style.display = 'block';
+    document.getElementById("close-btn").style.display = 'block';
+    document.getElementById("close-btn-two").style.display = 'none';
 }

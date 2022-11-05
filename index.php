@@ -1,13 +1,7 @@
 <?php
 session_start();
-
 require_once "pdo.php";
-$stmt = $pdo->query("SELECT make, model, year, mileage, autos_id FROM autos ORDER BY make");
-$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 date_default_timezone_set('UTC');
-$stmtuser = $pdo->query("SELECT * FROM account");
-$users = $stmtuser->fetchAll(PDO::FETCH_ASSOC);
-
 
 if (isset($_POST['logout'])) {
     header('Location: logout.php');
@@ -15,20 +9,27 @@ if (isset($_POST['logout'])) {
 }
 
 if (isset($_SESSION['email'])) {
-    $statement = $pdo->prepare("SELECT * FROM user_status_log where user_Id = :usr");
-    $statement->execute(array(':usr' => $_SESSION['user_id']));
-    $response = $statement->fetch();
+    $stmt = $pdo->query("SELECT * FROM account");
+    $accounts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt = $pdo->prepare("SELECT * FROM account WHERE user_id=?");
+    $stmt->execute([$_SESSION['user_id']]);
+    $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt = $pdo->prepare("SELECT * FROM user_status_log where user_Id = :usr");
+    $stmt->execute(array(':usr' => $_SESSION['user_id']));
+    $user_status_log = $stmt->fetch();
+    $pfpsrc_default = './default-pfp.png';
 
-    if ($response != null) {
-        $sql = "UPDATE user_status_log SET account=?, last_active_date_time=? WHERE user_id=?";
-        $stmt = $pdo->prepare($sql);
+    if ($user[0]['pfp'] != null) {
+        $userpfp = $user[0]['pfp'];
+    } else {
+        $userpfp = $pfpsrc_default;
+    }
+
+    if ($user_status_log != null) {
+        $stmt = $pdo->prepare("UPDATE user_status_log SET account=?, last_active_date_time=? WHERE user_id=?");
         $stmt->execute([$_SESSION['name'], date(DATE_RFC2822), $_SESSION['user_id']]);
     } else {
-        $stmt = $pdo->prepare(
-            'INSERT INTO user_status_log (user_id, account, last_active_date_time)
-  VALUES (:usr, :acc, :date)'
-        );
-
+        $stmt = $pdo->prepare('INSERT INTO user_status_log (user_id, account, last_active_date_time) VALUES (:usr, :acc, :date)');
         $stmt->execute(
             array(
                 ':usr' => $_SESSION['user_id'],
@@ -43,19 +44,16 @@ if (isset($_SESSION['email'])) {
 <html>
 
 <head>
-    <title>G4o2</title>
+    <title>G4o2 Chat</title>
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="./css/index.css?=<?php echo time(); ?>">
+    <script type="text/javascript" src="./js/jquery-3.6.0.js"></script>
+    <script src="./particles/particles.js"></script>
+    <script src="./js/index.js"></script>
 </head>
-<script>
-    /*
-    setInterval(function() {
-        location.reload(true);
-    }, 5000);*/
-</script>
 
 <body>
     <header class="navbar-header">
@@ -79,16 +77,11 @@ if (isset($_SESSION['email'])) {
             </nav>
         </div>
     </header>
-
     <div id="particles-js"></div>
     <div class="container">
         <h1 class='rainbow_text_animated'>Welcome to g4o2</h1>
         <p>Still in development</p>
         <?php
-        if (!isset($_SESSION['email'])) {
-            echo '<h4><a style="text-decoration: underline" href="login.php">Please log in</a></h4>';
-            echo '<a style="user-select: none;" class="pfp-link" href="https://github.com/maxhu787" target="_blank"><img style="animation-name: g4o2-breath; animation-iteration-count: infinite; animation-duration: 2.5s; position: fixed; height: 50px; width: 50px; border-radius: 120px; top: 20px; right: 20px;z-index: 100;" src="./g4o2.jpeg"></a>';
-        }
         if (isset($_SESSION["success"])) {
             echo ('<p class="success popup-msg">' . htmlentities($_SESSION["success"]) . "</p>");
             unset($_SESSION["success"]);
@@ -99,34 +92,9 @@ if (isset($_SESSION['email'])) {
             unset($_SESSION["error"]);
             echo "";
         }
-        ?>
-        <?php
         if (isset($_SESSION['email'])) {
-            echo '<table border="1">
-            <thead>
-            <tr><th>Make</th><th>Model</th><th>Year</th><th>Mileage</th><th>Action</th></tr></thead>';
-            foreach ($rows as $row) {
-                echo "<tr><td>";
-                echo ($row['make']);
-                echo ("</td><td>");
-                echo ($row['model']);
-                echo "<td>";
-                echo ($row['year']);
-                echo ("</td><td>");
-                echo ($row['mileage']);
-                echo ("</td><td>");
-                echo ('<a href="edit.php?autos_id=' . $row['autos_id'] . '">Edit</a> / ');
-                echo ('<a href="delete.php?autos_id=' . $row['autos_id'] . '">Delete</a>');
-                echo ("</td></tr>\n");
-                echo ("</td></tr>\n");
-            }
-            echo "</table>";
-        }
-        if (isset($_SESSION['email'])) {
-            echo '<p><a href="add.php">Add New Entry</a><br></p><a class="chat-btn btn" href="chat.php"><p class="rainbow_text_animated">CHAT</p></a></p>';
-        }
-        if (isset($_SESSION['email'])) {
-            echo '<table border="1">
+            echo '<a class="chat-btn btn" href="chat.php"><p class="rainbow_text_animated">CHAT</p></a></p>
+            <table border="5">
             <thead>
                 <tr>
                     <th>user_id</th>
@@ -135,22 +103,23 @@ if (isset($_SESSION['email'])) {
                     <th>Last online</th>
                 </tr>
             </thead>';
-            foreach ($users as $user) {
-                $pfpsrc = './default-pfp.png';
-                if ($user['pfp'] != null) {
-                    $pfpsrc = $user['pfp'];
+
+            foreach ($accounts as $account) {
+                if ($account['pfp'] != null) {
+                    $pfpsrc = $account['pfp'];
+                } else {
+                    $pfpsrc = $pfpsrc_default;
                 }
 
-                $pfp = "<a class='pfp-link' href='./profile.php?user={$user['user_id']}'><img style='margin-left: 10px;' class='profile-img' src='$pfpsrc'></a>";
+                $pfp = "<a class='pfp-link' href='./profile.php?user={$account['user_id']}'><img style='margin-left: 10px;' class='profile-img' src='$pfpsrc'></a>";
 
                 $statement = $pdo->prepare("SELECT * FROM user_status_log where user_Id = :usr");
-                $statement->execute(array(':usr' => $user['user_id']));
-                $userlog = $statement->fetch();
+                $statement->execute(array(':usr' => $account['user_id']));
+                $user_status_log = $statement->fetch();
 
                 $userStatus = "Undefined";
-
-                if ($userlog != null) {
-                    $userStatus = $userlog['last_active_date_time'];
+                if ($user_status_log != null) {
+                    $userStatus = $user_status_log['last_active_date_time'];
                 }
 
 
@@ -163,11 +132,15 @@ if (isset($_SESSION['email'])) {
                     $current_date_time = new DateTime($current_date_time);
 
                     $diff = $current_date_time->diff($last_online)->format("last online %a days %h hours and %i minutes ago");
-
-
                     $exploded = explode(" ", $diff);
 
-                    if ($exploded[2] !== "0") {
+                    if ($exploded[2] == "1") {
+                        $diff = "<p style='color:#ffc200;'>Last online $exploded[2] day ago</p>";
+                    } elseif ($exploded[4] == "1") {
+                        $diff = "<p style='color:#ffc200;'>Last online $exploded[4] hour ago</p>";
+                    } elseif ($exploded[7] == "1") {
+                        $diff = "<p style='color:#ffc200;'>Last online $exploded[7] minute ago</p>";
+                    } elseif ($exploded[2] !== "0") {
                         $diff = "<p style='color:#ffc200;'>Last online $exploded[2] days ago</p>";
                     } elseif ($exploded[4] !== "0") {
                         $diff = "<p style='color:#ffc200;'>Last online $exploded[4] hours ago</p>";
@@ -178,15 +151,15 @@ if (isset($_SESSION['email'])) {
                     }
                 }
                 echo "<tr><td>";
-                echo ($user['user_id']);
+                echo ($account['user_id']);
                 echo $pfp;
                 echo ("</td><td>");
-                echo "<a href='./profile.php?user={$user['user_id']}' >" . $user['name'] . "</a>";
+                echo "<a href='./profile.php?user={$account['user_id']}' >" . $account['name'] . "</a>";
                 echo "<td>";
-                if ($user['show_email'] === "False") {
+                if ($account['show_email'] === "False") {
                     echo "Hidden";
                 } else {
-                    echo ($user['email']);
+                    echo ($account['email']);
                 }
                 echo ("</td><td>");
                 echo $diff;
@@ -194,6 +167,16 @@ if (isset($_SESSION['email'])) {
                 echo ("</td></tr>\n");
             }
             echo "</table>";
+
+            $pfp = "<a class='pfp-link' href='./profile.php?user={$_SESSION['user_id']}'><img class='profile-img-large' src='$userpfp'></a>";
+            $main = "<p id='profile-name'>{$_SESSION['name']}</p><p id='profile-email'>{$_SESSION['email']}</p>";
+            $profileLink = "<a href='./profile.php?user={$_SESSION['user_id']}'>Your public profile</a>";
+            $actions = '<a href="edit-account.php">Edit Account</a> | <a href="logout.php">Logout</a>';
+            echo "<div id='profile'><button id='close-btn' onclick='closeProfile()'>&times;</button>{$pfp}{$main}{$actions}<br />{$profileLink}</div>";
+            echo "<button id='close-btn-two' onclick='openProfile()'>&#9776;</button>";
+        } else {
+            echo '<h4><a style="text-decoration: underline" href="login.php">Please log in</a></h4>';
+            echo '<a style="user-select: none;" class="pfp-link" href="https://github.com/maxhu787" target="_blank"><img style="animation-name: g4o2-breath; animation-iteration-count: infinite; animation-duration: 2.5s; position: fixed; height: 50px; width: 50px; border-radius: 120px; top: 20px; right: 20px;z-index: 100;" src="./g4o2.jpeg"></a>';
         }
         ?>
         <div style='margin-top: 20px;'>
@@ -202,33 +185,6 @@ if (isset($_SESSION['email'])) {
             </a>
         </div>
     </div>
-    <?php
-    if (isset($_SESSION['email'])) {
-        $pfpsrc = './default-pfp.png';
-
-        $stmta = $pdo->prepare("SELECT * FROM account WHERE user_id=?");
-        $stmta->execute([$_SESSION['user_id']]);
-        $pfptemp = $stmta->fetchAll(PDO::FETCH_ASSOC);
-
-        foreach ($pfptemp as $test) {
-            if ($test['pfp'] != null) {
-                $pfpsrc = $test['pfp'];
-            }
-            $_SESSION['name'] = $test['name'];
-            $_SESSION['email'] = $test['email'];
-        }
-
-        $pfp = "<a class='pfp-link' href='./profile.php?user={$test['user_id']}'><img class='profile-img-large' src='$pfpsrc'></a>";
-        $main = "<p style='margin-top: 20px;font-size: 20px;font-family: monospace;'>{$_SESSION['name']}</p><p style='font-family: monospace;'>{$_SESSION['email']}</p>";
-        $profileLink = "<a href='./profile.php?user={$_SESSION['user_id']}'>Your public profile</a>";
-        $actions = '<a href="edit-account.php">Edit Account</a> | <a href="logout.php">Logout</a>';
-        echo "<div style='border-radius: 12px;' id='profile'><button id='close-btn' onclick='closeProfile()' style='background-color: rgb(71, 71, 71);border:none;position:absolute;top:0;left:0;font-size: 18px;padding:5px 12px 5px 12px;'>&times;</button>{$pfp}{$main}{$actions}<br />{$profileLink}</div>";
-        echo "<button id='close-btn-two' onclick='openProfile()' style='background-color: rgb(71, 71, 71);border:none;position:fixed;top:10px;right:10px;font-size: 18px;padding:5px 12px 5px 12px;opacity: 0;'>&#9776;</button>";
-    }
-    ?>
-    <script type="text/javascript" src="./js/jquery-3.6.0.js"></script>
-    <script src="./particles/particles.js"></script>
-    <script src="./js/index.js"></script>
     <div id="announcements">
         <h3 style="font-family: orbitron;">Announcements</h3><br />
         <h4>Site creation &#127881; <code>2022/8/23</code></h4>
