@@ -24,6 +24,19 @@ if (isset($_SESSION["email"])) {
     $statement = $pdo->prepare("SELECT * FROM account where user_Id = :usr");
     $statement->execute(array(':usr' => $_SESSION['user_id']));
     $response = $statement->fetch();
+    $pfpsrc_default = './default-pfp.png';
+
+    if ($response['pfp'] != null) {
+        $userpfp = $response['pfp'];
+    } else {
+        $userpfp = $pfpsrc_default;
+    }
+    $pfp = "<a class='pfp-link' href='./profile.php?user={$_SESSION['user_id']}'><img class='profile-img-large' src='$userpfp'></a>";
+    $main = "<p id='profile-name'>{$_SESSION['name']}</p><p id='profile-email'>{$_SESSION['email']}</p>";
+    $profileLink = "<a href='./profile.php?user={$_SESSION['user_id']}'>Your public profile</a>";
+    $actions = '<a href="edit-account.php">Edit Account</a> | <a href="logout.php">Logout</a>';
+    echo "<div id='profile'><button id='close-btn' onclick='closeProfile()'>&times;</button>{$pfp}{$main}{$actions}<br />{$profileLink}</div>";
+    echo "<button id='close-btn-two' onclick='openProfile()'><img class='user-pfp' alt='user-logo' src='{$userpfp}'></button>";
 }
 
 if (isset($_POST["submit"])) {
@@ -57,11 +70,11 @@ if (isset($_POST["submit"])) {
         if ($checkEmail['user_id'] == $_SESSION['user_id'] || $checkEmail['user_id'] == "") {
             $emailCheck = true;
         } else {
-            $emailCheck = false; 
+            $emailCheck = false;
         }
 
-        if($emailCheck != false) {
-        if (isset($_POST['password'])) {
+        if ($emailCheck != false) {
+            if (isset($_POST['password'])) {
                 $salt = 'XyZzy12*_';
                 $newPassword = $_POST['password'];
                 $hash = hash("md5", $salt . $newPassword);
@@ -100,12 +113,35 @@ if (isset($_POST["submit"])) {
     header("Location: ./index.php");
 }
 ?>
+<!DOCTYPE html>
+<html>
 
 <head>
     <title>Account</title>
     <link rel="stylesheet" href="./css/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="./css/edit-account.css?v=<?php echo time(); ?>">
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script src="./particles/particles.js"></script>
+    <script src="./js/index.js"></script>
 </head>
+
+<header class="navbar-header">
+    <div class="navbar-container">
+        <div>
+            <a href="./index.php">
+                <img class="logo" alt="logo" src="./favicon.ico">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Test</a></li>
+                <li><a href="#">Test</a></li>
+                <li><a href="#">Test</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<div id="particles-js"></div>
 
 <div class="login-box">
     <form id="form" action="edit-account.php" method="post" enctype="multipart/form-data">

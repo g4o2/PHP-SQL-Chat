@@ -8,6 +8,9 @@ body {
     position: fixed;
     width: 100%;
 }
+.navbar-header {
+    margin-top: -8px;
+}
 /*
 #form {
     color: #fff;

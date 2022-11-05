@@ -1,6 +1,6 @@
 body {
     color: #fff;
-    /*overflow-x: hidden;*/
+    overflow-x: hidden;
     background: linear-gradient(#000000, #5e3d00);
     background-attachment: fixed;
 }
@@ -460,7 +460,7 @@ input[type=submit] {
     border: none;
     position: fixed;
     top: 0px;
-    right: 10px;
+    right: 25px;
     font-size: 18px;
     padding: 6px;
     display: none;
@@ -472,15 +472,15 @@ input[type=submit] {
 #close-btn-two:hover {
     background-color: transparent !important;
     transition: all .15s ease-in-out !important;
-    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
+    /*box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;*/
     transform: translateY(-4px);
     padding: 6px;
 }
 
 #close-btn-two:active {
-    margin-top: 4px;
+    margin-top: 3px;
     padding: 6px;
-    box-shadow: #D6D6E7 0 3px 7px inset;
+    /*box-shadow: #D6D6E7 0 3px 7px inset;*/
 }
 
 
