@@ -426,14 +426,7 @@ nav ul {
 
 nav li {
     display: inline-block;
-    margin-left: 60px;
-    padding-top: 23px;
-    position: relative;
-}
-
-nav div {
-    display: inline-block;
-    margin-left: 60px;
+    margin-left: 70px;
     padding-top: 23px;
     position: relative;
 }

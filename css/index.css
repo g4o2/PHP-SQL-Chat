@@ -40,29 +40,45 @@ body {
     padding: 5px 12px 5px 12px;
     z-index: 100;
     background-color: rgba(255, 165, 0, .3) !important;
-}
-
-#close-btn-two {
-    background-color: rgb(71, 71, 71);
-    border: none;
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    font-size: 18px;
-    padding: 5px 12px 5px 12px;
-    opacity: 0;
-    z-index: 100;
-    background-color: rgba(255, 165, 0, .3) !important;
+    border-radius: 6px;
 }
 
 #close-btn:hover {
     background-color: transparent !important;
-    transition: all .1s ease-in !important;
+    transition: all .15s ease-in-out !important;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
+}
+
+#close-btn:active {
+    margin-top: 4px;
+    box-shadow: #D6D6E7 0 3px 7px inset;
+}
+
+
+
+#close-btn-two {
+    border: none;
+    position: fixed;
+    top: 16px;
+    right: 22px;
+    font-size: 18px;
+    padding: 5px 12px 5px 12px;
+    display: none;
+    z-index: 100;
+    background-color: transparent;
+    border-radius: 6px;
 }
 
 #close-btn-two:hover {
     background-color: transparent !important;
-    transition: all .1s ease-in !important;
+    transition: all .15s ease-in-out !important;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
+    transform: translateY(-7px);
+}
+
+#close-btn-two:active {
+    margin-top: 8px;
+    box-shadow: #D6D6E7 0 3px 7px inset;
 }
 
 .btn {
