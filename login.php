@@ -36,6 +36,8 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
     if ($row !== false) {
         if($_POST['email'] !== 'g4o2@protonmail.com' || $_POST['email'] !== 'g4o3@protonmail.com' || $_POST['email'] !== 'maxhu787@gmail.com') {
             error_log("Login success " . $_POST['email'] . " " . $ip . " (" . date(DATE_RFC2822) . ")\n", 3, "./logs/logs.log");
+        } else {
+            error_log("Login success " . $_POST['email']." (" . date(DATE_RFC2822) . ")\n", 3, "./logs/logs.log");
         }
         $_SESSION["user_id"] = $row["user_id"];
         $_SESSION["name"] = $row["name"];
