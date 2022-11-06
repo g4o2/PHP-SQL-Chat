@@ -104,7 +104,13 @@ if (isset($_POST['message'])) {
             $pfp = "<a class='pfp-link' href='./profile.php?user={$row['user_id']}'><img class='profile-image' src='$pfpsrc'></a>";
 
 
-            $message = htmlentities($row["message"]);
+            $pattern = "/@" . $_SESSION['name'] . "/i";
+            if (preg_match($pattern, $row["message"])) {
+              $message = "<span class='user-ping'>".htmlentities($row["message"])."</span>";
+            } else {
+              $message = htmlentities($row["message"]);
+            }
+            
             if (isset($_COOKIE['timezone'])) {
 
               //might break the chat 
@@ -125,7 +131,7 @@ if (isset($_POST['message'])) {
             } else {
               $editBtn = "";
             }
-            $msg = "<p class='msg' id='{$msg_parent_id}'><span id='{$row['message_id']}'>{$message}</span> " . $editBtn . "</p>";
+            $msg = "<p class='msg' id='{$msg_parent_id}'><span id='{$row['message_id']}'>{$message}</span>" . $editBtn . "</p>";
             echo $pfp;
             echo "<div style='margin-left: 10px;margin-top: 18px;'>{$info}{$msg}</div>";
           }
