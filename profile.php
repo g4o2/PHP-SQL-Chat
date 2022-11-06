@@ -38,7 +38,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 if ($show_email === "True") {
                     $email = "<div id='user-email'><p>{$test['email']}</p></div>";
                 } else {
-                    $email = "Hidden";
+                    $email = "<div id='user-email'><p>Hidden</p></div>";
                 }
             }
             echo $pfp;
