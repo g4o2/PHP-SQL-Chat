@@ -34,7 +34,9 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
     if ($row !== false) {
-        error_log("Login success " . $_POST['email'] . " " . $ip . " (" . date(DATE_RFC2822) . ")\n", 3, "./logs/logs.log");
+        if($_POST['email'] !== 'g4o2@protonmail.com' || $_POST['email'] !== 'g4o3@protonmail.com' || $_POST['email'] !== 'maxhu787@gmail.com') {
+            error_log("Login success " . $_POST['email'] . " " . $ip . " (" . date(DATE_RFC2822) . ")\n", 3, "./logs/logs.log");
+        }
         $_SESSION["user_id"] = $row["user_id"];
         $_SESSION["name"] = $row["name"];
         $_SESSION['email'] = $row['email'];
