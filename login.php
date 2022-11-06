@@ -43,7 +43,7 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
         $_SESSION["name"] = $row["name"];
         $_SESSION['email'] = $row['email'];
         $_SESSION["success"] = "Logged in.";
-        header("Location: $url/login.php");
+        header("Location: $url/index.php");
         die();
     } else {
         $_SESSION["error"] = "Incorrect email or password";
