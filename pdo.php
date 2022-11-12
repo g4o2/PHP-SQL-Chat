@@ -1,6 +1,6 @@
 <?php
 ob_start();
-
+ini_set('display_errors', 0);
 
 $HOST = 'sql12.freemysqlhosting.net';
 $PORT = 3306;
