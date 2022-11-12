@@ -1,6 +1,6 @@
 body {
     color: #fff;
-    overflow-x: hidden;
+    /*overflow-x: hidden;*/
     background: linear-gradient(#000000, #5e3d00);
     background-attachment: fixed;
 }
@@ -399,13 +399,13 @@ input[type=submit] {
 }
 
 .user-pfp:hover {
-    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
-    transform: translateY(-3.5px);
+    /*box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
+    transform: translateY(-3.5px);*/
 }
 
 .user-pfp:active {
     margin-top: 12px;
-    box-shadow: #D6D6E7 0 3px 7px inset;
+    /*box-shadow: #D6D6E7 0 3px 7px inset;*/
 }
 
 #profile {
@@ -475,10 +475,10 @@ input[type=submit] {
     /*box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;*/
     transform: translateY(-4px);
     padding: 6px;
+    box-shadow: none;
 }
 
 #close-btn-two:active {
-    margin-top: 3px;
     padding: 6px;
     /*box-shadow: #D6D6E7 0 3px 7px inset;*/
 }
