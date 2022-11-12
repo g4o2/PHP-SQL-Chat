@@ -1,4 +1,6 @@
+<!--
 <?php
+/*
 session_start();
 require_once "pdo.php";
 date_default_timezone_set('UTC');
@@ -39,13 +41,13 @@ if (isset($_POST["submit"])) {
         header('Location:create-account.php');
     }
     return;
-}
+}*/
 ?>
 
 <head>
     <title>Create Accnount</title>
-    <link rel="stylesheet" href="./css/style.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="./css/edit-account.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="./css/style.css?v=<?php /*echo time();*/ ?>">
+    <link rel="stylesheet" href="./css/edit-account.css?v=<?php /*echo time();*/ ?>">
     <style>
         body {
             overflow-x: hidden;
@@ -53,11 +55,12 @@ if (isset($_POST["submit"])) {
     </style>
 </head>
 <?php
+/*
 if (isset($_SESSION["error"])) {
     echo ('<p class="error popup-msg popup-msg-long">' . htmlentities($_SESSION["error"]) . "</p>");
     unset($_SESSION["error"]);
     echo "";
-}
+}*/
 ?>
 <div id="particles-js"></div>
 <div class="login-box">
@@ -112,3 +115,5 @@ if (isset($_SESSION["error"])) {
         document.querySelector('.error').style.display = "none";
     }, 2200);
 </script>
+
+-->
