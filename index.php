@@ -53,10 +53,10 @@ if (isset($_SESSION['email'])) {
     <script type="text/javascript" src="./js/jquery-3.6.0.js"></script>
     <script src="./particles/particles.js"></script>
     <script src="./js/index.js"></script>
-    <script>
+    <script>/*
         $.getJSON('https://g4o2-chat-api.maxhu787.repl.co/accounts', function(data) {
             console.log(data)
-        });
+        });/*
     </script>
 </head>
 
