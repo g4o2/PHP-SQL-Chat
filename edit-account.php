@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "pdo.php";
+require_once "head.php";
 date_default_timezone_set('UTC');
 
 if (!isset($_SESSION["email"])) {
@@ -118,9 +119,7 @@ if (isset($_POST["submit"])) {
 
 <head>
     <title>Account</title>
-    <link rel="stylesheet" href="./css/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="./css/edit-account.css?v=<?php echo time(); ?>">
-    <script src="./js/jquery-3.6.0.js"></script>
     <script src="./particles/particles.js"></script>
     <script src="./js/index.js"></script>
 </head>
