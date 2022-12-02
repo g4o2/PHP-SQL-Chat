@@ -7,10 +7,14 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/g4o2-chat/PHP-SQL-Chat?label=Commits) 
 ![GitHub last commit](https://img.shields.io/github/last-commit/g4o2-chat/PHP-SQL-Chat?color=blue) 
 ![GitHub repo size](https://img.shields.io/github/repo-size/g4o2-chat/PHP-SQL-Chat) 
-
+<!--
 ## Discontinued
 I have decided to discontinue the development of this chat for now, but expect updates in the future.
 
+Fell free to clone this repository and test stuff out. 👽  
+-->
+## Progress
+Currently working on v1.1.0<br/>
 Fell free to clone this repository and test stuff out. 👽  
 
 # v1.0.0
