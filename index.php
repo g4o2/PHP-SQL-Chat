@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "pdo.php";
+require_once "head.php";
 date_default_timezone_set('UTC');
 
 if (isset($_POST['logout'])) {
@@ -46,11 +47,7 @@ if (isset($_SESSION['email'])) {
 <head>
     <title>G4o2 Chat</title>
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="./css/index.css?=<?php echo time(); ?>">
-    <script type="text/javascript" src="./js/jquery-3.6.0.js"></script>
     <script src="./particles/particles.js"></script>
     <script src="./js/index.js"></script>
 </head>
