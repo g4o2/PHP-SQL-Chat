@@ -62,9 +62,9 @@ if (isset($_SESSION['email'])) {
             </div>
             <nav>
                 <ul>
-                    <li><a href="#">Test</a></li>
-                    <li><a href="#">Test</a></li>
-                    <li><a href="#">Test</a></li>
+                    <li><a href="./chat.php">Chat</a></li>
+                    <li><a href="https://maxhu787.github.io" target="_blank">G4o2</a></li>
+                    <li><a href="https://github.com/g4o2" target="_blank">Github</a></li>
                 </ul>
             </nav>
         </div>
@@ -168,42 +168,42 @@ if (isset($_SESSION['email'])) {
             echo "<button id='close-btn-two' onclick='openProfile()'><img class='user-pfp' alt='user-logo' src='{$userpfp}'></button>";
         } else {
             echo '<h4><a style="text-decoration: underline" href="login.php">Please log in</a></h4>';
-            echo '<a style="user-select: none;" class="pfp-link" href="https://github.com/maxhu787" target="_blank"><img style="animation-name: g4o2-breath; animation-iteration-count: infinite; animation-duration: 2.5s; position: fixed; height: 50px; width: 50px; border-radius: 120px; top: 10px; right: 20px;z-index: 100;" src="./g4o2.jpeg"></a>';            
+            echo '<a style="user-select: none;" class="pfp-link" href="https://github.com/maxhu787" target="_blank"><img style="animation-name: g4o2-breath; animation-iteration-count: infinite; animation-duration: 2.5s; position: fixed; height: 50px; width: 50px; border-radius: 120px; top: 10px; right: 20px;z-index: 100;" src="./g4o2.jpeg"></a>';
         }
         ?>
         <div style='margin-top: 20px;'>
             <a href="https://github.com/g4o2/PHP-SQL-Chat">
-                <img src="https://github-readme-stats.vercel.app/api/pin/?username=g4o2-chat&repo=PHP-SQL-Chat&theme=react&bg_color=0D1117" />
+                <img src="https://github-readme-stats.vercel.app/api/pin/?username=g4o2&repo=PHP-SQL-Chat&theme=react&bg_color=0D1117" />
             </a>
         </div>
     </div>
     <div id="announcements">
         <h3 style="font-family: orbitron;">Announcements</h3><br />
-        <h4>Site creation &#127881; <code>2022/8/23</code></h4>
-        <h4>Login system working! 8 created accounts <code>2022/8/24</code></h4>
-        <h4>Chat now available&#128526; <code>2022/8/25</code></h4>
+        <h4>Site creation / v0.0.1 <code>2022/8/23</code></h4>
+        <h4>Login system | 8 created accounts <code>2022/8/24</code></h4>
+        <h4>Chat now available <code>2022/8/25</code></h4>
         <h4>Profile pictures are now available <code>2022/8/26</code></h4>
-        <h4>Profile system working and still being worked on for new look <code>2022/8/28</code></h4>
+        <h4>Profile system <code>2022/8/28</code></h4>
         <h4>New website theme/style & added user 👤 profile link table on index page <code>2022/9/11</code></h4>
         <h4>Show / Hide email 📧 feature implemented check it out now in the <a href="./edit-account.php">account settings</a> <code>2022/9/17</code></h4>
-        <h4>You can now <span class='announcement-highlight'>edit messages</span>! <code>2022/9/18</code></h4>
+        <h4>You can now <span class='announcement-highlight'>edit messages</span> <code>2022/9/18</code></h4>
         <h4>You can now edit / change your passwords 🔑 via <a href="./edit-account.php">account settings</a> <code>2022/9/23</code></h4>
         <h4>Chat now only runs a query to get msgs when a new msg is sent <code>2022/9/24</code></h4>
-        <h4>The broken message editing is now fixed 😀 <code>2022/9/24</code></h4>
+        <h4>Message editing exploit fixed <code>2022/9/24</code></h4>
         <h4>New <a href="./login.php">login</a> &amp; <a href="./edit-account.php">edit account</a> pages <code>2022/9/25</code></h4>
         <h4>Update edit account page css <code>2022/9/30</code></h4>
         <h4>New <a href="./edit-account.php">edit account</a> page same style as login page <code>2022/10/2</code></h4>
-        <h4>Now hosting php page on <a href="https://php-sql-chat.maxhu787.repl.co/index.php">repl</a> mysql database hosted with <a href="https://www.db4free.net">db4free</a> <code>2022/10/2</code></h4>
+        <h4>Now hosting php page on <a href="https://php-sql-chat.maxhu787.repl.co/index.php">repl</a> | mysql database hosted on <a href="https://www.db4free.net">db4free</a> <code>2022/10/2</code></h4>
         <h4>Added console message stuff <code>2022/10/8</code></h4>
         <h4>New website message styling <code>2022/10/8</code></h4>
         <h4>Index page update <code>2022/10/9</code></h4>
         <h4><a href="https://github.com/g4o2-chat/PHP-SQL-Chat/releases/tag/1.0.0" target="_blank">v1.0.0</a> out now <code>2022/10/16</code></h4>
-        <h4>Database migration: we have switched our database host to <a href="https://www.freemysqlhosting.net">freemysqlhosting.net</a> <code>2022/11/3</code></h4>
+        <h4>We have switched our database host to <a href="https://www.freemysqlhosting.net">freemysqlhosting.net</a> <code>2022/11/3</code></h4>
         <h4>You can now <a href="create-account.php">create accounts</a> <code>2022/11/3</code></h4>
         <h4>New features added include <span class='announcement-highlight'>ip loggin on login fail</span>, and <span class='announcement-highlight'>guest accounts</span> <code>2022/11/4</code></h4>
         <h4>Several exploits fixed <code>2022/11/4</code></h4>
-        <h4>Creating accounts disabled <code>2022/12/4</code></h4>
-        <h4>Guest account disabled <code>2022/12/4</code></h4>
+        <h4>Creating accounts & Guest account disabled <code>2022/12/4</code></h4>
+        <h4>New index, login page (again) <code>2022/12/4</code></h4>
         <p style="color: rgb(153, 157, 162)">Copyright © <?= date("Y") ?> g4o2. All Rights Reserved.</p>
     </div>
 </body>
