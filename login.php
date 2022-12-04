@@ -24,7 +24,7 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
     $check = hash("md5", $salt . $_POST["pass"]);
 
     $stmt = $pdo->prepare(
-        'SELECT user_id, name, email
+        'SELECT user_id, name, email, disabled
         FROM account
         WHERE
         email = :em AND
@@ -33,7 +33,14 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
     $stmt->execute(array(':em' => $_POST['email'], ':pw' => $check));
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    
     if ($row !== false) {
+        if ($row['disabled'] === "True") {
+            $_SESSION["error"] = "Account disabled";
+            error_log("Login fail disabled account " . $_POST['email'] . " " . $ip . " (" . date(DATE_RFC2822) . ")\n", 3, "./logs/logs.log");
+            header("Location: $url/login.php");
+            die();
+        } 
         if ($_POST["email"] == 'g4o2@protonmail.com' || $_POST["email"] == 'g4o3@protonmail.com' || $_POST["email"] == 'maxhu787@gmail.com') {
             error_log("Login success admin account (" . date(DATE_RFC2822) . ")\n", 3, "./logs/logs.log");
         } else {
@@ -47,7 +54,7 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
         die();
     } else {
         $_SESSION["error"] = "Incorrect email or password";
-        error_log("Login fail " . $_POST['email'] . " " . $check . " " . $ip . " (" . date(DATE_RFC2822) . ")\n", 3, "./logs/logs.log");
+        error_log("Login fail wrong password " . $_POST['email'] . " " . $check . " " . $ip . " (" . date(DATE_RFC2822) . ")\n", 3, "./logs/logs.log");
         header("Location: $url/login.php");
         die();
     }

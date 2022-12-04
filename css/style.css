@@ -3,6 +3,9 @@ body {
     /*overflow-x: hidden;*/
     background: linear-gradient(#000000, #5e3d00);
     background-attachment: fixed;
+    background-image: url(../img/0000001.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 html {
     height: 100%;

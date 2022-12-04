@@ -72,7 +72,6 @@ if (isset($_POST['message'])) {
     <section style="overflow: auto;" id="guide">
       <p>Press <kbd>Enter</kbd> to submit message</p>
       <p>Press <kbd>/</kbd> to select <kbd>Esc</kbd> to deselect</p>
-      <p>Users can now upload profile pictures via the edit account button on the <a href="./index.php">index</a> page</p>
     </section>
   </section>
   <section>

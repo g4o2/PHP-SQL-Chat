@@ -168,7 +168,7 @@ if (isset($_SESSION['email'])) {
             echo "<button id='close-btn-two' onclick='openProfile()'><img class='user-pfp' alt='user-logo' src='{$userpfp}'></button>";
         } else {
             echo '<h4><a style="text-decoration: underline" href="login.php">Please log in</a></h4>';
-            echo '<a style="user-select: none;" class="pfp-link" href="https://github.com/maxhu787" target="_blank"><img style="animation-name: g4o2-breath; animation-iteration-count: infinite; animation-duration: 2.5s; position: fixed; height: 50px; width: 50px; border-radius: 120px; top: 20px; right: 20px;z-index: 100;" src="./g4o2.jpeg"></a>';
+            echo '<a style="user-select: none;" class="pfp-link" href="https://github.com/maxhu787" target="_blank"><img style="animation-name: g4o2-breath; animation-iteration-count: infinite; animation-duration: 2.5s; position: fixed; height: 50px; width: 50px; border-radius: 120px; top: 10px; right: 20px;z-index: 100;" src="./g4o2.jpeg"></a>';            
         }
         ?>
         <div style='margin-top: 20px;'>
@@ -202,6 +202,8 @@ if (isset($_SESSION['email'])) {
         <h4>You can now <a href="create-account.php">create accounts</a> <code>2022/11/3</code></h4>
         <h4>New features added include <span class='announcement-highlight'>ip loggin on login fail</span>, and <span class='announcement-highlight'>guest accounts</span> <code>2022/11/4</code></h4>
         <h4>Several exploits fixed <code>2022/11/4</code></h4>
+        <h4>Creating accounts disabled <code>2022/12/4</code></h4>
+        <h4>Guest account disabled <code>2022/12/4</code></h4>
         <p style="color: rgb(153, 157, 162)">Copyright © <?= date("Y") ?> g4o2. All Rights Reserved.</p>
     </div>
 </body>
