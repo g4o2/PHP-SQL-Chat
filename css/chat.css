@@ -16,6 +16,7 @@ body {
     border-radius: 10px;
     padding: 10px 0px 0px 30px;
     background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(.5rem);
 }
 
 
@@ -143,7 +144,9 @@ body {
     margin-bottom: 1.5%;
     border-radius: 10px;
     padding: 20px 0px 20px 30px;
+    overflow: auto;
     background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(50rem);
 }
 
 ::placeholder {

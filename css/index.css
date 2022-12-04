@@ -17,6 +17,7 @@ body {
     right: 10px;
     top: 10px;
     background-color: rgba(0, 0, 0, .6);
+    backdrop-filter: blur(.5rem);
     padding: 40px;
     text-align: center;
     transition: opacity .3s ease-in;
@@ -111,6 +112,7 @@ body {
     border-radius: 10px;
     padding: 20px 0px 20px 30px;
     background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(.5rem);
     text-align: center;
     overflow: auto;
 }
@@ -123,6 +125,8 @@ body {
 table {
     border-radius: 8px;
     background-color: rgba(41, 41, 41, .7);
+    backdrop-filter: blur(.5rem);
+    border: none;
 }
 
 table p {

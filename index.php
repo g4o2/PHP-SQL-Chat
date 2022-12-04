@@ -89,8 +89,8 @@ if (isset($_SESSION['email'])) {
             <table border="5">
             <thead>
                 <tr>
-                    <th>user_id</th>
-                    <th>Profile</th>
+                    <th>User</th>
+                    <th>Name</th>
                     <th>Email</th>
                     <th>Last online</th>
                 </tr>
@@ -116,7 +116,7 @@ if (isset($_SESSION['email'])) {
 
 
                 if ($userStatus === "Undefined") {
-                    $diff = "<p style='color:red;'>Undefined</p>";
+                    $diff = "<p style='color:grey;'>Null</p>";
                 } else {
                     $last_online    = $userStatus;
                     $current_date_time = date(DATE_RFC2822);
