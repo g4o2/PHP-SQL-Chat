@@ -13,7 +13,7 @@
                 "color": "#ccc"
             },
             "image": {
-                "src": "default-pfp.png"
+                "src": "default-pfp-modified.png"
             }
         },
         "opacity": {
@@ -34,8 +34,8 @@
         },
         "line_linked": {
             "enable": true,
-            "distance": 180,
-            "color": "#ffa500",
+            "distance": 170,
+            "color": "#05a100",
             "width": 2
         },
         "move": {
