@@ -172,7 +172,7 @@ if (isset($_SESSION['email'])) {
         }
         ?>
         <div style='margin-top: 20px;'>
-            <a href="https://github.com/g4o2-chat/PHP-SQL-Chat">
+            <a href="https://github.com/g4o2/PHP-SQL-Chat">
                 <img src="https://github-readme-stats.vercel.app/api/pin/?username=g4o2-chat&repo=PHP-SQL-Chat&theme=react&bg_color=0D1117" />
             </a>
         </div>
