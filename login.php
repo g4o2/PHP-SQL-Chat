@@ -20,7 +20,7 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
     unset($SESSION["user_id"]);
     session_destroy();
     session_start();
-    $salt = 'XyZzy12*_';
+    $salt = getenv('SALT');
     $check = hash("md5", $salt . $_POST["pass"]);
 
     $stmt = $pdo->prepare(

@@ -380,12 +380,13 @@ input[type=submit] {
 }
 
 .logo {
+    position: absolute;
+    top: 5px;
+    left: 16px;
     height: 55px;
     width: 54px;
     border-radius: 8px;
     float: left;
-    margin-left: -40px;
-    margin-top: 6px;
     user-select: none;
     transition: all .1s ease-out;
 }

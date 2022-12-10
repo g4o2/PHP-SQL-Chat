@@ -53,9 +53,9 @@ if (isset($_SESSION['email'])) {
     <div id="mySidenav" style="z-index: 999999;" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <p class="rainbow_text_animated">g4o2</p>
-        <a href="./chat.php">Chat</a>
-        <a href="https://maxhu787.github.io" target="_blank">G4o2</a>
-        <a href="https://github.com/g4o2" target="_blank">Github</a>
+        <a href="./chat.php">chat</a>
+        <a href="https://maxhu787.github.io" target="_blank">g4o2</a>
+        <a href="https://github.com/g4o2" target="_blank">github</a>
     </div>
 
     <header class="navbar-header">
@@ -210,6 +210,7 @@ if (isset($_SESSION['email'])) {
         <h4>Several exploits fixed <code>2022/11/4</code></h4>
         <h4>Creating accounts & Guest account disabled <code>2022/12/4</code></h4>
         <h4>New index, login page (again) <code>2022/12/4</code></h4>
+        <h4>Mobile support fix (1) <code>2022/12/11</code></h4>
         <p style="color: rgb(153, 157, 162)">Copyright © <?= date("Y") ?> g4o2. All Rights Reserved.</p>
     </div>
 </body>
