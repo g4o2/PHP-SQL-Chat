@@ -14,8 +14,6 @@ html {
     height: 100%;
 }
 
-html {
-}
 a {
     color: #00bfff;
 }
@@ -362,7 +360,7 @@ input[type=submit] {
     margin: 0 auto;
 }
 .navbar-container a {
-    text-decoration: none;z
+    text-decoration: none;
 }
 
 .navbar-header {
@@ -471,8 +469,8 @@ input[type=submit] {
 #close-btn-two {
     border: none;
     position: fixed;
-    top: 0px;
-    right: 25px;
+    top: 80px;
+    right: 15px;
     font-size: 18px;
     padding: 6px;
     display: none;

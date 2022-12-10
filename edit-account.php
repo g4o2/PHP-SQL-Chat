@@ -120,58 +120,59 @@ if (isset($_POST["submit"])) {
 <head>
     <title>Account</title>
     <link rel="stylesheet" href="./css/edit-account.css?v=<?php echo time(); ?>">
-    <script src="./particles/particles.js"></script>
-    <script src="./js/index.js"></script>
 </head>
 
-<header class="navbar-header">
-    <div class="navbar-container">
-        <div>
-            <a href="./index.php">
-                <img class="logo" alt="logo" src="./favicon.ico">
-            </a>
+<body>
+    <header class="navbar-header">
+        <div class="navbar-container">
+            <div>
+                <a href="./index.php">
+                    <img class="logo" alt="logo" src="./favicon.ico">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Test</a></li>
+                    <li><a href="#">Test</a></li>
+                    <li><a href="#">Test</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#">Test</a></li>
-                <li><a href="#">Test</a></li>
-                <li><a href="#">Test</a></li>
-            </ul>
-        </nav>
+    </header>
+    <div id="particles-js"></div>
+    <div class="login-box" style="margin-top: 90px;">
+        <form id="form" action="edit-account.php" method="post" enctype="multipart/form-data">
+            Select image to upload for <?= $_SESSION['name'] ?>
+            <div class="user-box">
+                <input type="file" name="fileToUpload" id="fileToUpload">
+            </div>
+            <div class="user-box">
+                <input required type="text" name="name" value="<?= $response['name'] ?>">
+                <label>Name</label>
+            </div>
+            <div class="user-box">
+                <input required type="text" name="email" value="<?= $response['email'] ?>">
+                <label>Email</label>
+            </div>
+            <div class="user-box">
+                <input type="text" name="about" value="<?= $response['about'] ?>">
+                <label>About</label>
+            </div>
+            <div class="user-box">
+                <input required size='21' type="password" name="password">
+                <label>New Password</label>
+            </div>
+            <div class="user-box">
+                <label>Show email</label>
+                <input type="checkbox" name="show_email" <?php echo ($response['show_email'] == 'True') ? 'checked' : '' ?>>
+            </div>
+            <br />
+            <div style="float:left;">
+                <input type="submit" value="Submit Changes" class="btn" name="submit">
+                <a href="./index.php" class="btn">Cancel</a>
+            </div>
+        </form>
     </div>
-</header>
-<div id="particles-js"></div>
+</body>
 
-<div class="login-box">
-    <form id="form" action="edit-account.php" method="post" enctype="multipart/form-data">
-        Select image to upload for <?= $_SESSION['name'] ?>
-        <div class="user-box">
-            <input type="file" name="fileToUpload" id="fileToUpload">
-        </div>
-        <div class="user-box">
-            <input required type="text" name="name" value="<?= $response['name'] ?>">
-            <label>Name</label>
-        </div>
-        <div class="user-box">
-            <input required type="text" name="email" value="<?= $response['email'] ?>">
-            <label>Email</label>
-        </div>
-        <div class="user-box">
-            <input type="text" name="about" value="<?= $response['about'] ?>">
-            <label>About</label>
-        </div>
-        <div class="user-box">
-            <input required size='21' type="password" name="password">
-            <label>New Password</label>
-        </div>
-        <div class="user-box">
-            <label>Show email</label>
-            <input type="checkbox" name="show_email" <?php echo ($response['show_email'] == 'True') ? 'checked' : '' ?>>
-        </div>
-        <br />
-        <div style="float:left;">
-            <input type="submit" value="Submit Changes" class="btn" name="submit">
-            <a href="./index.php" class="btn">Cancel</a>
-        </div>
-    </form>
-</div>
+</html>

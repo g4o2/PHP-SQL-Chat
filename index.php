@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once "pdo.php";
 require_once "head.php";
+require_once "pdo.php";
 date_default_timezone_set('UTC');
 
 if (isset($_POST['logout'])) {
@@ -45,43 +45,8 @@ if (isset($_SESSION['email'])) {
 <html lang="en">
 
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>g4o2 chat</title>
-
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="">
-
-    <meta name="robots" content="index, follow">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-
     <link rel="stylesheet" href="./css/index.css?=<?php echo time(); ?>">
-
-    <!-- http://realfavicongenerator.net/ -->
-
-    <meta property="fb:page_id" content="">
-    <meta property="og:title" content="">
-    <meta property="og:image" content="">
-    <meta property="og:description" content="">
-    <meta property="og:url" content="">
-    <meta property="og:site_name" content="">
-    <meta property="og:type" content="website">
-
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:url" content="">
-    <meta name="twitter:title" content="">
-    <meta name="twitter:description" content="">
-    <meta name="twitter:image" content="">
-    <meta name="twitter:site" content="">
-
-    <script src="./particles/particles.js"></script>
-    <script src="./js/index.js"></script>
-    <script src="./js/sideNav.js"></script>
 </head>
 
 <body>

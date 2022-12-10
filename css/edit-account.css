@@ -3,64 +3,12 @@ body {
     background: linear-gradient(#000000, #5e3d00);
     background-attachment: fixed;
 }
-
-
-#particles {
+#particles-js {
     height: 100%;
     position: fixed;
     width: 100%;
 }
+
 .navbar-header {
-    margin-top: -8px;
+    margin-top: 0px; /*-90*/
 }
-/*
-#form {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.1);
-    opacity: 0.9;
-    padding: 2em;
-    border: rgba(255, 255, 255, 0.1) 2px solid;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    padding: 10px;
-    transform: translate(-50%, -50%);
-    text-align: left;
-}
-
-#form input[type="text"],
-#form input[type="password"] {
-    padding: 7px;
-    margin-bottom: 10px;
-    border: 1px #ccc solid;
-}
-
-#submit {
-    height: 35px;
-    width: 60px;
-    border: none;
-    border-radius: 3px;
-}
-
-#submit:hover {
-    color: #000;
-    background-color: white;
-    transition: all .3s ease-in-out;
-}
-
-#cancel {
-    height: 35px;
-    width: 60px;
-    border: none;
-    border-radius: 3px;
-}
-
-#cancel:hover {
-    color: #000;
-    background-color: white;
-    transition: all .3s ease-in-out;
-}
-
-#login-form {
-    text-align: center;
-}*/
