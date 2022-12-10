@@ -27,11 +27,11 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #ffffff2c;
+    background-color: #ffffff17;
     backdrop-filter: blur(10px);
     border-radius: 10px;
     padding: 50px;
-    width: 90%;
+    width: 85%;
 }
 
 .center h1 {

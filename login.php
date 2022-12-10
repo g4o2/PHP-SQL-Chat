@@ -18,8 +18,8 @@ if (isset($_POST["cancel"])) {
 if (isset($_POST["email"]) && isset($_POST["pass"])) {
     unset($SESSION["name"]);
     unset($SESSION["user_id"]);
-
-
+    session_destroy();
+    session_start();
     $salt = 'XyZzy12*_';
     $check = hash("md5", $salt . $_POST["pass"]);
 
@@ -94,7 +94,9 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
                 <label for='pass'>Password</label>
             </div>
             <div class="forgot-password">Forgot Password</div>
-            <input id="submit" type="submit" onclick="return doValidate();" value="Login">
+            <div style="text-align:center">
+                <input id="submit" type="submit" onclick="return doValidate();" value="Login">
+            </div>
             <div class="sign-up">
                 Not a member? <a href='./create-account.php'>Signup</a>
             </div>
