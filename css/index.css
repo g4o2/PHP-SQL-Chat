@@ -107,9 +107,8 @@ body {
 #announcements {
     height: 20vh;
     bottom: 0;
-    width: 99vw;
+    width: 100%;
     position: fixed;
-    border-radius: 10px;
     padding: 20px 0px 20px 30px;
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(.5rem);

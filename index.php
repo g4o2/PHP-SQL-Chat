@@ -42,17 +42,57 @@ if (isset($_SESSION['email'])) {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>G4o2 Chat</title>
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>g4o2 chat</title>
+
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <meta name="robots" content="index, follow">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
     <link rel="stylesheet" href="./css/index.css?=<?php echo time(); ?>">
+
+    <!-- http://realfavicongenerator.net/ -->
+
+    <meta property="fb:page_id" content="">
+    <meta property="og:title" content="">
+    <meta property="og:image" content="">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+    <meta name="twitter:site" content="">
+
     <script src="./particles/particles.js"></script>
     <script src="./js/index.js"></script>
+    <script src="./js/sideNav.js"></script>
 </head>
 
 <body>
+    <div id="mySidenav" style="z-index: 999999;" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <p class="rainbow_text_animated">g4o2</p>
+        <a href="./chat.php">Chat</a>
+        <a href="https://maxhu787.github.io" target="_blank">G4o2</a>
+        <a href="https://github.com/g4o2" target="_blank">Github</a>
+    </div>
+
     <header class="navbar-header">
         <div class="navbar-container">
             <div>
@@ -65,6 +105,7 @@ if (isset($_SESSION['email'])) {
                     <li><a href="./chat.php">Chat</a></li>
                     <li><a href="https://maxhu787.github.io" target="_blank">G4o2</a></li>
                     <li><a href="https://github.com/g4o2" target="_blank">Github</a></li>
+                    <button id="sideNav-button" onclick="openNav()">☰</button>
                 </ul>
             </nav>
         </div>
@@ -168,7 +209,7 @@ if (isset($_SESSION['email'])) {
             echo "<button id='close-btn-two' onclick='openProfile()'><img class='user-pfp' alt='user-logo' src='{$userpfp}'></button>";
         } else {
             echo '<h4><a style="text-decoration: underline" href="login.php">Please log in</a></h4>';
-            echo '<a style="user-select: none;" class="pfp-link" href="https://github.com/maxhu787" target="_blank"><img style="animation-name: g4o2-breath; animation-iteration-count: infinite; animation-duration: 2.5s; position: fixed; height: 50px; width: 50px; border-radius: 120px; top: 10px; right: 20px;z-index: 100;" src="./g4o2.jpeg"></a>';
+            echo '<a style="user-select: none;" class="pfp-link" href="https://github.com/maxhu787" target="_blank"><img style="animation-name: g4o2-breath; animation-iteration-count: infinite; animation-duration: 2.5s; position: fixed; height: 50px; width: 50px; border-radius: 120px; top: 80px; right: 20px;z-index: 100;" src="./g4o2.jpeg"></a>';
         }
         ?>
         <div style='margin-top: 20px;'>

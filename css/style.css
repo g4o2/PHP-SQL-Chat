@@ -362,16 +362,15 @@ input[type=submit] {
     margin: 0 auto;
 }
 .navbar-container a {
-    text-decoration: none;
+    text-decoration: none;z
 }
 
 .navbar-header {
     z-index: 2;
     background: #ffa500;
     position: fixed;
-    width: 101%;
+    width: 100%;
     margin-top: -90px;
-    margin-left: -10px;
     transition: all .3s;
     height: 65px;
 }
@@ -544,3 +543,102 @@ nav>ul li a:hover::before {
     width: 100%;
 }
 /*--------------navbar-end-----------------*/
+
+
+/*sidenav*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .6);
+    backdrop-filter: blur(.5rem);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align: center;
+}
+
+.sidenav ul {
+    list-style-type: none;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 26px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav p {
+    display: block;
+    padding: 8px 8px 8px 32px;
+    font-size: 40px;
+    font-family: 'Orbitron';
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 2px;
+    right: 18px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+/*      */
+
+#sideNav-button {
+    /*z-index: 10;
+    border: none;
+    display: inline-block;
+    padding: 10px 14px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: #000;
+    background-color: var(--page-theme);
+    text-align: left;
+    cursor: pointer;
+    white-space: nowrap;
+    margin-right: -20px;
+    margin-left: 50px;
+    border-radius: 8px;*/
+    z-index: 10;
+    border: none;
+    display: inline-block;
+    padding: 10px 14px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: #000;
+    background-color: var(--page-theme);
+    text-align: left;
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: 8px;
+    position: absolute;
+    right: 20px;
+    top: 14px;
+}
+
+#sideNav-button:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all .3s ease-in;
+}
+#sideNav-button:active {
+    transition: all .3s ease-in;
+    margin-top: 10px;
+    box-shadow: #D6D6E7 0 3px 7px inset;
+}
+@media only screen and (max-width: 570px) {
+    nav>ul li a {
+        display: none;
+    }
+}
