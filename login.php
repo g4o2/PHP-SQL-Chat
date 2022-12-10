@@ -102,6 +102,7 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
             </div>
             <!-- <input id="cancel" class="btn" type="submit" name="cancel" value="Cancel"> -->
         </form>
+        <p style='text-align: center;'>All account passwords reseted to 'password'</p>
     </div>
     <script>
         function doValidate() {

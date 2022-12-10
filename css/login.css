@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&family=Montserrat:wght@300&family=Orbitron&family=Work+Sans:wght@300&display=swap');
 html {
     height: 100%;
 }
@@ -39,7 +40,7 @@ body {
     text-align: center;
     padding: 0px 0px 20px 0px;
     color: var(--text-second);
-    font-family: 'Orbitron';
+    font-family: 'Montserrat';
 }
 
 .center form {
