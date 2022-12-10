@@ -150,22 +150,22 @@ if (isset($_POST["submit"])) {
         </div>
         <div class="user-box">
             <input required type="text" name="name" value="<?= $response['name'] ?>">
-            <label>Name:</label>
+            <label>Name</label>
         </div>
         <div class="user-box">
             <input required type="text" name="email" value="<?= $response['email'] ?>">
-            <label>Email:</label>
+            <label>Email</label>
         </div>
         <div class="user-box">
             <input type="text" name="about" value="<?= $response['about'] ?>">
-            <label>About:</label>
+            <label>About</label>
         </div>
         <div class="user-box">
             <input required size='21' type="password" name="password">
-            <label>New Password:</label>
+            <label>New Password</label>
         </div>
         <div class="user-box">
-            <label>Show email:</label>
+            <label>Show email</label>
             <input type="checkbox" name="show_email" <?php echo ($response['show_email'] == 'True') ? 'checked' : '' ?>>
         </div>
         <br />
