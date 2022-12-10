@@ -54,8 +54,11 @@ if (isset($_SESSION['email'])) {
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <p class="rainbow_text_animated">g4o2</p>
         <a href="./chat.php">chat</a>
-        <a href="https://maxhu787.github.io" target="_blank">g4o2</a>
         <a href="https://github.com/g4o2" target="_blank">github</a>
+        <a href="./login.php">Login</a>
+        <p class='rainbow_text_animated'>Dev</p>
+        <a href="https://maxhu787.github.io" target="_blank">Hu Kaixiang</a>
+        <a href="https://github.com/maxhu787" target="_blank">maxhu787</a>
     </div>
 
     <header class="navbar-header">
@@ -174,7 +177,7 @@ if (isset($_SESSION['email'])) {
             echo "<button id='close-btn-two' onclick='openProfile()'><img class='user-pfp' alt='user-logo' src='{$userpfp}'></button>";
         } else {
             echo '<h4><a style="text-decoration: underline" href="login.php">Please log in</a></h4>';
-            echo '<a style="user-select: none;" class="pfp-link" href="https://github.com/maxhu787" target="_blank"><img style="animation-name: g4o2-breath; animation-iteration-count: infinite; animation-duration: 2.5s; position: fixed; height: 50px; width: 50px; border-radius: 120px; top: 80px; right: 20px;z-index: 100;" src="./g4o2.jpeg"></a>';
+            // echo '<a style="user-select: none;" class="pfp-link" href="https://github.com/maxhu787" target="_blank"><img style="animation-name: g4o2-breath; animation-iteration-count: infinite; animation-duration: 2.5s; position: fixed; height: 50px; width: 50px; border-radius: 120px; top: 80px; right: 20px;z-index: 100;" src="./g4o2.jpeg"></a>';
         }
         ?>
         <div style='margin-top: 20px;'>
