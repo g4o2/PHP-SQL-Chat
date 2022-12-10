@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+        :root {
+            --text: #24a0ed;
+            --text-second: #fff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url(../img/0000001.jpg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            background-size: cover;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff2c;
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 50px;
+            height: 55%;
+            width: 60%;
+        }
+
+        .center h1 {
+            font-weight: 100;
+            text-align: center;
+            padding: 0px 0px 20px 0px;
+            color: var(--text-second);
+            font-family: 'Orbitron';
+        }
+
+        .center form {
+            box-sizing: border-box;
+        }
+
+        .center .input-field {
+            position: relative;
+            margin: 30px 0;
+        }
+
+        .input-field input {
+            width: 100%;
+            padding: 0 5px;
+            height: 40px;
+            font-size: 16px;
+            border: none;
+            background: none;
+            outline: none;
+        }
+
+        .input-field label {
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            color: var(--text-second);
+            transform: translateY(-50%);
+            font-size: 16px;
+            pointer-events: none;
+            transition: .5s;
+        }
+
+        .input-field span::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--text);
+        }
+
+        .input-field input:focus~label,
+        .input-field input:valid~label {
+            top: -5px;
+            color: var(--text);
+        }
+
+        .forgot-password {
+            margin: -5px 0 20px 5px;
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            height: 50px;
+            border: 1px solid;
+            border-radius: 10px;
+            background-color: var(--text);
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        input[type=submit]:hover {
+            border-color: var(--text);
+            transition: .5s;
+        }
+
+        .sign-up {
+            margin: 30px 0;
+            text-align: center;
+            font-size: 16px;
+            color: var(--text-second);
+        }
+
+        .sign-up a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .sign-up a:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <h1>Login</h1>
+        <form action="post">
+            <div class="input-field">
+                <input type="text" required>
+                <span></span>
+                <label>Username</label>
+            </div>
+            <div class="input-field">
+                <input type="password" required>
+                <span></span>
+                <label>Password</label>
+            </div>
+            <div class="forgot-password">Forgot Password</div>
+            <input type="submit" value="Login">
+            <div class="sign-up">
+                Not a member? <a>Signup</a>
+            </div>
+
+        </form>
+    </div>
+</body>
+
+</html>
