@@ -64,21 +64,14 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
 <html>
 
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-
     <title>Login</title>
-
     <link rel="stylesheet" href="./css/login.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
     <div id="particles-js"></div>
-    <div class="login-box">
-        <h2>Please Log In</h2>
-        <p style="text-align:center;">uppercase and lowercase matters</p>
+    <div class="center">
+        <h1>Login</h1>
         <?php
         if (isset($_SESSION["error"])) {
             echo ('<p style="color: red;">' . htmlentities($_SESSION["error"]) . "</p>");
@@ -90,24 +83,24 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
         }
         ?>
         <form method="post">
-            <div class="user-box">
+            <div class="input-field">
                 <input class="input" type="text" name="email" id="id_email" required>
+                <span></span>
                 <label for='email'>Email</label>
             </div>
-            <div class="user-box">
+            <div class="input-field">
                 <input class="input" type="password" name="pass" id="id_1723" required>
+                <span></span>
                 <label for='pass'>Password</label>
             </div>
-            <div style="float:left;">
-                <a class="btn" style='position:absolute;' href="create-account.php">Create account</a>
+            <div class="forgot-password">Forgot Password</div>
+            <input id="submit" type="submit" onclick="return doValidate();" value="Login">
+            <div class="sign-up">
+                Not a member? <a href='./create-account.php'>Signup</a>
             </div>
-            <div style="float:right;">
-                <input id="submit" class="btn" type="submit" onclick="return doValidate();" value="Log In">
-                <input id="cancel" class="btn" type="submit" name="cancel" value="Cancel">
-                <div>
+            <!-- <input id="cancel" class="btn" type="submit" name="cancel" value="Cancel"> -->
         </form>
     </div>
-    <script src="./particles/particles.js"></script>
     <script>
         function doValidate() {
             console.log("Validating...");
