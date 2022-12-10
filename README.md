@@ -1,6 +1,7 @@
 # g4o2-chat
 
 ![Contributors](https://img.shields.io/github/contributors/g4o2-chat/PHP-SQL-Chat?color=blue) 
+![Github stars](https://img.shields.io/github/stars/g4o2-chat/PHP-SQL-Chat) 
 ![Issues](https://img.shields.io/github/issues/g4o2-chat/PHP-SQL-Chat?color=blue) 
 ![License](https://img.shields.io/github/license/g4o2-chat/PHP-SQL-Chat?color=blue) 
 [![Discord](https://img.shields.io/discord/936428193521487953?color=5865F2&label=Discord%20server&logo=Discord&logoColor=blue)](https://discord.com/invite/UxNjRrT6RY)
@@ -15,9 +16,10 @@ Fell free to clone this repository and test stuff out. 👽
 -->
 ## Progress
 Currently working on v1.1.0<br/>
-Fell free to clone this repository and test stuff out. 👽  
+Fell free to clone this repository and test stuff out.<br/>
+remember to star the repo 😁
 
-# v1.0.0
+# v1.0.0 👽
 
 ## Features 
 - Account detail editing
