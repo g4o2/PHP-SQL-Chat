@@ -2,6 +2,7 @@
 session_start();
 require_once "head.php";
 require_once "pdo.php";
+require_once "track_viewers.php";
 date_default_timezone_set('UTC');
 
 if (isset($_POST['logout'])) {
