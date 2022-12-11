@@ -1,8 +1,7 @@
-<!--
 <?php
-/*
 session_start();
 require_once "pdo.php";
+require_once "head.php";
 date_default_timezone_set('UTC');
 
 if (isset($_SESSION["email"])) {
@@ -15,14 +14,11 @@ if (isset($_POST["submit"])) {
     $response = $statement->fetch();
 
     if ($response == "") {
-        $salt = 'XyZzy12*_';
-        $check = hash("md5", $salt . $_POST['password']);
-
         $name = $_POST['name'];
         $email = $_POST['email'];
         $password = $check;
 
-        $salt = 'XyZzy12*_';
+        $salt = getenv('SALT');
         $check = hash("md5", $salt . $_POST['password']);
 
         $stmt = $pdo->prepare('INSERT INTO account
@@ -34,20 +30,20 @@ if (isset($_POST["submit"])) {
                 ':pw' => $password
             )
         );
-        $_SESSION['success'] = "Account Created. Please login.";
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        $_SESSION['success'] = "Account Created. Please login." . " ip: " . $ip;
         header('Location:login.php');
     } else {
         $_SESSION['error'] = "Email taken.";
         header('Location:create-account.php');
     }
     return;
-}*/
+}
 ?>
 
 <head>
     <title>Create Accnount</title>
-    <link rel="stylesheet" href="./css/style.css?v=<?php /*echo time();*/ ?>">
-    <link rel="stylesheet" href="./css/edit-account.css?v=<?php /*echo time();*/ ?>">
+    <link rel="stylesheet" href="./css/create-account.css?v=<?php echo time(); ?>">
     <style>
         body {
             overflow-x: hidden;
@@ -55,32 +51,36 @@ if (isset($_POST["submit"])) {
     </style>
 </head>
 <?php
-/*
+
 if (isset($_SESSION["error"])) {
     echo ('<p class="error popup-msg popup-msg-long">' . htmlentities($_SESSION["error"]) . "</p>");
     unset($_SESSION["error"]);
     echo "";
-}*/
+}
 ?>
 <div id="particles-js"></div>
-<div class="login-box">
+<div class="center">
     <form id="form" action="create-account.php" method="post" enctype="multipart/form-data">
-        <div class="user-box">
+        <div class="input-field">
             <input required type="text" name="name">
-            <label>Name:</label>
+            <span></span>
+            <label>Name</label>
         </div>
-        <div class="user-box">
-            <input required type="text" name="email" id="id_email">
-            <label>Email:</label>
+        <div class="input-field">
+            <input required type="email" name="email" id="id_email">
+            <span></span>
+            <label>Email</label>
         </div>
-        <div class="user-box">
+        <div class="input-field">
             <input required size='21' type="password" name="password" id="id_1723">
-            <label>Password:</label>
+            <span></span>
+            <label>Password</label>
         </div>
-        <br />
-        <div style="float:left;">
-            <input type="submit" value="Create account" class="btn" name="submit" onclick="return doValidate();">
-            <a href="./index.php" class="btn">Cancel</a>
+        <div style="text-align:center">
+            <input type="submit" value="Create account" name="submit" onclick="return doValidate();">
+        </div>
+        <div class="cancel">
+            <a href="./index.php">Cancel</a>
         </div>
     </form>
 </div>
@@ -115,5 +115,3 @@ if (isset($_SESSION["error"])) {
         document.querySelector('.error').style.display = "none";
     }, 2200);
 </script>
-
--->
