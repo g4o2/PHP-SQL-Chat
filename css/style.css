@@ -409,11 +409,11 @@ input[type=submit] {
     user-select: none;
     transition: all .1s ease-out;
 }
-
+/* 
 .user-pfp:hover {
-    /*box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
-    transform: translateY(-3.5px);*/
-}
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
+    transform: translateY(-3.5px);
+} */
 
 .user-pfp:active {
     margin-top: 12px;
@@ -568,7 +568,7 @@ nav>ul li a:hover::before {
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 26px;
+    font-size: 20px;
     color: #818181;
     display: block;
     transition: 0.3s;
@@ -592,6 +592,9 @@ nav>ul li a:hover::before {
     font-size: 36px;
     margin-left: 50px;
 }
+
+
+
 /*      */
 
 #sideNav-button {
