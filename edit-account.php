@@ -120,9 +120,20 @@ if (isset($_POST["submit"])) {
 <head>
     <title>Account</title>
     <link rel="stylesheet" href="./css/edit-account.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="./css/login.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
+    <div id="mySidenav" style="z-index: 999999;" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <p class="rainbow_text_animated">g4o2</p>
+        <a href="./chat.php">chat</a>
+        <a href="https://github.com/g4o2" target="_blank">github</a>
+        <a href="./login.php">Login</a>
+        <p class='rainbow_text_animated'>Dev</p>
+        <a href="https://maxhu787.github.io" target="_blank">Hu Kaixiang</a>
+        <a href="https://github.com/maxhu787" target="_blank">maxhu787</a>
+    </div>
     <header class="navbar-header">
         <div class="navbar-container">
             <div>
@@ -132,44 +143,51 @@ if (isset($_POST["submit"])) {
             </div>
             <nav>
                 <ul>
-                    <li><a href="#">Test</a></li>
-                    <li><a href="#">Test</a></li>
-                    <li><a href="#">Test</a></li>
+                    <li><a href="./chat.php">Chat</a></li>
+                    <li><a href="https://maxhu787.github.io" target="_blank">G4o2</a></li>
+                    <li><a href="https://github.com/g4o2" target="_blank">Github</a></li>
+                    <button id="sideNav-button" onclick="openNav()">☰</button>
                 </ul>
             </nav>
         </div>
     </header>
+
     <div id="particles-js"></div>
-    <div class="login-box" style="margin-top: 90px;">
-        <form id="form" action="edit-account.php" method="post" enctype="multipart/form-data">
+    <div class="center" style='margin-top: 60px;'>
+        <form action="edit-account.php" method="post" enctype="multipart/form-data">
             Select image to upload for <?= $_SESSION['name'] ?>
-            <div class="user-box">
+            <div class="input-field">
                 <input type="file" name="fileToUpload" id="fileToUpload">
             </div>
-            <div class="user-box">
-                <input required type="text" name="name" value="<?= $response['name'] ?>">
+            <div class="input-field">
+                <input class="input" required type="text" name="name" value="<?= $response['name'] ?>">
+                <span></span>
                 <label>Name</label>
             </div>
-            <div class="user-box">
-                <input required type="text" name="email" value="<?= $response['email'] ?>">
+            <div class="input-field">
+                <input class="input" required type="email" name="email" value="<?= $response['email'] ?>">
+                <span></span>
                 <label>Email</label>
             </div>
-            <div class="user-box">
-                <input type="text" name="about" value="<?= $response['about'] ?>">
+            <div class="input-field">
+                <input class="input" type="text" name="about" value="<?= $response['about'] ?>">
+                <span></span>
                 <label>About</label>
             </div>
-            <div class="user-box">
-                <input required size='21' type="password" name="password">
+            <div class="input-field">
+                <input class="input" required size='21' type="password" name="password">
+                <span></span>
                 <label>New Password</label>
             </div>
-            <div class="user-box">
+            <div>
                 <label>Show email</label>
-                <input type="checkbox" name="show_email" <?php echo ($response['show_email'] == 'True') ? 'checked' : '' ?>>
+                <span></span>
+                <input class="input" type="checkbox" name="show_email" <?php echo ($response['show_email'] == 'True') ? 'checked' : '' ?>>
             </div>
             <br />
             <div style="float:left;">
                 <input type="submit" value="Submit Changes" class="btn" name="submit">
-                <a href="./index.php" class="btn">Cancel</a>
+                <a href="./index.php">Cancel</a>
             </div>
         </form>
     </div>

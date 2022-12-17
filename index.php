@@ -158,10 +158,10 @@ if (isset($_SESSION['email'])) {
                 echo ("</td><td>");
                 echo "<a href='./profile.php?user={$account['user_id']}' >" . $account['name'] . "</a>";
                 echo "<td>";
-                if ($account['show_email'] === "False") {
-                    echo "Hidden";
-                } else {
+                if ($account['show_email'] === "True") {
                     echo ($account['email']);
+                } else {
+                    echo "Hidden";
                 }
                 echo ("</td><td>");
                 echo $diff;
