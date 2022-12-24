@@ -173,7 +173,7 @@ if (isset($_SESSION['email'])) {
             $pfp = "<a class='pfp-link' href='./profile.php?user={$_SESSION['user_id']}'><img class='profile-img-large' src='$userpfp'></a>";
             $main = "<p id='profile-name'>{$_SESSION['name']}</p><p id='profile-email'>{$_SESSION['email']}</p>";
             $profileLink = "<a href='./profile.php?user={$_SESSION['user_id']}'>Your public profile</a>";
-            $actions = '<a href="edit-account.php">Edit Account</a> | <a href="logout.php">Logout</a>';
+            $actions = '<a href="edit-account.php">Account Settings</a> | <a href="logout.php">Logout</a>';
             echo "<div id='profile'><button id='close-btn' onclick='closeProfile()'>&times;</button>{$pfp}{$main}{$actions}<br />{$profileLink}</div>";
             echo "<button id='close-btn-two' onclick='openProfile()'><img class='user-pfp' alt='user-logo' src='{$userpfp}'></button>";
         } else {

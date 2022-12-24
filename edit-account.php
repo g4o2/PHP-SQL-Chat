@@ -2,7 +2,7 @@
 session_start();
 require_once "pdo.php";
 require_once "head.php";
-date_default_timezone_set('UTC');
+date_default_timezone_set('Asia/Taipei');
 
 if (!isset($_SESSION["email"])) {
     echo "<p class='die-msg'>PLEASE LOGIN</p>";
@@ -187,7 +187,8 @@ if (isset($_POST["submit"])) {
             <br />
             <div style="float:left;">
                 <input type="submit" value="Submit Changes" class="btn" name="submit">
-                <a href="./index.php">Cancel</a>
+                <a href="./index.php">Cancel</a><br/>
+                <a href="./delete-account.php">Delete Account</a>
             </div>
         </form>
     </div>

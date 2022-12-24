@@ -351,6 +351,7 @@ body {
     padding: 0px 3px 2px 5px;
     border-radius: 2px;
 }
+
 .user-ping::before {
     display: inline-block;
     content: '🔔';

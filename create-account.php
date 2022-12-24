@@ -16,10 +16,10 @@ if (isset($_POST["submit"])) {
     if ($response == "") {
         $name = $_POST['name'];
         $email = $_POST['email'];
-        $password = $check;
-
+        
         $salt = getenv('SALT');
         $check = hash("md5", $salt . $_POST['password']);
+        $password = $check;
 
         $stmt = $pdo->prepare('INSERT INTO account
             (name, email, password) VALUES ( :nm, :em, :pw)');
