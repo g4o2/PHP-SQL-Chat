@@ -98,6 +98,7 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
                 <input id="submit" type="submit" onclick="return doValidate();" value="Login">
             </div>
             <div class="sign-up">
+                <p>By signing up you agree to our <a href="./terms-of-service.html" target="_blank">terms of service</a> and <a href="./privacy-policy.html" target="_blank">privacy policy</a></p>
                 Not a member? <a href='./create-account.php'>Signup</a>
             </div>
             <!-- <input id="cancel" class="btn" type="submit" name="cancel" value="Cancel"> -->
