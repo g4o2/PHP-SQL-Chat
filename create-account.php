@@ -16,7 +16,7 @@ if (isset($_POST["submit"])) {
     if ($response == "") {
         $name = $_POST['name'];
         $email = $_POST['email'];
-        
+
         $salt = getenv('SALT');
         $check = hash("md5", $salt . $_POST['password']);
         $password = $check;
@@ -80,6 +80,7 @@ if (isset($_SESSION["error"])) {
             <input type="submit" value="Create account" name="submit" onclick="return doValidate();">
         </div>
         <div class="cancel">
+            <p>By signing up you agree to our <a href="./terms-of-service.html" target="_blank">terms of service</a> and <a href="./privacy-policy.html" target="_blank">privacy policy</a></p>
             <a href="./index.php">Cancel</a>
         </div>
     </form>
