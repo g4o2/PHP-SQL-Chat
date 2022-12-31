@@ -76,11 +76,13 @@ if (isset($_SESSION["error"])) {
             <span></span>
             <label>Password</label>
         </div>
+        <input type="checkbox" name="spamemail" style="float:left;">
+        <p style="float:left;margin-left: 10px;">Spam my email</p>
         <div style="text-align:center">
             <input type="submit" value="Create account" name="submit" onclick="return doValidate();">
         </div>
         <div class="cancel">
-            <p>By signing up you agree to our <a href="./terms-of-service.html" target="_blank">terms of service</a> and <a href="./privacy-policy.html" target="_blank">privacy policy</a></p>
+            <p>By signing up you agree to our <a href="./terms-of-service.php" target="_blank">Terms of Service</a> and <a href="./privacy-policy.php" target="_blank">Privacy Policy</a></p>
             <a href="./index.php">Cancel</a>
         </div>
     </form>

@@ -182,7 +182,7 @@ if (isset($_SESSION['email'])) {
         }
         ?>
         <div style='margin-top: 20px;'>
-            <a href="https://github.com/g4o2/PHP-SQL-Chat">
+            <a href="https://github.com/g4o2/PHP-SQL-Chat" target="_blank">
                 <img src="https://github-readme-stats.vercel.app/api/pin/?username=g4o2&repo=PHP-SQL-Chat&theme=react&bg_color=0D1117" />
             </a>
         </div>
@@ -215,6 +215,8 @@ if (isset($_SESSION['email'])) {
         <h4>Creating accounts & Guest account disabled <code>2022/12/4</code></h4>
         <h4>New index, login page (again) <code>2022/12/4</code></h4>
         <h4>Mobile support fix (1) <code>2022/12/11</code></h4>
-        <p style="color: rgb(153, 157, 162)">Copyright © <?= date("Y") ?> g4o2. All Rights Reserved.</p>
     </div>
+    <footer>
+        <p style="color: rgb(153, 157, 162)">© <?= date("Y") ?> g4o2.&nbsp;All&nbsp;rights&nbsp;reserved | <a href="./terms-of-service.php" target="_blank">Terms&nbsp;of&nbsp;Service</a> | <a href="./privacy-policy.php" target="_blank">Privacy</a></p>
+    </footer>
 </body>

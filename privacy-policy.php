@@ -1,3 +1,6 @@
+<?php
+require_once "head.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -211,8 +214,7 @@
                 Service or from the Service infrastructure itself (for example, the duration of a page visit).</p>
         </li>
         <li>
-            <p><strong>Website</strong> refers to g4o2, accessible from <a href="https://php-sql-chat.maxhu787.repl.co/"
-                    rel="external nofollow noopener" target="_blank">https://php-sql-chat.maxhu787.repl.co/</a></p>
+            <p><strong>Website</strong> refers to g4o2, accessible from <a href="https://php-sql-chat.maxhu787.repl.co/" rel="external nofollow noopener" target="_blank">https://php-sql-chat.maxhu787.repl.co/</a></p>
         </li>
         <li>
             <p><strong>You</strong> means the individual accessing or using the Service, or the company, or other legal
@@ -279,8 +281,7 @@
     </ul>
     <p>Cookies can be &quot;Persistent&quot; or &quot;Session&quot; Cookies. Persistent Cookies remain on Your personal
         computer or mobile device when You go offline, while Session Cookies are deleted as soon as You close Your web
-        browser. You can learn more about cookies on <a href="https://www.termsfeed.com/blog/cookies/#What_Are_Cookies"
-            target="_blank">TermsFeed website</a> article.</p>
+        browser. You can learn more about cookies on <a href="https://www.termsfeed.com/blog/cookies/#What_Are_Cookies" target="_blank">TermsFeed website</a> article.</p>
     <p>We use both Session and Persistent Cookies for the purposes set out below:</p>
     <ul>
         <li>
@@ -450,8 +451,7 @@
             <p>By email: maxhu787@gmail.com</p>
         </li>
         <li>
-            <p>By visiting this page on our website: <a href="./contact.php" rel="external nofollow noopener"
-                    target="_blank">contact.php</a></p>
+            <p>By visiting this page on our website: <a href="./contact.php" rel="external nofollow noopener" target="_blank">contact.php</a></p>
         </li>
     </ul>
 
