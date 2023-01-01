@@ -80,7 +80,7 @@ if (isset($_SESSION['email'])) {
         </div>
     </header>
     <div id="particles-js"></div>
-    <div class="container">
+    <div class="container" style="margin-bottom: 100px;">
         <h1 class='rainbow_text_animated'>Welcome to g4o2</h1>
         <p>Still in development</p>
         <?php
