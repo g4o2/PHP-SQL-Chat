@@ -88,7 +88,7 @@ if (isset($_POST['message'])) {
         if (count($rows) > 0) {
           echo "<p style='text-align:center;color: #ffa500;'>This is the start of all messages</p>";
           foreach ($rows as $row) {
-            $pfpsrc = './default-pfp.png';
+            $pfpsrc = './img/default-pfp.png';
             $user = "<a href='./profile.php?user={$row['user_id']}' class='account rainbow_text_animated'>" . $row['account'] . "</a>";
 
             $stmta = $pdo->prepare("SELECT pfp FROM account WHERE name=?");
@@ -260,7 +260,7 @@ if (isset($_POST['message'])) {
 
   <?php
   if (isset($_SESSION['email'])) {
-    $pfpsrc = './default-pfp.png';
+    $pfpsrc = './img/default-pfp.png';
 
     $stmta = $pdo->prepare("SELECT * FROM account WHERE user_id=?");
     $stmta->execute([$_SESSION['user_id']]);

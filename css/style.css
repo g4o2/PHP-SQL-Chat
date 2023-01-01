@@ -19,7 +19,8 @@ a {
     color: #00bfff;
 }
 a:hover {
-    color: #fff;
+    color: #ffa500;
+    text-decoration: underline;
 }
 input {
     color: rgb(51, 51, 51);

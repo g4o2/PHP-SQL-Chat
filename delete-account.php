@@ -25,7 +25,7 @@ if (isset($_SESSION["email"])) {
     $statement = $pdo->prepare("SELECT * FROM account where user_Id = :usr");
     $statement->execute(array(':usr' => $_SESSION['user_id']));
     $response = $statement->fetch();
-    $pfpsrc_default = './default-pfp.png';
+    $pfpsrc_default = './img/default-pfp.png';
 
     if ($response['pfp'] != null) {
         $userpfp = $response['pfp'];

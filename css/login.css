@@ -4,7 +4,7 @@ html {
 }
 
 :root {
-    --text: #24a0ed;
+    --text: #ffa500/*#24a0ed*/;
     --text-second: #fff;
 }
 

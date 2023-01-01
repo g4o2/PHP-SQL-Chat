@@ -19,7 +19,7 @@ function loadChat($pdo)
     if (count($rows) > 0) {
         echo "<p style='text-align:center;color: #ffa500;'>This is the start of all messages</p>";
         foreach ($rows as $row) {
-            $pfpsrc = './default-pfp.png';
+            $pfpsrc = './img/default-pfp.png';
             $user = "<a href='./profile.php?user={$row['account']}' class='account rainbow_text_animated'>" . $row['account'] . "</a>";
 
             $stmta = $pdo->prepare("SELECT pfp FROM account WHERE name=?");

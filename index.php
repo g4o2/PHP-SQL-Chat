@@ -19,7 +19,7 @@ if (isset($_SESSION['email'])) {
     $stmt = $pdo->prepare("SELECT * FROM user_status_log where user_Id = :usr");
     $stmt->execute(array(':usr' => $_SESSION['user_id']));
     $user_status_log = $stmt->fetch();
-    $pfpsrc_default = './default-pfp.png';
+    $pfpsrc_default = './img/default-pfp.png';
 
     if ($user[0]['pfp'] != null) {
         $userpfp = $user[0]['pfp'];
@@ -209,7 +209,7 @@ if (isset($_SESSION['email'])) {
         <h4>Index page update <code>2022/10/9</code></h4>
         <h4><a href="https://github.com/g4o2-chat/PHP-SQL-Chat/releases/tag/1.0.0" target="_blank">v1.0.0</a> out now <code>2022/10/16</code></h4>
         <h4>We have switched our database host to <a href="https://www.freemysqlhosting.net">freemysqlhosting.net</a> <code>2022/11/3</code></h4>
-        <h4>You can now <a href="create-account.php">create accounts</a> <code>2022/11/3</code></h4>
+        <h4>You can now <a href="signup.php">signup</a> for g4o2 <code>2022/11/3</code></h4>
         <h4>New features added include <span class='announcement-highlight'>ip loggin on login fail</span>, and <span class='announcement-highlight'>guest accounts</span> <code>2022/11/4</code></h4>
         <h4>Several exploits fixed <code>2022/11/4</code></h4>
         <h4>Creating accounts & Guest account disabled <code>2022/12/4</code></h4>

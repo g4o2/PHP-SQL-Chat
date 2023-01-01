@@ -71,7 +71,7 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
 <body>
     <div id="particles-js"></div>
     <div class="center">
-        <h1>Login</h1>
+        <h1>Login to g4o2</h1>
         <?php
         if (isset($_SESSION["error"])) {
             echo ('<p style="color: red;">' . htmlentities($_SESSION["error"]) . "</p>");
@@ -98,8 +98,7 @@ if (isset($_POST["email"]) && isset($_POST["pass"])) {
                 <input id="submit" type="submit" onclick="return doValidate();" value="Login">
             </div>
             <div class="sign-up">
-                <p>By signing up you agree to our <a href="./terms-of-service.php" target="_blank">Terms of Service</a> and <a href="./privacy-policy.php" target="_blank">Privacy Policy</a></p>
-                Not a member? <a href='./create-account.php'>Signup</a>
+                Don't have an account yet? <a href='./signup.php'>register</a>
             </div>
             <!-- <input id="cancel" class="btn" type="submit" name="cancel" value="Cancel"> -->
         </form>

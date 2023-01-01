@@ -8,7 +8,7 @@ if(!isset($_GET['user'])) {
     echo "<p class='die-msg'>Missing user parameter</p>";
     die();
 }
-$pfpsrc = './default-pfp.png';
+$pfpsrc = './img/default-pfp.png';
 $stmt = $pdo->prepare("SELECT * FROM account WHERE user_id=?");
 $stmt->execute([$_GET['user']]);
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);

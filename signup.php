@@ -35,7 +35,7 @@ if (isset($_POST["submit"])) {
         header('Location:login.php');
     } else {
         $_SESSION['error'] = "Email taken.";
-        header('Location:create-account.php');
+        header('Location:signup.php');
     }
     return;
 }
@@ -43,7 +43,7 @@ if (isset($_POST["submit"])) {
 
 <head>
     <title>Create Accnount</title>
-    <link rel="stylesheet" href="./css/create-account.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="./css/signup.css?v=<?php echo time(); ?>">
     <style>
         body {
             overflow-x: hidden;
@@ -60,7 +60,8 @@ if (isset($_SESSION["error"])) {
 ?>
 <div id="particles-js"></div>
 <div class="center">
-    <form id="form" action="create-account.php" method="post" enctype="multipart/form-data">
+    <h1>Signup</h1>
+    <form id="form" action="./signup.php" method="post" enctype="multipart/form-data">
         <div class="input-field">
             <input required type="text" name="name">
             <span></span>
@@ -82,8 +83,9 @@ if (isset($_SESSION["error"])) {
             <input type="submit" value="Create account" name="submit" onclick="return doValidate();">
         </div>
         <div class="cancel">
-            <p>By signing up you agree to our <a href="./terms-of-service.php" target="_blank">Terms of Service</a> and <a href="./privacy-policy.php" target="_blank">Privacy Policy</a></p>
-            <a href="./index.php">Cancel</a>
+            By registering, you agree to our <a href="./terms-of-service.php" target="_blank">Terms</a>, <a href="./privacy-policy.php" target="_blank">Privacy Policy</a> and <a href="./cookie-policy.php" target="_blank">Cookie Policy</a>.<br />
+            Already have an account? please <a href="./login.php">log in</a>
+            <!-- <a href="./index.php">Cancel</a> -->
         </div>
     </form>
 </div>
