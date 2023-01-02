@@ -182,8 +182,14 @@ if (isset($_SESSION['email'])) {
         }
         ?>
         <div style='margin-top: 20px;'>
+            <a href="https://github.com/maxhu787" target="_blank">
+                <img src="https://github-readme-stats.vercel.app/api?username=maxhu787&show_icons=true&theme=react&bg_color=0D1117" />
+            </a>
             <a href="https://github.com/g4o2/PHP-SQL-Chat" target="_blank">
                 <img src="https://github-readme-stats.vercel.app/api/pin/?username=g4o2&repo=PHP-SQL-Chat&theme=react&bg_color=0D1117" />
+            </a>
+            <a href="https://github.com/g4o2/g4o2" target="_blank">
+                <img src="https://github-readme-stats.vercel.app/api/pin/?username=g4o2&repo=g4o2&theme=react&bg_color=0D1117" />
             </a>
         </div>
     </div>
