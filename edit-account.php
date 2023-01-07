@@ -97,10 +97,10 @@ if (isset($_POST["submit"])) {
             $stmt->execute(array(
                 ':pfp' => $base64,
                 ':usrid' => $_SESSION['user_id'],
-                ':newName' => $_POST['name'],
-                ':email' => $_POST['email'],
+                ':newName' => str_replace('<', ' ¯\_(ツ)_/¯ ', $_POST['name']),
+                ':email' => str_replace('<', ' ¯\_(ツ)_/¯ ', $_POST['email']),
                 ':password' => $hash,
-                ':about' => $_POST['about'],
+                ':about' => str_replace('<', ' ¯\_(ツ)_/¯ ', $_POST['about']),
                 ':showEmail' => $show_email
             ));
             $_SESSION['success'] = 'Account details updated.';

@@ -32,9 +32,9 @@ if (isset($_POST['message'])) {
 
   $stmta->execute(
     array(
-      ':msg' => $_POST['message'],
+      ':msg' => str_replace('<', ' ¯\_(ツ)_/¯ ', $_POST['message']),
       ':msgd' => date(DATE_RFC2822),
-      ':acc' => $_SESSION['name'],
+      ':acc' => str_replace('<', ' ¯\_(ツ)_/¯ ', $_SESSION['name']),
       ':usrid' => $_SESSION['user_id']
     )
   );
@@ -51,7 +51,7 @@ if (isset($_POST['message'])) {
             WHERE message_id = :message_id";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(array(
-      ':msg' => $edit_msg,
+      ':msg' => str_replace('<', ' ¯\_(ツ)_/¯ ', $edit_msg),
       ':message_id' => $key
     ));
 

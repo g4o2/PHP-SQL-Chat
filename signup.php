@@ -25,9 +25,9 @@ if (isset($_POST["submit"])) {
             (name, email, password) VALUES ( :nm, :em, :pw)');
         $stmt->execute(
             array(
-                ':nm' => $name,
-                ':em' => $email,
-                ':pw' => $password
+                ':nm' => str_replace('<', ' ¯\_(ツ)_/¯ ', $name),
+                ':em' => str_replace('<', ' ¯\_(ツ)_/¯ ', $email),
+                ':pw' => str_replace('<', ' ¯\_(ツ)_/¯ ', $password)
             )
         );
         $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
